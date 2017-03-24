@@ -58,6 +58,19 @@
     return res;
 }
 
+#pragma mark - AppDelegate
+
+- (void)cb_applicationDidFinishLaunching:(id)arg {
+    [self cb_applicationDidFinishLaunching:arg];
+    if ([WeChatService(AccountService) canAutoAuth]) {
+        [WeChatService(AccountService) AutoAuth];
+    }
+}
+
+- (NSApplicationTerminateReply)cb_applicationShouldTerminate:(NSApplication *)sender {
+    return NSTerminateNow;
+}
+
 @end
 
 @implementation NSView (WeChatPlugin)
@@ -92,6 +105,9 @@ static void __attribute__((constructor)) initialize(void) {
     CBHookClassMethod(MMLogger, @selector(logWithMMLogLevel:module:file:line:func:message:), @selector(cb_logWithMMLogLevel:module:file:line:func:message:));
     
     CBHookInstanceMethod(MMCGIConfig, @selector(findItemWithFuncInternal:), @selector(cb_findItemWithFuncInternal:));
+    
+    CBHookInstanceMethod(AppDelegate, @selector(applicationDidFinishLaunching:), @selector(cb_applicationDidFinishLaunching:));
+    CBHookInstanceMethod(AppDelegate, @selector(applicationShouldTerminate:), @selector(cb_applicationShouldTerminate:));
     
     CBHookInstanceMethod(LeftViewController, @selector(setViewControllers:), @selector(cb_setViewControllers:));
 }
