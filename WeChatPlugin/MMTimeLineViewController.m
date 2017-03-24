@@ -12,7 +12,7 @@
 #import "MMStatusImageMediaView.h"
 #import "MMStatusLinkMediaView.h"
 
-@interface MMTimeLineViewController () <NSTableViewDataSource, NSTableViewDelegate, MMTimeLineMgrDelegate>
+@interface MMTimeLineViewController () <NSTableViewDataSource, NSTableViewDelegate, MMStatusCellDelegate, MMTimeLineMgrDelegate>
 
 @property (nonatomic, strong) MMTimeLineMgr *timeLineMgr;
 
@@ -70,32 +70,42 @@
 
 #pragma mark - NSTableViewDelegate
 
-- (nullable NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row {
-    MMStatus *status = [self.timeLineMgr getTimeLineStatusAtIndex:row];
-    MMStatusCell *cell = [tableView makeViewWithIdentifier:@"statusCell" owner:tableView];
-    
+- (nullable MMStatusMediaView *)tableView:(NSTableView *)tableView mediaViewForCell:(MMStatusCell *)cell status:(MMStatus *)status {
+    MMStatusMediaView *mediaView;
     switch (status.mediaType) {
         case MMStatusMediaObjectTypeImage: {
-            MMStatusImageMediaView *mediaView = [tableView makeViewWithIdentifier:@"statusImageMediaView" owner:cell];
-            [cell updateMediaView:mediaView];
+            mediaView = [tableView makeViewWithIdentifier:@"statusImageMediaView" owner:cell];
         }
             break;
         case MMStatusMediaObjectTypeLink: {
-            MMStatusLinkMediaView *mediaView = [tableView makeViewWithIdentifier:@"statusLinkMediaView" owner:cell];
-            [cell updateMediaView:mediaView];
+            mediaView = [tableView makeViewWithIdentifier:@"statusLinkMediaView" owner:cell];
         }
             break;
         default:
-            [cell updateMediaView:nil];
             break;
     }
+    return mediaView;
+}
+
+- (nullable NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row {
+    MMStatus *status = [self.timeLineMgr getTimeLineStatusAtIndex:row];
+    MMStatusCell *cell = [tableView makeViewWithIdentifier:@"statusCell" owner:tableView];
+    MMStatusMediaView *mediaView = [self tableView:tableView mediaViewForCell:cell status:status];
+    [cell updateMediaView:mediaView];
     [cell updateViewWithStatus:status];
+    cell.delegate = self;
     return cell;
 }
 
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row {
     MMStatus *status = [self.timeLineMgr getTimeLineStatusAtIndex:row];
     return [MMStatusCell calculateHeightForStatus:status inTableView:tableView];
+}
+
+#pragma mark - MMStatusCellDelegate
+
+- (void)cell:(MMStatusCell *)cell didClickMediaLink:(NSString *)url {
+    [[CBGetClass(MMURLHandler) defaultHandler] handleURL:url];
 }
 
 #pragma mark - MMTimeLineMgrDelegate

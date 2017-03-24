@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "MMStatusCellDelegate.h"
 
 @class MMStatusMediaView;
 @class MMStatus;
@@ -21,6 +22,7 @@
 @property (weak) MMStatusMediaView *mediaRealView;
 
 @property (nonatomic, strong, readonly) MMStatus *status;
+@property (nonatomic, weak) id<MMStatusCellDelegate> delegate;
 
 @property (strong) IBOutlet NSLayoutConstraint *toTagTextFieldLayoutConstraint;
 @property (strong) IBOutlet NSLayoutConstraint *toContentTextFieldLayoutConstraint;

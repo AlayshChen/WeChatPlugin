@@ -93,6 +93,34 @@
     }
 }
 
+#pragma mark - Event
+
+- (void)mouseUp:(NSEvent *)event {
+    CGPoint point = [self convertPoint:[event locationInWindow] fromView:nil];
+    
+    if ([self.status hasMediaObject]) {
+        switch (self.status.mediaType) {
+            case MMStatusMediaObjectTypeLink: {
+                BOOL isClickLinkView = [self mouse:point inRect:self.mediaRealView.frame];
+                if (isClickLinkView) {
+                    if ([self.delegate respondsToSelector:@selector(cell:didClickMediaLink:)]) {
+                        [self.delegate cell:self didClickMediaLink:[(MMStatusLinkMediaObject *)self.status.mediaObject linkURLString]];
+                    }
+                }
+            }
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+- (void)mouseDown:(NSEvent *)event {
+    
+}
+
+#pragma mark - Height
+
 + (CGFloat)calculateHeightForStatus:(MMStatus *)status inTableView:(NSTableView *)tableView {
     CGFloat height = 55;
     if ([status hasContent]) {

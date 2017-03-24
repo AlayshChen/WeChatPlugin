@@ -54,6 +54,7 @@
 		80E5520D1E860B9600EB428F /* Tabbar-TimeLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E552031E860B9600EB428F /* Tabbar-TimeLine@2x.png */; };
 		80E5520E1E860B9600EB428F /* time_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E552041E860B9600EB428F /* time_icon@2x.png */; };
 		80E552101E860BDC00EB428F /* MMTimeLineMainViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E5520F1E860BDC00EB428F /* MMTimeLineMainViewController.h */; };
+		80E552121E860BDC00EB428F /* MMStatusCellDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E552111E860BDC00EB428F /* MMStatusCellDelegate.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 		80E552031E860B9600EB428F /* Tabbar-TimeLine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tabbar-TimeLine@2x.png"; sourceTree = "<group>"; };
 		80E552041E860B9600EB428F /* time_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "time_icon@2x.png"; sourceTree = "<group>"; };
 		80E5520F1E860BDC00EB428F /* MMTimeLineMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTimeLineMainViewController.h; sourceTree = "<group>"; };
+		80E552111E860BDC00EB428F /* MMStatusCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMStatusCellDelegate.h; sourceTree = "<group>"; };
 		F5761F84B0D824761E85E37B /* Pods-WeChatPlugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChatPlugin.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeChatPlugin/Pods-WeChatPlugin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -209,6 +211,7 @@
 			children = (
 				80E551961E853FA100EB428F /* MMStatusCell.h */,
 				80E551971E853FA100EB428F /* MMStatusCell.m */,
+				80E552111E860BDC00EB428F /* MMStatusCellDelegate.h */,
 				80E551A51E853FA100EB428F /* MMStatusMediaView.h */,
 				80E551A61E853FA100EB428F /* MMStatusMediaView.m */,
 				80E5519B1E853FA100EB428F /* MMStatusImageMediaView.h */,
@@ -343,6 +346,7 @@
 				80E551EB1E855A9900EB428F /* MMTimeLineMgrDelegate.h in Headers */,
 				80E551AC1E853FA100EB428F /* MMStatusImageMediaObject.h in Headers */,
 				80E551B61E853FA100EB428F /* MMStatusMediaObject.h in Headers */,
+				80E552121E860BDC00EB428F /* MMStatusCellDelegate.h in Headers */,
 				80E551E81E855A4F00EB428F /* MMTimeLineMgr.h in Headers */,
 				803DAFD01E853D3F00ADCC86 /* PrefixHeader.pch in Headers */,
 			);
