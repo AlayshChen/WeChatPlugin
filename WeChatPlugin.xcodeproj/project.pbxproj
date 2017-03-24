@@ -12,6 +12,25 @@
 		803DAFCC1E853D3F00ADCC86 /* WeChatPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 803DAFCB1E853D3F00ADCC86 /* WeChatPlugin.m */; };
 		803DAFCE1E853D3F00ADCC86 /* WeChatPluginHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 803DAFCD1E853D3F00ADCC86 /* WeChatPluginHeader.h */; };
 		803DAFD01E853D3F00ADCC86 /* PrefixHeader.pch in Headers */ = {isa = PBXBuildFile; fileRef = 803DAFCF1E853D3F00ADCC86 /* PrefixHeader.pch */; };
+		80E551A71E853FA100EB428F /* MMStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E551941E853FA100EB428F /* MMStatus.h */; };
+		80E551A81E853FA100EB428F /* MMStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E551951E853FA100EB428F /* MMStatus.m */; };
+		80E551A91E853FA100EB428F /* MMStatusCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E551961E853FA100EB428F /* MMStatusCell.h */; };
+		80E551AA1E853FA100EB428F /* MMStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E551971E853FA100EB428F /* MMStatusCell.m */; };
+		80E551AB1E853FA100EB428F /* MMStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80E551981E853FA100EB428F /* MMStatusCell.xib */; };
+		80E551AC1E853FA100EB428F /* MMStatusImageMediaObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E551991E853FA100EB428F /* MMStatusImageMediaObject.h */; };
+		80E551AD1E853FA100EB428F /* MMStatusImageMediaObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E5519A1E853FA100EB428F /* MMStatusImageMediaObject.m */; };
+		80E551AE1E853FA100EB428F /* MMStatusImageMediaView.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E5519B1E853FA100EB428F /* MMStatusImageMediaView.h */; };
+		80E551AF1E853FA100EB428F /* MMStatusImageMediaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E5519C1E853FA100EB428F /* MMStatusImageMediaView.m */; };
+		80E551B01E853FA100EB428F /* MMStatusImageMediaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80E5519D1E853FA100EB428F /* MMStatusImageMediaView.xib */; };
+		80E551B11E853FA100EB428F /* MMStatusLinkMediaObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E5519E1E853FA100EB428F /* MMStatusLinkMediaObject.h */; };
+		80E551B21E853FA100EB428F /* MMStatusLinkMediaObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E5519F1E853FA100EB428F /* MMStatusLinkMediaObject.m */; };
+		80E551B31E853FA100EB428F /* MMStatusLinkMediaView.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E551A01E853FA100EB428F /* MMStatusLinkMediaView.h */; };
+		80E551B41E853FA100EB428F /* MMStatusLinkMediaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E551A11E853FA100EB428F /* MMStatusLinkMediaView.m */; };
+		80E551B51E853FA100EB428F /* MMStatusLinkMediaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80E551A21E853FA100EB428F /* MMStatusLinkMediaView.xib */; };
+		80E551B61E853FA100EB428F /* MMStatusMediaObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E551A31E853FA100EB428F /* MMStatusMediaObject.h */; };
+		80E551B71E853FA100EB428F /* MMStatusMediaObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E551A41E853FA100EB428F /* MMStatusMediaObject.m */; };
+		80E551B81E853FA100EB428F /* MMStatusMediaView.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E551A51E853FA100EB428F /* MMStatusMediaView.h */; };
+		80E551B91E853FA100EB428F /* MMStatusMediaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E551A61E853FA100EB428F /* MMStatusMediaView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +54,25 @@
 		803DAFCD1E853D3F00ADCC86 /* WeChatPluginHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeChatPluginHeader.h; sourceTree = "<group>"; };
 		803DAFCF1E853D3F00ADCC86 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		803DAFD11E853D3F00ADCC86 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		80E551941E853FA100EB428F /* MMStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMStatus.h; sourceTree = "<group>"; };
+		80E551951E853FA100EB428F /* MMStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMStatus.m; sourceTree = "<group>"; };
+		80E551961E853FA100EB428F /* MMStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMStatusCell.h; sourceTree = "<group>"; };
+		80E551971E853FA100EB428F /* MMStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMStatusCell.m; sourceTree = "<group>"; };
+		80E551981E853FA100EB428F /* MMStatusCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMStatusCell.xib; sourceTree = "<group>"; };
+		80E551991E853FA100EB428F /* MMStatusImageMediaObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMStatusImageMediaObject.h; sourceTree = "<group>"; };
+		80E5519A1E853FA100EB428F /* MMStatusImageMediaObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMStatusImageMediaObject.m; sourceTree = "<group>"; };
+		80E5519B1E853FA100EB428F /* MMStatusImageMediaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMStatusImageMediaView.h; sourceTree = "<group>"; };
+		80E5519C1E853FA100EB428F /* MMStatusImageMediaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMStatusImageMediaView.m; sourceTree = "<group>"; };
+		80E5519D1E853FA100EB428F /* MMStatusImageMediaView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMStatusImageMediaView.xib; sourceTree = "<group>"; };
+		80E5519E1E853FA100EB428F /* MMStatusLinkMediaObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMStatusLinkMediaObject.h; sourceTree = "<group>"; };
+		80E5519F1E853FA100EB428F /* MMStatusLinkMediaObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMStatusLinkMediaObject.m; sourceTree = "<group>"; };
+		80E551A01E853FA100EB428F /* MMStatusLinkMediaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMStatusLinkMediaView.h; sourceTree = "<group>"; };
+		80E551A11E853FA100EB428F /* MMStatusLinkMediaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMStatusLinkMediaView.m; sourceTree = "<group>"; };
+		80E551A21E853FA100EB428F /* MMStatusLinkMediaView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMStatusLinkMediaView.xib; sourceTree = "<group>"; };
+		80E551A31E853FA100EB428F /* MMStatusMediaObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMStatusMediaObject.h; sourceTree = "<group>"; };
+		80E551A41E853FA100EB428F /* MMStatusMediaObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMStatusMediaObject.m; sourceTree = "<group>"; };
+		80E551A51E853FA100EB428F /* MMStatusMediaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMStatusMediaView.h; sourceTree = "<group>"; };
+		80E551A61E853FA100EB428F /* MMStatusMediaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMStatusMediaView.m; sourceTree = "<group>"; };
 		F5761F84B0D824761E85E37B /* Pods-WeChatPlugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChatPlugin.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeChatPlugin/Pods-WeChatPlugin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +129,7 @@
 				803DAFC91E853D3F00ADCC86 /* WeChatPlugin.h */,
 				803DAFCB1E853D3F00ADCC86 /* WeChatPlugin.m */,
 				803DAFCD1E853D3F00ADCC86 /* WeChatPluginHeader.h */,
+				80E551931E853F9000EB428F /* Status */,
 				803DAFC61E853D3F00ADCC86 /* Supporting Files */,
 			);
 			path = WeChatPlugin;
@@ -104,6 +143,48 @@
 				803DAFD11E853D3F00ADCC86 /* Podfile */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		80E551931E853F9000EB428F /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				80E551BB1E853FB200EB428F /* Model */,
+				80E551BA1E853FA500EB428F /* View */,
+			);
+			name = Status;
+			sourceTree = "<group>";
+		};
+		80E551BA1E853FA500EB428F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				80E551961E853FA100EB428F /* MMStatusCell.h */,
+				80E551971E853FA100EB428F /* MMStatusCell.m */,
+				80E551A51E853FA100EB428F /* MMStatusMediaView.h */,
+				80E551A61E853FA100EB428F /* MMStatusMediaView.m */,
+				80E5519B1E853FA100EB428F /* MMStatusImageMediaView.h */,
+				80E5519C1E853FA100EB428F /* MMStatusImageMediaView.m */,
+				80E551A01E853FA100EB428F /* MMStatusLinkMediaView.h */,
+				80E551A11E853FA100EB428F /* MMStatusLinkMediaView.m */,
+				80E551981E853FA100EB428F /* MMStatusCell.xib */,
+				80E5519D1E853FA100EB428F /* MMStatusImageMediaView.xib */,
+				80E551A21E853FA100EB428F /* MMStatusLinkMediaView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		80E551BB1E853FB200EB428F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				80E551941E853FA100EB428F /* MMStatus.h */,
+				80E551951E853FA100EB428F /* MMStatus.m */,
+				80E551A31E853FA100EB428F /* MMStatusMediaObject.h */,
+				80E551A41E853FA100EB428F /* MMStatusMediaObject.m */,
+				80E551991E853FA100EB428F /* MMStatusImageMediaObject.h */,
+				80E5519A1E853FA100EB428F /* MMStatusImageMediaObject.m */,
+				80E5519E1E853FA100EB428F /* MMStatusLinkMediaObject.h */,
+				80E5519F1E853FA100EB428F /* MMStatusLinkMediaObject.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		E62DC0C502233BEBF5070F89 /* Frameworks */ = {
@@ -122,7 +203,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				803DAFCE1E853D3F00ADCC86 /* WeChatPluginHeader.h in Headers */,
+				80E551B81E853FA100EB428F /* MMStatusMediaView.h in Headers */,
 				803DAFCA1E853D3F00ADCC86 /* WeChatPlugin.h in Headers */,
+				80E551B11E853FA100EB428F /* MMStatusLinkMediaObject.h in Headers */,
+				80E551A91E853FA100EB428F /* MMStatusCell.h in Headers */,
+				80E551AE1E853FA100EB428F /* MMStatusImageMediaView.h in Headers */,
+				80E551B31E853FA100EB428F /* MMStatusLinkMediaView.h in Headers */,
+				80E551A71E853FA100EB428F /* MMStatus.h in Headers */,
+				80E551AC1E853FA100EB428F /* MMStatusImageMediaObject.h in Headers */,
+				80E551B61E853FA100EB428F /* MMStatusMediaObject.h in Headers */,
 				803DAFD01E853D3F00ADCC86 /* PrefixHeader.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,6 +300,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80E551AB1E853FA100EB428F /* MMStatusCell.xib in Resources */,
+				80E551B01E853FA100EB428F /* MMStatusImageMediaView.xib in Resources */,
+				80E551B51E853FA100EB428F /* MMStatusLinkMediaView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +360,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				803DAFCC1E853D3F00ADCC86 /* WeChatPlugin.m in Sources */,
+				80E551AD1E853FA100EB428F /* MMStatusImageMediaObject.m in Sources */,
+				80E551AA1E853FA100EB428F /* MMStatusCell.m in Sources */,
+				80E551B21E853FA100EB428F /* MMStatusLinkMediaObject.m in Sources */,
+				80E551B41E853FA100EB428F /* MMStatusLinkMediaView.m in Sources */,
+				80E551B91E853FA100EB428F /* MMStatusMediaView.m in Sources */,
+				80E551B71E853FA100EB428F /* MMStatusMediaObject.m in Sources */,
+				80E551AF1E853FA100EB428F /* MMStatusImageMediaView.m in Sources */,
+				80E551A81E853FA100EB428F /* MMStatus.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

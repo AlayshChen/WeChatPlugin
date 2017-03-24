@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView identifier="statusCell" id="c22-O7-iKe" customClass="MMStatusCell">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="261"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4iI-xS-teM">
+                    <rect key="frame" x="10" y="201" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="22B-pv-bKe"/>
+                        <constraint firstAttribute="height" constant="50" id="gAP-SY-X4O"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSEveryone" id="VPr-ya-xwL"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsK-7h-Veg">
+                    <rect key="frame" x="68" y="232" width="404" height="19"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="陈宏彬" id="aV5-cO-QBu">
+                        <font key="font" metaFont="systemBold" size="15"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Iy-WL-xtI">
+                    <rect key="frame" x="68" y="211" width="404" height="16"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="17:30 - QQ音乐" placeholderString="" id="ZHS-3q-Kpd">
+                        <font key="font" metaFont="cellTitle"/>
+                        <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="lH0-Fj-Owe">
+                    <rect key="frame" x="68" y="206" width="404" height="0.0"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="今天天气真不错！" id="zVp-Ck-CQO">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="2ya-HQ-UD6" customClass="MMStatusMediaView">
+                    <rect key="frame" x="70" y="10" width="400" height="191"/>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="4iI-xS-teM" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="10" id="EJT-Mr-Xyk"/>
+                <constraint firstAttribute="bottom" secondItem="2ya-HQ-UD6" secondAttribute="bottom" constant="10" id="Ehm-Lk-0vr"/>
+                <constraint firstItem="2ya-HQ-UD6" firstAttribute="leading" secondItem="lH0-Fj-Owe" secondAttribute="leading" id="Gb5-Kk-fIv"/>
+                <constraint firstAttribute="trailing" secondItem="2ya-HQ-UD6" secondAttribute="trailing" constant="10" id="LWp-8G-ndb"/>
+                <constraint firstItem="wsK-7h-Veg" firstAttribute="leading" secondItem="4iI-xS-teM" secondAttribute="trailing" constant="10" id="Lll-br-5n7"/>
+                <constraint firstItem="lH0-Fj-Owe" firstAttribute="leading" secondItem="5Iy-WL-xtI" secondAttribute="leading" id="OFZ-A6-SJM"/>
+                <constraint firstItem="4iI-xS-teM" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="10" id="P1A-oP-Ssg"/>
+                <constraint firstItem="5Iy-WL-xtI" firstAttribute="leading" secondItem="4iI-xS-teM" secondAttribute="trailing" constant="10" id="QE9-pl-8bm"/>
+                <constraint firstItem="lH0-Fj-Owe" firstAttribute="top" secondItem="5Iy-WL-xtI" secondAttribute="bottom" constant="5" id="RoW-OF-0cp"/>
+                <constraint firstItem="5Iy-WL-xtI" firstAttribute="top" secondItem="wsK-7h-Veg" secondAttribute="bottom" constant="5" id="TLh-nh-phA"/>
+                <constraint firstAttribute="trailing" secondItem="lH0-Fj-Owe" secondAttribute="trailing" constant="10" id="YQO-5B-6mf"/>
+                <constraint firstAttribute="trailing" secondItem="wsK-7h-Veg" secondAttribute="trailing" constant="10" id="dN3-FG-81D"/>
+                <constraint firstItem="2ya-HQ-UD6" firstAttribute="top" secondItem="lH0-Fj-Owe" secondAttribute="bottom" constant="5" id="l2i-33-7XU"/>
+                <constraint firstItem="wsK-7h-Veg" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="10" id="pDH-WZ-gTt"/>
+                <constraint firstAttribute="trailing" secondItem="5Iy-WL-xtI" secondAttribute="trailing" constant="10" id="qDk-io-817"/>
+                <constraint firstItem="2ya-HQ-UD6" firstAttribute="top" secondItem="5Iy-WL-xtI" secondAttribute="bottom" priority="900" constant="5" id="xxh-uG-55L"/>
+            </constraints>
+            <connections>
+                <outlet property="contentTextField" destination="lH0-Fj-Owe" id="hSG-Q5-k4J"/>
+                <outlet property="mediaView" destination="2ya-HQ-UD6" id="Juw-Lk-kYh"/>
+                <outlet property="nameTextField" destination="wsK-7h-Veg" id="QLB-77-2uO"/>
+                <outlet property="profileImageView" destination="4iI-xS-teM" id="Nm6-YD-4KO"/>
+                <outlet property="tagTextField" destination="5Iy-WL-xtI" id="CAU-dV-Dkc"/>
+                <outlet property="toContentTextFieldLayoutConstraint" destination="l2i-33-7XU" id="WLm-hf-gnh"/>
+                <outlet property="toTagTextFieldLayoutConstraint" destination="xxh-uG-55L" id="eJL-xZ-QcQ"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="163.5"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="NSEveryone" width="32" height="32"/>
+    </resources>
+</document>
