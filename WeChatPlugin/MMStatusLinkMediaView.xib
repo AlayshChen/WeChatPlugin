@@ -13,7 +13,7 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="40"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v20-ar-DW3">
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v20-ar-DW3" customClass="MMAvatarImageView">
                     <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="Fj6-7u-JMQ"/>
@@ -24,7 +24,7 @@
                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="enT-OA-lki">
                     <rect key="frame" x="48" y="12" width="424" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题" id="Bfh-sV-H3b">
-                        <font key="font" metaFont="system" size="12"/>
+                        <font key="font" metaFont="cellTitle"/>
                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>

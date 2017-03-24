@@ -31,6 +31,29 @@
 		80E551B71E853FA100EB428F /* MMStatusMediaObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E551A41E853FA100EB428F /* MMStatusMediaObject.m */; };
 		80E551B81E853FA100EB428F /* MMStatusMediaView.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E551A51E853FA100EB428F /* MMStatusMediaView.h */; };
 		80E551B91E853FA100EB428F /* MMStatusMediaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E551A61E853FA100EB428F /* MMStatusMediaView.m */; };
+		80E551E01E8559E700EB428F /* MMTimeLineViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E551DD1E8559E700EB428F /* MMTimeLineViewController.h */; };
+		80E551E11E8559E700EB428F /* MMTimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E551DE1E8559E700EB428F /* MMTimeLineViewController.m */; };
+		80E551E21E8559E700EB428F /* MMTimeLineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80E551DF1E8559E700EB428F /* MMTimeLineViewController.xib */; };
+		80E551E81E855A4F00EB428F /* MMTimeLineMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E551E61E855A4F00EB428F /* MMTimeLineMgr.h */; };
+		80E551E91E855A4F00EB428F /* MMTimeLineMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E551E71E855A4F00EB428F /* MMTimeLineMgr.m */; };
+		80E551EB1E855A9900EB428F /* MMTimeLineMgrDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E551EA1E855A9900EB428F /* MMTimeLineMgrDelegate.h */; };
+		80E551EF1E85616200EB428F /* NSDate+StatusTimeDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E551ED1E85616200EB428F /* NSDate+StatusTimeDescription.h */; };
+		80E551F01E85616200EB428F /* NSDate+StatusTimeDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E551EE1E85616200EB428F /* NSDate+StatusTimeDescription.m */; };
+		80E551F41E85620C00EB428F /* NSString+XMLDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E551F21E85620C00EB428F /* NSString+XMLDictionary.h */; };
+		80E551F51E85620C00EB428F /* NSString+XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E551F31E85620C00EB428F /* NSString+XMLDictionary.m */; };
+		80E551F81E85621400EB428F /* XMLReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E551F61E85621400EB428F /* XMLReader.h */; };
+		80E551F91E85621400EB428F /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E551F71E85621400EB428F /* XMLReader.m */; };
+		80E552051E860B9600EB428F /* comment_icon_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E551FB1E860B9600EB428F /* comment_icon_highlighted@2x.png */; };
+		80E552061E860B9600EB428F /* comment_icon_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E551FC1E860B9600EB428F /* comment_icon_normal@2x.png */; };
+		80E552071E860B9600EB428F /* like_icon_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E551FD1E860B9600EB428F /* like_icon_highlighted@2x.png */; };
+		80E552081E860B9600EB428F /* like_icon_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E551FE1E860B9600EB428F /* like_icon_normal@2x.png */; };
+		80E552091E860B9600EB428F /* link_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E551FF1E860B9600EB428F /* link_icon@2x.png */; };
+		80E5520A1E860B9600EB428F /* Tabbar-TimeLine-HI@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E552001E860B9600EB428F /* Tabbar-TimeLine-HI@2x.png */; };
+		80E5520B1E860B9600EB428F /* Tabbar-TimeLine-Selected-HI@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E552011E860B9600EB428F /* Tabbar-TimeLine-Selected-HI@2x.png */; };
+		80E5520C1E860B9600EB428F /* Tabbar-TimeLine-Selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E552021E860B9600EB428F /* Tabbar-TimeLine-Selected@2x.png */; };
+		80E5520D1E860B9600EB428F /* Tabbar-TimeLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E552031E860B9600EB428F /* Tabbar-TimeLine@2x.png */; };
+		80E5520E1E860B9600EB428F /* time_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E552041E860B9600EB428F /* time_icon@2x.png */; };
+		80E552101E860BDC00EB428F /* MMTimeLineMainViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E5520F1E860BDC00EB428F /* MMTimeLineMainViewController.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +96,29 @@
 		80E551A41E853FA100EB428F /* MMStatusMediaObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMStatusMediaObject.m; sourceTree = "<group>"; };
 		80E551A51E853FA100EB428F /* MMStatusMediaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMStatusMediaView.h; sourceTree = "<group>"; };
 		80E551A61E853FA100EB428F /* MMStatusMediaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMStatusMediaView.m; sourceTree = "<group>"; };
+		80E551DD1E8559E700EB428F /* MMTimeLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTimeLineViewController.h; sourceTree = "<group>"; };
+		80E551DE1E8559E700EB428F /* MMTimeLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTimeLineViewController.m; sourceTree = "<group>"; };
+		80E551DF1E8559E700EB428F /* MMTimeLineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMTimeLineViewController.xib; sourceTree = "<group>"; };
+		80E551E61E855A4F00EB428F /* MMTimeLineMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTimeLineMgr.h; sourceTree = "<group>"; };
+		80E551E71E855A4F00EB428F /* MMTimeLineMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTimeLineMgr.m; sourceTree = "<group>"; };
+		80E551EA1E855A9900EB428F /* MMTimeLineMgrDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTimeLineMgrDelegate.h; sourceTree = "<group>"; };
+		80E551ED1E85616200EB428F /* NSDate+StatusTimeDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+StatusTimeDescription.h"; sourceTree = "<group>"; };
+		80E551EE1E85616200EB428F /* NSDate+StatusTimeDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+StatusTimeDescription.m"; sourceTree = "<group>"; };
+		80E551F21E85620C00EB428F /* NSString+XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLDictionary.h"; sourceTree = "<group>"; };
+		80E551F31E85620C00EB428F /* NSString+XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLDictionary.m"; sourceTree = "<group>"; };
+		80E551F61E85621400EB428F /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
+		80E551F71E85621400EB428F /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
+		80E551FB1E860B9600EB428F /* comment_icon_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comment_icon_highlighted@2x.png"; sourceTree = "<group>"; };
+		80E551FC1E860B9600EB428F /* comment_icon_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comment_icon_normal@2x.png"; sourceTree = "<group>"; };
+		80E551FD1E860B9600EB428F /* like_icon_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "like_icon_highlighted@2x.png"; sourceTree = "<group>"; };
+		80E551FE1E860B9600EB428F /* like_icon_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "like_icon_normal@2x.png"; sourceTree = "<group>"; };
+		80E551FF1E860B9600EB428F /* link_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "link_icon@2x.png"; sourceTree = "<group>"; };
+		80E552001E860B9600EB428F /* Tabbar-TimeLine-HI@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tabbar-TimeLine-HI@2x.png"; sourceTree = "<group>"; };
+		80E552011E860B9600EB428F /* Tabbar-TimeLine-Selected-HI@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tabbar-TimeLine-Selected-HI@2x.png"; sourceTree = "<group>"; };
+		80E552021E860B9600EB428F /* Tabbar-TimeLine-Selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tabbar-TimeLine-Selected@2x.png"; sourceTree = "<group>"; };
+		80E552031E860B9600EB428F /* Tabbar-TimeLine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tabbar-TimeLine@2x.png"; sourceTree = "<group>"; };
+		80E552041E860B9600EB428F /* time_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "time_icon@2x.png"; sourceTree = "<group>"; };
+		80E5520F1E860BDC00EB428F /* MMTimeLineMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTimeLineMainViewController.h; sourceTree = "<group>"; };
 		F5761F84B0D824761E85E37B /* Pods-WeChatPlugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChatPlugin.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeChatPlugin/Pods-WeChatPlugin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,7 +175,10 @@
 				803DAFC91E853D3F00ADCC86 /* WeChatPlugin.h */,
 				803DAFCB1E853D3F00ADCC86 /* WeChatPlugin.m */,
 				803DAFCD1E853D3F00ADCC86 /* WeChatPluginHeader.h */,
+				80E551F11E8561F600EB428F /* Utility */,
+				80E551EC1E85613300EB428F /* Category */,
 				80E551931E853F9000EB428F /* Status */,
+				80E551DC1E8559B400EB428F /* TimeLine */,
 				803DAFC61E853D3F00ADCC86 /* Supporting Files */,
 			);
 			path = WeChatPlugin;
@@ -138,6 +187,7 @@
 		803DAFC61E853D3F00ADCC86 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				80E551FA1E860B9600EB428F /* Images */,
 				803DAFC71E853D3F00ADCC86 /* Info.plist */,
 				803DAFCF1E853D3F00ADCC86 /* PrefixHeader.pch */,
 				803DAFD11E853D3F00ADCC86 /* Podfile */,
@@ -187,6 +237,81 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		80E551DC1E8559B400EB428F /* TimeLine */ = {
+			isa = PBXGroup;
+			children = (
+				80E551E51E855A3F00EB428F /* Mgr */,
+				80E551E41E855A0C00EB428F /* View */,
+				80E551E31E855A0400EB428F /* View Controller */,
+			);
+			name = TimeLine;
+			sourceTree = "<group>";
+		};
+		80E551E31E855A0400EB428F /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				80E5520F1E860BDC00EB428F /* MMTimeLineMainViewController.h */,
+				80E551DD1E8559E700EB428F /* MMTimeLineViewController.h */,
+				80E551DE1E8559E700EB428F /* MMTimeLineViewController.m */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		80E551E41E855A0C00EB428F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				80E551DF1E8559E700EB428F /* MMTimeLineViewController.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		80E551E51E855A3F00EB428F /* Mgr */ = {
+			isa = PBXGroup;
+			children = (
+				80E551E61E855A4F00EB428F /* MMTimeLineMgr.h */,
+				80E551E71E855A4F00EB428F /* MMTimeLineMgr.m */,
+				80E551EA1E855A9900EB428F /* MMTimeLineMgrDelegate.h */,
+			);
+			name = Mgr;
+			sourceTree = "<group>";
+		};
+		80E551EC1E85613300EB428F /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				80E551ED1E85616200EB428F /* NSDate+StatusTimeDescription.h */,
+				80E551EE1E85616200EB428F /* NSDate+StatusTimeDescription.m */,
+				80E551F21E85620C00EB428F /* NSString+XMLDictionary.h */,
+				80E551F31E85620C00EB428F /* NSString+XMLDictionary.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		80E551F11E8561F600EB428F /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				80E551F61E85621400EB428F /* XMLReader.h */,
+				80E551F71E85621400EB428F /* XMLReader.m */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		80E551FA1E860B9600EB428F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				80E551FB1E860B9600EB428F /* comment_icon_highlighted@2x.png */,
+				80E551FC1E860B9600EB428F /* comment_icon_normal@2x.png */,
+				80E551FD1E860B9600EB428F /* like_icon_highlighted@2x.png */,
+				80E551FE1E860B9600EB428F /* like_icon_normal@2x.png */,
+				80E551FF1E860B9600EB428F /* link_icon@2x.png */,
+				80E552001E860B9600EB428F /* Tabbar-TimeLine-HI@2x.png */,
+				80E552011E860B9600EB428F /* Tabbar-TimeLine-Selected-HI@2x.png */,
+				80E552021E860B9600EB428F /* Tabbar-TimeLine-Selected@2x.png */,
+				80E552031E860B9600EB428F /* Tabbar-TimeLine@2x.png */,
+				80E552041E860B9600EB428F /* time_icon@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		E62DC0C502233BEBF5070F89 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,16 +327,23 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80E551F81E85621400EB428F /* XMLReader.h in Headers */,
+				80E551E01E8559E700EB428F /* MMTimeLineViewController.h in Headers */,
 				803DAFCE1E853D3F00ADCC86 /* WeChatPluginHeader.h in Headers */,
 				80E551B81E853FA100EB428F /* MMStatusMediaView.h in Headers */,
+				80E551EF1E85616200EB428F /* NSDate+StatusTimeDescription.h in Headers */,
 				803DAFCA1E853D3F00ADCC86 /* WeChatPlugin.h in Headers */,
 				80E551B11E853FA100EB428F /* MMStatusLinkMediaObject.h in Headers */,
 				80E551A91E853FA100EB428F /* MMStatusCell.h in Headers */,
 				80E551AE1E853FA100EB428F /* MMStatusImageMediaView.h in Headers */,
+				80E552101E860BDC00EB428F /* MMTimeLineMainViewController.h in Headers */,
+				80E551F41E85620C00EB428F /* NSString+XMLDictionary.h in Headers */,
 				80E551B31E853FA100EB428F /* MMStatusLinkMediaView.h in Headers */,
 				80E551A71E853FA100EB428F /* MMStatus.h in Headers */,
+				80E551EB1E855A9900EB428F /* MMTimeLineMgrDelegate.h in Headers */,
 				80E551AC1E853FA100EB428F /* MMStatusImageMediaObject.h in Headers */,
 				80E551B61E853FA100EB428F /* MMStatusMediaObject.h in Headers */,
+				80E551E81E855A4F00EB428F /* MMTimeLineMgr.h in Headers */,
 				803DAFD01E853D3F00ADCC86 /* PrefixHeader.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,9 +432,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80E552061E860B9600EB428F /* comment_icon_normal@2x.png in Resources */,
+				80E552081E860B9600EB428F /* like_icon_normal@2x.png in Resources */,
+				80E552051E860B9600EB428F /* comment_icon_highlighted@2x.png in Resources */,
 				80E551AB1E853FA100EB428F /* MMStatusCell.xib in Resources */,
+				80E551E21E8559E700EB428F /* MMTimeLineViewController.xib in Resources */,
 				80E551B01E853FA100EB428F /* MMStatusImageMediaView.xib in Resources */,
+				80E5520C1E860B9600EB428F /* Tabbar-TimeLine-Selected@2x.png in Resources */,
+				80E552091E860B9600EB428F /* link_icon@2x.png in Resources */,
+				80E552071E860B9600EB428F /* like_icon_highlighted@2x.png in Resources */,
+				80E5520A1E860B9600EB428F /* Tabbar-TimeLine-HI@2x.png in Resources */,
 				80E551B51E853FA100EB428F /* MMStatusLinkMediaView.xib in Resources */,
+				80E5520D1E860B9600EB428F /* Tabbar-TimeLine@2x.png in Resources */,
+				80E5520E1E860B9600EB428F /* time_icon@2x.png in Resources */,
+				80E5520B1E860B9600EB428F /* Tabbar-TimeLine-Selected-HI@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,13 +504,18 @@
 			files = (
 				803DAFCC1E853D3F00ADCC86 /* WeChatPlugin.m in Sources */,
 				80E551AD1E853FA100EB428F /* MMStatusImageMediaObject.m in Sources */,
+				80E551E91E855A4F00EB428F /* MMTimeLineMgr.m in Sources */,
 				80E551AA1E853FA100EB428F /* MMStatusCell.m in Sources */,
+				80E551F01E85616200EB428F /* NSDate+StatusTimeDescription.m in Sources */,
 				80E551B21E853FA100EB428F /* MMStatusLinkMediaObject.m in Sources */,
+				80E551F91E85621400EB428F /* XMLReader.m in Sources */,
 				80E551B41E853FA100EB428F /* MMStatusLinkMediaView.m in Sources */,
+				80E551F51E85620C00EB428F /* NSString+XMLDictionary.m in Sources */,
 				80E551B91E853FA100EB428F /* MMStatusMediaView.m in Sources */,
 				80E551B71E853FA100EB428F /* MMStatusMediaObject.m in Sources */,
 				80E551AF1E853FA100EB428F /* MMStatusImageMediaView.m in Sources */,
 				80E551A81E853FA100EB428F /* MMStatus.m in Sources */,
+				80E551E11E8559E700EB428F /* MMTimeLineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,13 @@
 #import <Cocoa/Cocoa.h>
 #import <objc/runtime.h>
 #import <JRSwizzle.h>
+#import "WeChatPluginHeader.h"
+#import "MMStatus.h"
+#import "MMStatusMediaObject.h"
+#import "MMStatusImageMediaObject.h"
+#import "MMStatusLinkMediaObject.h"
+
+#define WeChatService(classname) (classname *)[[CBGetClass(MMServiceCenter) defaultCenter] getService:CBGetClass(classname)]
 
 #define CBGetClass(classname) objc_getClass(#classname)
 #define CBRegisterClass(superclassname, subclassname) { Class class = objc_allocateClassPair(CBGetClass(superclassname), #subclassname, 0);objc_registerClassPair(class); }

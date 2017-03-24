@@ -22,9 +22,10 @@
 
 @property (nonatomic, strong, readonly) MMStatus *status;
 
-@property (weak) IBOutlet NSLayoutConstraint *toTagTextFieldLayoutConstraint;
-@property (weak) IBOutlet NSLayoutConstraint *toContentTextFieldLayoutConstraint;
+@property (strong) IBOutlet NSLayoutConstraint *toTagTextFieldLayoutConstraint;
+@property (strong) IBOutlet NSLayoutConstraint *toContentTextFieldLayoutConstraint;
 
+- (void)updateMediaView:(MMStatusMediaView *)mediaView;
 - (void)updateViewWithStatus:(MMStatus *)status;
 
 + (CGFloat)calculateHeightForStatus:(MMStatus *)status inTableView:(NSTableView *)tableView;

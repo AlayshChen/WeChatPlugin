@@ -14,6 +14,8 @@
     [super awakeFromNib];
     self.wantsLayer = true;
     self.layer.backgroundColor = [NSColor colorWithWhite:0.9 alpha:1.0].CGColor;
+    self.iconImageView.wantsLayer = true;
+    self.iconImageView.layer.backgroundColor = [NSColor colorWithWhite:0.9 alpha:1.0].CGColor;
 }
 
 - (void)drawRect:(NSRect)dirtyRect {

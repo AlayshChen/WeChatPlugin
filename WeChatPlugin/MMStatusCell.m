@@ -17,21 +17,45 @@
 
 @implementation MMStatusCell
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.profileImageView.wantsLayer = true;
+    self.profileImageView.layer.borderWidth = 0.5;
+    self.profileImageView.layer.borderColor = [NSColor whiteColor].CGColor;
+    self.profileImageView.layer.cornerRadius = 5;
+    self.profileImageView.layer.masksToBounds = true;
+}
+
+- (void)updateMediaView:(MMStatusMediaView *)mediaView {
+    [self.mediaRealView removeFromSuperview];
+    self.mediaRealView = nil;
+    self.mediaRealView = mediaView;
+    [self addSubview:mediaView];
+    self.mediaRealView.translatesAutoresizingMaskIntoConstraints = false;
+    if (self.mediaRealView) {
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.mediaRealView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.mediaView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0]];
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.mediaRealView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.mediaView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0]];
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.mediaRealView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.mediaView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0]];
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.mediaRealView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.mediaView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0.0]];
+    }
+}
+
 - (void)updateViewWithStatus:(MMStatus *)status {
+    if (_status == status) {
+        return;
+    }
     _status = status;
+    self.profileImageView.image = [WeChatService(MMAvatarService) defaultAvatarImage];
+    MMAvatarService *service = [[CBGetClass(MMServiceCenter) defaultCenter] getService:CBGetClass(MMAvatarService)];
+    [service getAvatarImageWithUrl:status.profileImageURLString completion:^(NSImage *image) {
+        self.profileImageView.image = image;
+    }];
     self.nameTextField.stringValue = status.nameString;
     self.tagTextField.stringValue = [NSString stringWithFormat:@"%@%@", status.timeString, [status hasSource] ? [NSString stringWithFormat:@" - %@", status.sourceString] : @""];
-    if ([status hasContent]) {
-        self.toContentTextFieldLayoutConstraint.active = true;
-        self.toTagTextFieldLayoutConstraint.active = false;
-        self.contentTextField.hidden = false;
-        self.contentTextField.attributedStringValue = status.contentAttributedString;
-    }
-    else {
-        self.toContentTextFieldLayoutConstraint.active = false;
-        self.toTagTextFieldLayoutConstraint.active = true;
-        self.contentTextField.hidden = true;
-    }
+    self.toContentTextFieldLayoutConstraint.active = [status hasContent];
+    self.toTagTextFieldLayoutConstraint.active = ![status hasContent];
+    self.contentTextField.attributedStringValue = status.contentAttributedString;
+    
     if ([status hasMediaObject]) {
         switch (status.mediaType) {
             case MMStatusMediaObjectTypeImage: {
@@ -41,14 +65,25 @@
                     imageView.hidden = true;
                 }
                 for (NSInteger i = 0; i < mediaObject.imageURLStrings.count; i ++) {
+                    NSString *imageURLString = mediaObject.imageURLStrings[i];
                     NSImageView *imageView = mediaView.imageViews[i];
                     imageView.hidden = false;
+                    imageView.image = nil;
+                    MMAvatarService *service = [[CBGetClass(MMServiceCenter) defaultCenter] getService:CBGetClass(MMAvatarService)];
+                    [service getAvatarImageWithUrl:imageURLString completion:^(NSImage *image) {
+                        imageView.image = image;
+                    }];
                 }
             }
                 break;
             case MMStatusMediaObjectTypeLink: {
                 MMStatusLinkMediaObject *mediaObject = (MMStatusLinkMediaObject *)status.mediaObject;
                 MMStatusLinkMediaView *mediaView = (MMStatusLinkMediaView *)self.mediaRealView;
+                mediaView.iconImageView.image = nil;
+                MMAvatarService *service = [[CBGetClass(MMServiceCenter) defaultCenter] getService:CBGetClass(MMAvatarService)];
+                [service getAvatarImageWithUrl:mediaObject.imageURLString completion:^(NSImage *image) {
+                    mediaView.iconImageView.image = image;
+                }];
                 mediaView.titleTextField.stringValue = mediaObject.title;
             }
                 break;
@@ -66,12 +101,11 @@
         height += rect.size.height; 
     }
     if ([status hasMediaObject]) {
-        height += 5;
         switch (status.mediaType) {
             case MMStatusMediaObjectTypeImage: {
                 CGFloat imageSize = (tableView.frame.size.width - 80) / 3.0;
                 MMStatusImageMediaObject *mediaObject = (MMStatusImageMediaObject *)status.mediaObject;
-                NSInteger rowCount = mediaObject.imageURLStrings.count / 3 + 1;
+                NSInteger rowCount = (mediaObject.imageURLStrings.count - 1) / 3 + 1;
                 height += (NSInteger)(rowCount * imageSize);
             }
                 break;
