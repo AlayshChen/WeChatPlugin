@@ -7,9 +7,10 @@
 //
 
 #import "WeChatPlugin.h"
-#import "MMTimeLineMainViewController.h"
 #import "MMNavigationController.h"
+#import "MMTimeLineMainViewController.h"
 #import "MMTimeLineViewController.h"
+#import "MMHomePageViewController.h"
 
 #pragma mark - Plugin
 
@@ -97,6 +98,25 @@
     [self cb_setViewControllers:[viewControllers copy]];
 }
 
+- (void)cb_MMTimeLineMainViewController_tableViewSelectionDidChange:(NSNotification *)notification {
+    MMTimeLineMainViewController *vc = (MMTimeLineMainViewController *)self;
+    MMTableView *tableView = [vc listTableView];
+    NSInteger row = [tableView selectedRow];
+    MMContactListContactRow *contactRow = [vc listTableViewDataSource][row];
+    if ([contactRow isMemberOfClass:CBGetClass(MMContactListContactRow)]) {
+        WCContactData *contact = contactRow.contact;
+        if ([contact.m_nsUsrName hasSuffix:@"@chatroom"] || [contact.m_nsUsrName hasPrefix:@"gh_"]) {
+            
+        }
+        else {
+            MMNavigationController *navVC = (MMNavigationController *)vc.detailViewController;
+            MMHomePageViewController *homePageVC = [[CBGetClass(MMHomePageViewController) alloc] initWithNibName:@"MMHomePageViewController" bundle:[NSBundle pluginBundle]];
+            homePageVC.contact = contact;
+            [navVC pushViewController:homePageVC animated:true];
+        }
+    }
+}
+
 @end
 
 static void __attribute__((constructor)) initialize(void) {
@@ -130,6 +150,7 @@ static void __attribute__((constructor)) initialize(void) {
     
 #pragma GCC diagnostic pop
     CBRegisterClass(MMContactsViewController, MMTimeLineMainViewController);
+    CBHookInstanceMethod(MMTimeLineMainViewController, @selector(tableViewSelectionDidChange:), @selector(cb_MMTimeLineMainViewController_tableViewSelectionDidChange:));
     
     CBHookClassMethod(MMLogger, @selector(logWithMMLogLevel:module:file:line:func:message:), @selector(cb_logWithMMLogLevel:module:file:line:func:message:));
     

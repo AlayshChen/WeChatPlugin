@@ -28,9 +28,14 @@ typedef void(^CDUnknownBlockType3)(id arg1, id arg2, id arg3);
 @property(retain, nonatomic) NSString *m_nsUsrName;
 @property(retain, nonatomic) NSString *m_nsHeadImgUrl;
 
+- (BOOL)isMMChat;	// IMP=0x0000000100127093
+- (BOOL)isMMContact;	// IMP=0x0000000100127080
+
 @end
 
 @interface MMContactListRow : NSObject
+
+@property(retain, nonatomic) WCContactData *contact;
 
 @end
 
@@ -161,7 +166,7 @@ __attribute__((visibility("hidden")))
     MMContactListLogic *_logic;
 }
 @property __weak MMTableView *listTableView;
-@property(retain, nonatomic) NSArray *listDataForTableView;
+@property(retain, nonatomic) NSArray *listTableViewDataSource;
 
 - (id)getListForItem:(id)arg1;
 - (void)_setDisplayedAllRowsForTableView:(BOOL)arg1;
@@ -1097,5 +1102,9 @@ typedef NS_ENUM(NSUInteger, CBDataItemContentStyle) {
 - (void)writeToCodedOutputStream:(id)arg1;	// IMP=0x00000001006ad07c
 - (BOOL)isInitialized;	// IMP=0x00000001006ad071
 - (id)init;	// IMP=0x00000001006acfc2
+
+@end
+
+@interface MMContactListContactRow : MMContactListRow
 
 @end
