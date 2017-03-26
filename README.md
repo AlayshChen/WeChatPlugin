@@ -7,12 +7,15 @@ Plugin For Mac WeChat.
 
 ## 说明
 * 欢迎使用我整理的插件工程模版 [XcodeAppPluginTemplate](https://github.com/AlayshChen/XcodeAppPluginTemplate)
+* 支持版本: 2.2.1
 * 确保存在[insert_dylib](https://github.com/Tyilo/insert_dylib)命令或者自行修改`WeChat`target中Run Script对应注入动态库脚本
 * 执行`Pod install`, 将WeChat.app放置在工程目录下
 
 ## 功能
 * 浏览朋友圈
 * 自动登录
+
+![](http://alayshchen.github.io/images/201703260.png)
 
 ## 待实现
 * 浏览主页
