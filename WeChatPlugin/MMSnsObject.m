@@ -13,16 +13,6 @@
 
 @implementation MMSnsObject
 
-+ (void)load {
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-    if (CBGetClass(SnsObject) == nil) {
-        CBRegisterClass(PBGeneratedMessage, SnsObject);
-    }
-    class_setSuperclass(CBGetClass(MMSnsObject), CBGetClass(SnsObject));
-#pragma GCC diagnostic pop
-}
-
 + (instancetype)parseFromData:(NSData *)data {
     MMSnsObject *object = [[CBGetClass(MMSnsObject) alloc] init];
     [object mergeFromData:data];

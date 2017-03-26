@@ -13,16 +13,6 @@
 
 @implementation MMSnsUserPageResponse
 
-+ (void)load {
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-    if (CBGetClass(SnsUserPageResponse) == nil) {
-        CBRegisterClass(PBGeneratedMessage, SnsUserPageResponse);
-    }
-    class_setSuperclass(CBGetClass(MMSnsUserPageResponse), CBGetClass(SnsUserPageResponse));
-#pragma GCC diagnostic pop
-}
-
 + (instancetype)parseFromData:(NSData *)data {
     MMSnsUserPageResponse *response = [[CBGetClass(MMSnsUserPageResponse) alloc] init];
     [response mergeFromData:data];

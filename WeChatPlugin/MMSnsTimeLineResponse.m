@@ -13,16 +13,6 @@
 
 @implementation MMSnsTimeLineResponse
 
-+ (void)load {
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-    if (CBGetClass(SnsTimeLineResponse) == nil) {
-        CBRegisterClass(PBGeneratedMessage, SnsTimeLineResponse);
-    }
-    class_setSuperclass(CBGetClass(MMSnsTimeLineResponse), CBGetClass(SnsTimeLineResponse));
-#pragma GCC diagnostic pop
-}
-
 + (instancetype)parseFromData:(NSData *)data {
     MMSnsTimeLineResponse *response = [[CBGetClass(MMSnsTimeLineResponse) alloc] init];
     [response mergeFromData:data];

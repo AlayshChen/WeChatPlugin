@@ -101,7 +101,34 @@
 
 static void __attribute__((constructor)) initialize(void) {
     NSLog(@"++++++++ WeChatPlugin loaded ++++++++");
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+    if (CBGetClass(SnsObject) == nil) {
+        CBRegisterClass(PBGeneratedMessage, SnsObject);
+    }
+    class_setSuperclass(CBGetClass(MMSnsObject), CBGetClass(SnsObject));
     
+    if (CBGetClass(SnsTimeLineRequest) == nil) {
+        CBRegisterClass(PBGeneratedMessage, SnsTimeLineRequest);
+    }
+    class_setSuperclass(CBGetClass(MMSnsTimeLineRequest), CBGetClass(SnsTimeLineRequest));
+    
+    if (CBGetClass(SnsTimeLineResponse) == nil) {
+        CBRegisterClass(PBGeneratedMessage, SnsTimeLineResponse);
+    }
+    class_setSuperclass(CBGetClass(MMSnsTimeLineResponse), CBGetClass(SnsTimeLineResponse));
+    
+    if (CBGetClass(SnsUserPageRequest) == nil) {
+        CBRegisterClass(PBGeneratedMessage, SnsUserPageRequest);
+    }
+    class_setSuperclass(CBGetClass(MMSnsUserPageRequest), CBGetClass(SnsUserPageRequest));
+    
+    if (CBGetClass(SnsUserPageResponse) == nil) {
+        CBRegisterClass(PBGeneratedMessage, SnsUserPageResponse);
+    }
+    class_setSuperclass(CBGetClass(MMSnsUserPageResponse), CBGetClass(SnsUserPageResponse));
+    
+#pragma GCC diagnostic pop
     CBRegisterClass(MMContactsViewController, MMTimeLineMainViewController);
     
     CBHookClassMethod(MMLogger, @selector(logWithMMLogLevel:module:file:line:func:message:), @selector(cb_logWithMMLogLevel:module:file:line:func:message:));

@@ -14,16 +14,6 @@
 
 @implementation MMSnsUserPageRequest
 
-+ (void)load {
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-    if (CBGetClass(SnsUserPageRequest) == nil) {
-        CBRegisterClass(PBGeneratedMessage, SnsUserPageRequest);
-    }
-    class_setSuperclass(CBGetClass(MMSnsUserPageRequest), CBGetClass(SnsUserPageRequest));
-#pragma GCC diagnostic pop
-}
-
 - (int)serializedSize {
     __block SInt32 size_ = 0;
     size_ += computeMessageSize(1, self.baseRequest);
