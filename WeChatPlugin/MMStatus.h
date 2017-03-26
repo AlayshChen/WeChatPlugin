@@ -27,7 +27,7 @@ typedef NS_ENUM(NSUInteger, MMStatusMediaObjectType) {
 @property (nonatomic, assign) MMStatusMediaObjectType mediaType;
 @property (nonatomic, strong) MMStatusMediaObject *mediaObject;
 
-- (void)updateWithSnsObject:(SnsObject *)snsObject;
+- (void)updateWithSnsObject:(MMSnsObject *)snsObject;
 
 - (BOOL)hasSource;
 - (BOOL)hasContent;

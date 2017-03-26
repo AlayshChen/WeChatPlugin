@@ -916,3 +916,186 @@ typedef NS_ENUM(NSUInteger, CBDataItemContentStyle) {
     CBDataItemContentStyleMusicLink = 4,
     CBDataItemContentStyleAppLink = 5
 };
+
+@interface PBCodedOutputStream : NSObject
+{
+    NSMutableData *buffer;
+    char *bufferPointer;
+    int position;
+}
+
++ (id)streamWithData:(id)arg1;	// IMP=0x00000001004c4c1e
+@property int position; // @synthesize position;
+@property(retain) NSMutableData *buffer; // @synthesize buffer;
+//- (void).cxx_destruct;	// IMP=0x00000001004c5982
+- (void)writeRawLittleEndian64:(long long)arg1;	// IMP=0x00000001004c5896
+- (void)writeRawLittleEndian32:(int)arg1;	// IMP=0x00000001004c583a
+- (void)writeRawVarint64:(long long)arg1;	// IMP=0x00000001004c57df
+- (void)writeRawVarint32:(int)arg1;	// IMP=0x00000001004c5782
+- (void)writeTag:(int)arg1 format:(int)arg2;	// IMP=0x00000001004c576b
+- (void)writeRawData:(id)arg1 offset:(int)arg2 length:(int)arg3;	// IMP=0x00000001004c568c
+- (void)writeRawData:(id)arg1;	// IMP=0x00000001004c5629
+- (void)writeRawByte:(unsigned char)arg1;	// IMP=0x00000001004c5590
+- (void)checkNoSpaceLeft;	// IMP=0x00000001004c553c
+- (int)spaceLeft;	// IMP=0x00000001004c550a
+- (void)writeSInt64:(int)arg1 value:(long long)arg2;	// IMP=0x00000001004c54cb
+- (void)writeSInt64NoTag:(long long)arg1;	// IMP=0x00000001004c54a1
+- (void)writeSInt32:(int)arg1 value:(int)arg2;	// IMP=0x00000001004c5462
+- (void)writeSInt32NoTag:(int)arg1;	// IMP=0x00000001004c543a
+- (void)writeSFixed64:(int)arg1 value:(long long)arg2;	// IMP=0x00000001004c53f8
+- (void)writeSFixed64NoTag:(long long)arg1;	// IMP=0x00000001004c53e6
+- (void)writeSFixed32:(int)arg1 value:(int)arg2;	// IMP=0x00000001004c53a4
+- (void)writeSFixed32NoTag:(int)arg1;	// IMP=0x00000001004c5392
+- (void)writeEnum:(int)arg1 value:(int)arg2;	// IMP=0x00000001004c5353
+- (void)writeEnumNoTag:(int)arg1;	// IMP=0x00000001004c5341
+- (void)writeUInt32:(int)arg1 value:(int)arg2;	// IMP=0x00000001004c5302
+- (void)writeUInt32NoTag:(int)arg1;	// IMP=0x00000001004c52f0
+- (void)writeData:(int)arg1 value:(id)arg2;	// IMP=0x00000001004c528a
+- (void)writeDataNoTag:(id)arg1;	// IMP=0x00000001004c521d
+- (void)writeMessage:(int)arg1 value:(id)arg2;	// IMP=0x00000001004c51b7
+- (void)writeMessageNoTag:(id)arg1;	// IMP=0x00000001004c514a
+- (void)writeString:(int)arg1 value:(id)arg2;	// IMP=0x00000001004c50e4
+- (void)writeStringNoTag:(id)arg1 withSize:(unsigned long long)arg2;	// IMP=0x00000001004c5024
+- (void)writeStringNoTag:(id)arg1;	// IMP=0x00000001004c4f3f
+- (void)writeBool:(int)arg1 value:(BOOL)arg2;	// IMP=0x00000001004c4f00
+- (void)writeBoolNoTag:(BOOL)arg1;	// IMP=0x00000001004c4ee6
+- (void)writeFixed32:(int)arg1 value:(int)arg2;	// IMP=0x00000001004c4ea4
+- (void)writeFixed32NoTag:(int)arg1;	// IMP=0x00000001004c4e92
+- (void)writeFixed64:(int)arg1 value:(long long)arg2;	// IMP=0x00000001004c4e50
+- (void)writeFixed64NoTag:(long long)arg1;	// IMP=0x00000001004c4e3e
+- (void)writeInt32:(int)arg1 value:(int)arg2;	// IMP=0x00000001004c4dff
+- (void)writeInt32NoTag:(int)arg1;	// IMP=0x00000001004c4dd8
+- (void)writeInt64:(int)arg1 value:(long long)arg2;	// IMP=0x00000001004c4d99
+- (void)writeInt64NoTag:(long long)arg1;	// IMP=0x00000001004c4d87
+- (void)writeUInt64:(int)arg1 value:(long long)arg2;	// IMP=0x00000001004c4d48
+- (void)writeUInt64NoTag:(long long)arg1;	// IMP=0x00000001004c4d36
+- (void)writeFloat:(int)arg1 value:(float)arg2;	// IMP=0x00000001004c4cf1
+- (void)writeFloatNoTag:(float)arg1;	// IMP=0x00000001004c4cdb
+- (void)writeDouble:(int)arg1 value:(double)arg2;	// IMP=0x00000001004c4c96
+- (void)writeDoubleNoTag:(double)arg1;	// IMP=0x00000001004c4c7f
+- (id)initWithOutputData:(id)arg1;	// IMP=0x00000001004c4b59
+- (void)dealloc;	// IMP=0x00000001004c4b09
+
+@end
+
+@interface PBCodedInputStream : NSObject
+{
+    NSData *buffer;
+    char *bufferPointer;
+    int bufferSize;
+    int bufferSizeAfterLimit;
+    int bufferPos;
+    int lastTag;
+    int totalBytesRetired;
+    int currentLimit;
+    int recursionDepth;
+    int recursionLimit;
+    int sizeLimit;
+}
+
++ (id)streamWithData:(id)arg1;	// IMP=0x0000000100552042
+@property(retain) NSData *buffer; // @synthesize buffer;
+//- (void).cxx_destruct;	// IMP=0x0000000100552dce
+- (void)skipRawData:(int)arg1;	// IMP=0x0000000100552cd4
+- (id)readRawData:(int)arg1;	// IMP=0x0000000100552bc9
+- (BOOL)readRawByte;	// IMP=0x0000000100552b5b
+- (BOOL)isAtEnd;	// IMP=0x0000000100552b3b
+- (int)bytesUntilLimit;	// IMP=0x0000000100552b12
+- (void)popLimit:(int)arg1;	// IMP=0x0000000100552af6
+- (void)recomputeBufferSizeAfterLimit;	// IMP=0x0000000100552abe
+- (int)pushLimit:(int)arg1;	// IMP=0x0000000100552a28
+- (int)setSizeLimit:(int)arg1;	// IMP=0x00000001005529d5
+- (long long)readRawLittleEndian64;	// IMP=0x00000001005528fd
+- (int)readRawLittleEndian32;	// IMP=0x0000000100552887
+- (long long)readRawVarint64;	// IMP=0x00000001005527fb
+- (int)readRawVarint32;	// IMP=0x00000001005526e8
+- (long long)readSInt64;	// IMP=0x00000001005526ab
+- (int)readSInt32;	// IMP=0x000000010055267a
+- (long long)readSFixed64;	// IMP=0x0000000100552668
+- (int)readSFixed32;	// IMP=0x0000000100552656
+- (int)readEnum;	// IMP=0x0000000100552644
+- (int)readUInt32;	// IMP=0x0000000100552632
+- (id)readData;	// IMP=0x0000000100552594
+- (void)readMessage:(id)arg1;	// IMP=0x000000010055248e
+- (void)readMessage:(id)arg1 extensionRegistry:(id)arg2;
+- (id)readString;	// IMP=0x0000000100552390
+- (BOOL)readBool;	// IMP=0x0000000100552375
+- (int)readFixed32;	// IMP=0x0000000100552363
+- (long long)readFixed64;	// IMP=0x0000000100552351
+- (int)readInt32;	// IMP=0x000000010055233f
+- (long long)readInt64;	// IMP=0x000000010055232d
+- (long long)readUInt64;	// IMP=0x000000010055231b
+- (float)readFloat;	// IMP=0x0000000100552304
+- (double)readDouble;	// IMP=0x00000001005522ec
+- (void)skipMessage;	// IMP=0x00000001005522a4
+- (BOOL)skipField:(int)arg1;	// IMP=0x0000000100552195
+- (BOOL)isLastTag:(int)arg1;	// IMP=0x000000010055217f
+- (void)checkLastTagWas:(int)arg1;	// IMP=0x0000000100552131
+- (int)readTag;	// IMP=0x00000001005520a3
+- (id)initWithData:(id)arg1;	// IMP=0x0000000100551f5c
+- (void)commonInit;	// IMP=0x0000000100551f2c
+- (void)dealloc;	// IMP=0x0000000100551ef0
+
+@end
+
+@interface SKBuiltinString_t : PBGeneratedMessage
+{
+    unsigned int hasString:1;
+    NSString *string;
+}
+
++ (id)parseFromData:(id)arg1;	// IMP=0x000000010040fde7
++ (id)skStringWithString:(id)arg1;	// IMP=0x00000001004ac75f
+@property(retain, nonatomic, setter=SetString:) NSString *string; // @synthesize string;
+@property(readonly, nonatomic) BOOL hasString; // @synthesize hasString;
+//- (void).cxx_destruct;	// IMP=0x000000010040ff51
+- (id)mergeFromCodedInputStream:(id)arg1;	// IMP=0x000000010040fe76
+- (int)serializedSize;	// IMP=0x000000010040fd8c
+- (void)writeToCodedOutputStream:(id)arg1;	// IMP=0x000000010040fd0f
+- (BOOL)isInitialized;	// IMP=0x000000010040fd04
+- (id)init;	// IMP=0x000000010040fc70
+
+@end
+
+@interface BaseResponse : PBGeneratedMessage
+{
+    unsigned int hasRet:1;
+    unsigned int hasErrMsg:1;
+    int ret;
+    SKBuiltinString_t *errMsg;
+}
+
++ (id)parseFromData:(id)arg1;	// IMP=0x000000010040d796
+@property(retain, nonatomic, setter=SetErrMsg:) SKBuiltinString_t *errMsg; // @synthesize errMsg;
+@property(readonly, nonatomic) BOOL hasErrMsg; // @synthesize hasErrMsg;
+@property(nonatomic, setter=SetRet:) int ret; // @synthesize ret;
+@property(readonly, nonatomic) BOOL hasRet; // @synthesize hasRet;
+//- (void).cxx_destruct;	// IMP=0x000000010040d967
+- (id)mergeFromCodedInputStream:(id)arg1;	// IMP=0x000000010040d825
+- (int)serializedSize;	// IMP=0x000000010040d709
+- (void)writeToCodedOutputStream:(id)arg1;	// IMP=0x000000010040d650
+- (BOOL)isInitialized;	// IMP=0x000000010040d613
+- (id)init;	// IMP=0x000000010040d547
+
+@end
+
+@interface SnsServerConfig : PBGeneratedMessage
+{
+    unsigned int hasPostMentionLimit:1;
+    unsigned int hasCopyAndPasteWordLimit:1;
+    int postMentionLimit;
+    int copyAndPasteWordLimit;
+}
+
++ (id)parseFromData:(id)arg1;	// IMP=0x00000001006ad198
+@property(nonatomic, setter=SetCopyAndPasteWordLimit:) int copyAndPasteWordLimit; // @synthesize copyAndPasteWordLimit;
+@property(readonly, nonatomic) BOOL hasCopyAndPasteWordLimit; // @synthesize hasCopyAndPasteWordLimit;
+@property(nonatomic, setter=SetPostMentionLimit:) int postMentionLimit; // @synthesize postMentionLimit;
+@property(readonly, nonatomic) BOOL hasPostMentionLimit; // @synthesize hasPostMentionLimit;
+- (id)mergeFromCodedInputStream:(id)arg1;	// IMP=0x00000001006ad227
+- (int)serializedSize;	// IMP=0x00000001006ad120
+- (void)writeToCodedOutputStream:(id)arg1;	// IMP=0x00000001006ad07c
+- (BOOL)isInitialized;	// IMP=0x00000001006ad071
+- (id)init;	// IMP=0x00000001006acfc2
+
+@end

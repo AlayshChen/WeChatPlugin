@@ -13,6 +13,9 @@
 #import <objc/runtime.h>
 #import <JRSwizzle.h>
 #import "WeChatPluginHeader.h"
+#import "MMSnsTimeLineRequest.h"
+#import "MMSnsTimeLineResponse.h"
+#import "MMSnsObject.h"
 #import "MMStatus.h"
 #import "MMStatusMediaObject.h"
 #import "MMStatusImageMediaObject.h"
@@ -22,6 +25,8 @@
 
 #define CBGetClass(classname) objc_getClass(#classname)
 #define CBRegisterClass(superclassname, subclassname) { Class class = objc_allocateClassPair(CBGetClass(superclassname), #subclassname, 0);objc_registerClassPair(class); }
+#define CBAddInstanceMethod(to_classname, from_classname, sel) { Method method = class_getInstanceMethod(CBGetClass(from_classname), sel);class_addMethod(CBGetClass(to_classname),sel,class_getMethodImplementation(CBGetClass(from_classname), sel),method_getTypeEncoding(method));}
+#define CBAddClassMethod(to_classname, from_classname, sel) { Method method = class_getClassMethod(CBGetClass(from_classname), sel);class_addMethod(CBGetClass(to_classname),sel,class_getMethodImplementation(CBGetClass(from_classname), sel),method_getTypeEncoding(method));}
 #define CBHookInstanceMethod(classname, ori_sel, new_sel) { NSError *error; [CBGetClass(classname) jr_swizzleMethod:ori_sel withMethod:new_sel error:&error]; if(error) NSLog(@"%@", error); }
 #define CBHookClassMethod(classname, ori_sel, new_sel) { NSError *error; [CBGetClass(classname) jr_swizzleClassMethod:ori_sel withClassMethod:new_sel error:&error]; if(error) NSLog(@"%@", error); }
 #define CBGetInstanceValue(obj, valuename) object_getIvar(obj, class_getInstanceVariable([obj class], #valuename))

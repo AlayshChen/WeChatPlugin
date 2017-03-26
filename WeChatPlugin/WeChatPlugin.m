@@ -7,7 +7,6 @@
 //
 
 #import "WeChatPlugin.h"
-#import "WeChatPluginHeader.h"
 #import "MMTimeLineMainViewController.h"
 #import "MMTimeLineViewController.h"
 
@@ -39,7 +38,7 @@
         res->_field2 = 0;
         res->_field3 = 0;
         res->_field4 = "mmsnstimeline";
-        res->_field5 = CBGetClass(SnsTimeLineResponse);
+        res->_field5 = CBGetClass(MMSnsTimeLineResponse);
         res->_field6 = 1;
         res->_field7 = 2;
         res->_field8 = 0;

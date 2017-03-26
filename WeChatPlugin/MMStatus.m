@@ -12,7 +12,7 @@
 
 @implementation MMStatus
 
-- (void)updateWithSnsObject:(SnsObject *)snsObject {
+- (void)updateWithSnsObject:(MMSnsObject *)snsObject {
     _statusId = snsObject.id;
     WCContactData *contact = [[[CBGetClass(MMServiceCenter) defaultCenter] getService:CBGetClass(ContactStorage)] GetContact:snsObject.username];
     _profileImageURLString = contact.m_nsHeadImgUrl;

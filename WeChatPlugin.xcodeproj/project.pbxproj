@@ -7,11 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D62D4781D6EC4F15EAEF911 /* libPods-WeChatPlugin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48F13D0591BA620DD6C698A1 /* libPods-WeChatPlugin.a */; };
-		803DAFCA1E853D3F00ADCC86 /* WeChatPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 803DAFC91E853D3F00ADCC86 /* WeChatPlugin.h */; };
+		3D62D4781D6EC4F15EAEF911 /* libPods-WeChatPlugin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48F13D0591BA620DD6C698A1 /* libPods-WeChatPlugin.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		803DAFCA1E853D3F00ADCC86 /* WeChatPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 803DAFC91E853D3F00ADCC86 /* WeChatPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		803DAFCC1E853D3F00ADCC86 /* WeChatPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 803DAFCB1E853D3F00ADCC86 /* WeChatPlugin.m */; };
 		803DAFCE1E853D3F00ADCC86 /* WeChatPluginHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 803DAFCD1E853D3F00ADCC86 /* WeChatPluginHeader.h */; };
 		803DAFD01E853D3F00ADCC86 /* PrefixHeader.pch in Headers */ = {isa = PBXBuildFile; fileRef = 803DAFCF1E853D3F00ADCC86 /* PrefixHeader.pch */; };
+		80520E651E8712CE001F9164 /* MMSnsTimeLineRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 80520E631E8712CE001F9164 /* MMSnsTimeLineRequest.h */; };
+		80520E661E8712CE001F9164 /* MMSnsTimeLineRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80520E641E8712CE001F9164 /* MMSnsTimeLineRequest.m */; };
+		80520E6D1E871682001F9164 /* MMSnsTimeLineResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 80520E6B1E871682001F9164 /* MMSnsTimeLineResponse.h */; };
+		80520E6E1E871682001F9164 /* MMSnsTimeLineResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 80520E6C1E871682001F9164 /* MMSnsTimeLineResponse.m */; };
+		80520E751E871A8E001F9164 /* MMSnsObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 80520E731E871A8E001F9164 /* MMSnsObject.h */; };
+		80520E761E871A8E001F9164 /* MMSnsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 80520E741E871A8E001F9164 /* MMSnsObject.m */; };
+		80520E7A1E871B76001F9164 /* PBUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 80520E781E871B76001F9164 /* PBUtility.m */; };
+		80520E7B1E871B76001F9164 /* PBUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 80520E791E871B76001F9164 /* PBUtility.h */; };
 		80E551A71E853FA100EB428F /* MMStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E551941E853FA100EB428F /* MMStatus.h */; };
 		80E551A81E853FA100EB428F /* MMStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E551951E853FA100EB428F /* MMStatus.m */; };
 		80E551A91E853FA100EB428F /* MMStatusCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E551961E853FA100EB428F /* MMStatusCell.h */; };
@@ -70,6 +78,7 @@
 /* Begin PBXFileReference section */
 		48F13D0591BA620DD6C698A1 /* libPods-WeChatPlugin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeChatPlugin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CBECFB210F0661B4A16F713 /* Pods-WeChatPlugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChatPlugin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeChatPlugin/Pods-WeChatPlugin.debug.xcconfig"; sourceTree = "<group>"; };
+		8010F5CC1E86B8E0008059DE /* libswiftAppKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftAppKit.tbd; path = System/Library/PrivateFrameworks/Swift/libswiftAppKit.tbd; sourceTree = SDKROOT; };
 		803DAFBE1E853D3F00ADCC86 /* WeChatPlugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WeChatPlugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		803DAFC21E853D3F00ADCC86 /* WeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		803DAFC71E853D3F00ADCC86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +87,14 @@
 		803DAFCD1E853D3F00ADCC86 /* WeChatPluginHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeChatPluginHeader.h; sourceTree = "<group>"; };
 		803DAFCF1E853D3F00ADCC86 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		803DAFD11E853D3F00ADCC86 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		80520E631E8712CE001F9164 /* MMSnsTimeLineRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSnsTimeLineRequest.h; sourceTree = "<group>"; };
+		80520E641E8712CE001F9164 /* MMSnsTimeLineRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSnsTimeLineRequest.m; sourceTree = "<group>"; };
+		80520E6B1E871682001F9164 /* MMSnsTimeLineResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSnsTimeLineResponse.h; sourceTree = "<group>"; };
+		80520E6C1E871682001F9164 /* MMSnsTimeLineResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSnsTimeLineResponse.m; sourceTree = "<group>"; };
+		80520E731E871A8E001F9164 /* MMSnsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSnsObject.h; sourceTree = "<group>"; };
+		80520E741E871A8E001F9164 /* MMSnsObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSnsObject.m; sourceTree = "<group>"; };
+		80520E781E871B76001F9164 /* PBUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBUtility.m; sourceTree = "<group>"; };
+		80520E791E871B76001F9164 /* PBUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBUtility.h; sourceTree = "<group>"; };
 		80E551941E853FA100EB428F /* MMStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMStatus.h; sourceTree = "<group>"; };
 		80E551951E853FA100EB428F /* MMStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMStatus.m; sourceTree = "<group>"; };
 		80E551961E853FA100EB428F /* MMStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMStatusCell.h; sourceTree = "<group>"; };
@@ -177,6 +194,7 @@
 				803DAFC91E853D3F00ADCC86 /* WeChatPlugin.h */,
 				803DAFCB1E853D3F00ADCC86 /* WeChatPlugin.m */,
 				803DAFCD1E853D3F00ADCC86 /* WeChatPluginHeader.h */,
+				80520E771E871B3E001F9164 /* WeChatModel */,
 				80E551F11E8561F600EB428F /* Utility */,
 				80E551EC1E85613300EB428F /* Category */,
 				80E551931E853F9000EB428F /* Status */,
@@ -195,6 +213,19 @@
 				803DAFD11E853D3F00ADCC86 /* Podfile */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		80520E771E871B3E001F9164 /* WeChatModel */ = {
+			isa = PBXGroup;
+			children = (
+				80520E731E871A8E001F9164 /* MMSnsObject.h */,
+				80520E741E871A8E001F9164 /* MMSnsObject.m */,
+				80520E631E8712CE001F9164 /* MMSnsTimeLineRequest.h */,
+				80520E641E8712CE001F9164 /* MMSnsTimeLineRequest.m */,
+				80520E6B1E871682001F9164 /* MMSnsTimeLineResponse.h */,
+				80520E6C1E871682001F9164 /* MMSnsTimeLineResponse.m */,
+			);
+			name = WeChatModel;
 			sourceTree = "<group>";
 		};
 		80E551931E853F9000EB428F /* Status */ = {
@@ -294,6 +325,8 @@
 			children = (
 				80E551F61E85621400EB428F /* XMLReader.h */,
 				80E551F71E85621400EB428F /* XMLReader.m */,
+				80520E791E871B76001F9164 /* PBUtility.h */,
+				80520E781E871B76001F9164 /* PBUtility.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -318,6 +351,7 @@
 		E62DC0C502233BEBF5070F89 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8010F5CC1E86B8E0008059DE /* libswiftAppKit.tbd */,
 				48F13D0591BA620DD6C698A1 /* libPods-WeChatPlugin.a */,
 			);
 			name = Frameworks;
@@ -330,25 +364,29 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				803DAFCA1E853D3F00ADCC86 /* WeChatPlugin.h in Headers */,
 				80E551F81E85621400EB428F /* XMLReader.h in Headers */,
 				80E551E01E8559E700EB428F /* MMTimeLineViewController.h in Headers */,
 				803DAFCE1E853D3F00ADCC86 /* WeChatPluginHeader.h in Headers */,
 				80E551B81E853FA100EB428F /* MMStatusMediaView.h in Headers */,
 				80E551EF1E85616200EB428F /* NSDate+StatusTimeDescription.h in Headers */,
-				803DAFCA1E853D3F00ADCC86 /* WeChatPlugin.h in Headers */,
 				80E551B11E853FA100EB428F /* MMStatusLinkMediaObject.h in Headers */,
 				80E551A91E853FA100EB428F /* MMStatusCell.h in Headers */,
+				80520E6D1E871682001F9164 /* MMSnsTimeLineResponse.h in Headers */,
 				80E551AE1E853FA100EB428F /* MMStatusImageMediaView.h in Headers */,
 				80E552101E860BDC00EB428F /* MMTimeLineMainViewController.h in Headers */,
 				80E551F41E85620C00EB428F /* NSString+XMLDictionary.h in Headers */,
 				80E551B31E853FA100EB428F /* MMStatusLinkMediaView.h in Headers */,
 				80E551A71E853FA100EB428F /* MMStatus.h in Headers */,
+				80520E751E871A8E001F9164 /* MMSnsObject.h in Headers */,
 				80E551EB1E855A9900EB428F /* MMTimeLineMgrDelegate.h in Headers */,
 				80E551AC1E853FA100EB428F /* MMStatusImageMediaObject.h in Headers */,
 				80E551B61E853FA100EB428F /* MMStatusMediaObject.h in Headers */,
 				80E552121E860BDC00EB428F /* MMStatusCellDelegate.h in Headers */,
 				80E551E81E855A4F00EB428F /* MMTimeLineMgr.h in Headers */,
 				803DAFD01E853D3F00ADCC86 /* PrefixHeader.pch in Headers */,
+				80520E7B1E871B76001F9164 /* PBUtility.h in Headers */,
+				80520E651E8712CE001F9164 /* MMSnsTimeLineRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +442,7 @@
 					803DAFBD1E853D3F00ADCC86 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = TW89Q8SE37;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					803DAFC11E853D3F00ADCC86 = {
@@ -515,11 +554,15 @@
 				80E551F91E85621400EB428F /* XMLReader.m in Sources */,
 				80E551B41E853FA100EB428F /* MMStatusLinkMediaView.m in Sources */,
 				80E551F51E85620C00EB428F /* NSString+XMLDictionary.m in Sources */,
+				80520E761E871A8E001F9164 /* MMSnsObject.m in Sources */,
+				80520E661E8712CE001F9164 /* MMSnsTimeLineRequest.m in Sources */,
 				80E551B91E853FA100EB428F /* MMStatusMediaView.m in Sources */,
+				80520E7A1E871B76001F9164 /* PBUtility.m in Sources */,
 				80E551B71E853FA100EB428F /* MMStatusMediaObject.m in Sources */,
 				80E551AF1E853FA100EB428F /* MMStatusImageMediaView.m in Sources */,
 				80E551A81E853FA100EB428F /* MMStatus.m in Sources */,
 				80E551E11E8559E700EB428F /* MMTimeLineViewController.m in Sources */,
+				80520E6E1E871682001F9164 /* MMSnsTimeLineResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,6 +677,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7CBECFB210F0661B4A16F713 /* Pods-WeChatPlugin.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TW89Q8SE37;
@@ -644,9 +688,17 @@
 				GCC_PREFIX_HEADER = WeChatPlugin/PrefixHeader.pch;
 				INFOPLIST_FILE = WeChatPlugin/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks/Swift",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.corbin.WeChatPlugin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -654,6 +706,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F5761F84B0D824761E85E37B /* Pods-WeChatPlugin.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TW89Q8SE37;
@@ -664,9 +717,16 @@
 				GCC_PREFIX_HEADER = WeChatPlugin/PrefixHeader.pch;
 				INFOPLIST_FILE = WeChatPlugin/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks/Swift",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.corbin.WeChatPlugin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

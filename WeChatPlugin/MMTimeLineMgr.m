@@ -35,7 +35,7 @@
         return;
     }
     self.requesting = true;
-    SnsTimeLineRequest *request = [[CBGetClass(SnsTimeLineRequest) alloc] init];
+    MMSnsTimeLineRequest *request = [[CBGetClass(MMSnsTimeLineRequest) alloc] init];
     request.baseRequest = [CBGetClass(MMCGIRequestUtil) InitBaseRequestWithScene:0];
     request.clientLatestId = 0;
     request.firstPageMd5 = itemID == 0 ? self.firstPageMd5 : @"";
@@ -44,7 +44,7 @@
     request.minFilterId = 0;
     request.session = self.session;
     MMCGIWrap *cgiWrap = [[CBGetClass(MMCGIWrap) alloc] init];
-    cgiWrap.m_requestPb = request;
+    cgiWrap.m_requestPb = (PBGeneratedMessage *)request;
     cgiWrap.m_functionId = kMMCGIWrapTimeLineFunctionId;
     
     MMCGIService *cgiService = [[CBGetClass(MMServiceCenter) defaultCenter] getService:CBGetClass(MMCGIService)];
@@ -55,11 +55,11 @@
 
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(MMCGIWrap *)cgiWrap {
     NSLog(@"%d %d %@", arg1, arg2, cgiWrap);
-    SnsTimeLineRequest *request = (SnsTimeLineRequest *)cgiWrap.m_requestPb;
-    SnsTimeLineResponse *response = (SnsTimeLineResponse *)cgiWrap.m_responsePb;
+    MMSnsTimeLineRequest *request = (MMSnsTimeLineRequest *)cgiWrap.m_requestPb;
+    MMSnsTimeLineResponse *response = (MMSnsTimeLineResponse *)cgiWrap.m_responsePb;
     self.session = response.session;
     NSMutableArray *statuses = [NSMutableArray new];
-    for (SnsObject *snsObject in response.objectList) {
+    for (MMSnsObject *snsObject in response.objectList) {
         MMStatus *status = [MMStatus new];
         [status updateWithSnsObject:snsObject];
         [statuses addObject:status];

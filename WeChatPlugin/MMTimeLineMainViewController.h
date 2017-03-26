@@ -6,8 +6,6 @@
 //  Copyright © 2016年 CorbinChen. All rights reserved.
 //
 
-#import "WeChatPluginHeader.h"
-
 @interface MMTimeLineMainViewController : MMContactsViewController
 
 @end
