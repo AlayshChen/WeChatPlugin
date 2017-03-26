@@ -31,8 +31,7 @@
 @property (strong) IBOutlet NSLayoutConstraint *toTagTextFieldLayoutConstraint;
 @property (strong) IBOutlet NSLayoutConstraint *toContentTextFieldLayoutConstraint;
 
-- (void)updateMediaView:(MMStatusMediaView *)mediaView;
-- (void)updateViewWithStatus:(MMStatus *)status;
+- (void)updateViewWithStatus:(MMStatus *)status mediaView:(MMStatusMediaView *)mediaView;
 
 + (CGFloat)calculateHeightForStatus:(MMStatus *)status inTableView:(NSTableView *)tableView;
 

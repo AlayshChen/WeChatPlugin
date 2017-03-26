@@ -83,11 +83,11 @@
     MMStatusMediaView *mediaView;
     switch (status.mediaType) {
         case MMStatusMediaObjectTypeImage: {
-            mediaView = [tableView makeViewWithIdentifier:NSStringFromClass([MMStatusImageMediaView class]) owner:cell];
+            mediaView = [tableView makeViewWithIdentifier:NSStringFromClass([MMStatusImageMediaView class]) owner:tableView];
         }
             break;
         case MMStatusMediaObjectTypeLink: {
-            mediaView = [tableView makeViewWithIdentifier:NSStringFromClass([MMStatusLinkMediaView class]) owner:cell];
+            mediaView = [tableView makeViewWithIdentifier:NSStringFromClass([MMStatusLinkMediaView class]) owner:tableView];
         }
             break;
         default:
@@ -100,8 +100,7 @@
     MMStatus *status = [self.timeLineMgr getTimeLineStatusAtIndex:row];
     MMStatusCell *cell = [tableView makeViewWithIdentifier:NSStringFromClass([MMStatusCell class]) owner:tableView];
     MMStatusMediaView *mediaView = [self tableView:tableView mediaViewForCell:cell status:status];
-    [cell updateMediaView:mediaView];
-    [cell updateViewWithStatus:status];
+    [cell updateViewWithStatus:status mediaView:mediaView];
     cell.delegate = self;
     return cell;
 }

@@ -26,24 +26,7 @@
     self.profileImageView.layer.masksToBounds = true;
 }
 
-- (void)updateMediaView:(MMStatusMediaView *)mediaView {
-    [self.mediaRealView removeFromSuperview];
-    self.mediaRealView = nil;
-    self.mediaRealView = mediaView;
-    [self addSubview:mediaView];
-    self.mediaRealView.translatesAutoresizingMaskIntoConstraints = false;
-    if (self.mediaRealView) {
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.mediaRealView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.mediaView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0]];
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.mediaRealView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.mediaView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0]];
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.mediaRealView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.mediaView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0]];
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.mediaRealView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.mediaView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0.0]];
-    }
-}
-
-- (void)updateViewWithStatus:(MMStatus *)status {
-    if (_status == status) {
-        return;
-    }
+- (void)updateViewWithStatus:(MMStatus *)status mediaView:(MMStatusMediaView *)mediaView {
     _status = status;
     self.profileImageView.image = [WeChatService(MMAvatarService) defaultAvatarImage];
     MMAvatarService *service = [[CBGetClass(MMServiceCenter) defaultCenter] getService:CBGetClass(MMAvatarService)];
@@ -59,41 +42,64 @@
     self.likeCountTextField.integerValue = status.likeCount;
     self.commentCountTextField.integerValue = status.commentCount;
     
-    if ([status hasMediaObject]) {
-        switch (status.mediaType) {
-            case MMStatusMediaObjectTypeImage: {
-                MMStatusImageMediaObject *mediaObject = (MMStatusImageMediaObject *)status.mediaObject;
-                MMStatusImageMediaView *mediaView = (MMStatusImageMediaView *)self.mediaRealView;
-                for (NSImageView *imageView in mediaView.imageViews) {
-                    imageView.hidden = true;
-                }
-                for (NSInteger i = 0; i < mediaObject.imageURLStrings.count; i ++) {
-                    NSString *imageURLString = mediaObject.imageURLStrings[i];
-                    NSImageView *imageView = mediaView.imageViews[i];
-                    imageView.hidden = false;
-                    imageView.image = nil;
-                    MMAvatarService *service = [[CBGetClass(MMServiceCenter) defaultCenter] getService:CBGetClass(MMAvatarService)];
-                    [service getAvatarImageWithUrl:imageURLString completion:^(NSImage *image) {
-                        imageView.image = image;
-                    }];
-                }
-            }
-                break;
-            case MMStatusMediaObjectTypeLink: {
-                MMStatusLinkMediaObject *mediaObject = (MMStatusLinkMediaObject *)status.mediaObject;
-                MMStatusLinkMediaView *mediaView = (MMStatusLinkMediaView *)self.mediaRealView;
-                mediaView.iconImageView.image = nil;
-                MMAvatarService *service = [[CBGetClass(MMServiceCenter) defaultCenter] getService:CBGetClass(MMAvatarService)];
-                [service getAvatarImageWithUrl:mediaObject.imageURLString completion:^(NSImage *image) {
-                    mediaView.iconImageView.image = image;
-                }];
-                mediaView.titleTextField.stringValue = mediaObject.title;
-            }
-                break;
-            default:
-                break;
-        }
+    [self updateMediaView:mediaView];
+    [self updateMediaView];
+}
+
+- (void)updateMediaView:(MMStatusMediaView *)mediaView {
+    [self.mediaRealView removeFromSuperview];
+    self.mediaRealView = nil;
+    self.mediaRealView = mediaView;
+    [self addSubview:mediaView];
+    self.mediaRealView.translatesAutoresizingMaskIntoConstraints = false;
+    if (self.mediaRealView) {
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.mediaRealView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.mediaView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0]];
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.mediaRealView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.mediaView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0]];
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.mediaRealView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.mediaView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0]];
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.mediaRealView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.mediaView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0.0]];
     }
+}
+
+- (void)updateMediaView {
+    switch (self.status.mediaType) {
+        case MMStatusMediaObjectTypeImage:
+            [self updateImageMediaView];
+            break;
+        case MMStatusMediaObjectTypeLink:
+            [self updateLinkMediaView];
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)updateImageMediaView {
+    MMStatusImageMediaObject *mediaObject = (MMStatusImageMediaObject *)self.status.mediaObject;
+    MMStatusImageMediaView *mediaView = (MMStatusImageMediaView *)self.mediaRealView;
+    for (NSImageView *imageView in mediaView.imageViews) {
+        imageView.hidden = true;
+    }
+    for (NSInteger i = 0; i < mediaObject.imageURLStrings.count; i ++) {
+        NSString *imageURLString = mediaObject.imageURLStrings[i];
+        NSImageView *imageView = mediaView.imageViews[i];
+        imageView.hidden = false;
+        imageView.image = nil;
+        MMAvatarService *service = [[CBGetClass(MMServiceCenter) defaultCenter] getService:CBGetClass(MMAvatarService)];
+        [service getAvatarImageWithUrl:imageURLString completion:^(NSImage *image) {
+            imageView.image = image;
+        }];
+    }
+}
+
+- (void)updateLinkMediaView {
+    MMStatusLinkMediaObject *mediaObject = (MMStatusLinkMediaObject *)self.status.mediaObject;
+    MMStatusLinkMediaView *mediaView = (MMStatusLinkMediaView *)self.mediaRealView;
+    mediaView.iconImageView.image = nil;
+    MMAvatarService *service = [[CBGetClass(MMServiceCenter) defaultCenter] getService:CBGetClass(MMAvatarService)];
+    [service getAvatarImageWithUrl:mediaObject.imageURLString completion:^(NSImage *image) {
+        mediaView.iconImageView.image = image;
+    }];
+    mediaView.titleTextField.stringValue = mediaObject.title;
 }
 
 #pragma mark - Event
