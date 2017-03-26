@@ -16,8 +16,10 @@
 + (void)load {
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-    CBRegisterClass(PBGeneratedMessage, SnsObject);
-    class_setSuperclass([MMSnsObject class], CBGetClass(SnsObject));
+    if (CBGetClass(SnsObject) == nil) {
+        CBRegisterClass(PBGeneratedMessage, SnsObject);
+    }
+    class_setSuperclass(CBGetClass(MMSnsObject), CBGetClass(SnsObject));
 #pragma GCC diagnostic pop
 }
 
