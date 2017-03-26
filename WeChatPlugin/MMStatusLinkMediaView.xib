@@ -9,7 +9,7 @@
         <customObject id="-2" userLabel="File's Owner"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView identifier="statusLinkMediaView" id="c22-O7-iKe" customClass="MMStatusLinkMediaView">
+        <customView identifier="MMStatusLinkMediaView" id="c22-O7-iKe" customClass="MMStatusLinkMediaView">
             <rect key="frame" x="0.0" y="0.0" width="480" height="40"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>

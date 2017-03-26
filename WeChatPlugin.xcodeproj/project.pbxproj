@@ -63,6 +63,16 @@
 		80E5520E1E860B9600EB428F /* time_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E552041E860B9600EB428F /* time_icon@2x.png */; };
 		80E552101E860BDC00EB428F /* MMTimeLineMainViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E5520F1E860BDC00EB428F /* MMTimeLineMainViewController.h */; };
 		80E552121E860BDC00EB428F /* MMStatusCellDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E552111E860BDC00EB428F /* MMStatusCellDelegate.h */; };
+		80FB90AD1E87BC7100FAAC33 /* MMHomePageMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 80FB90AB1E87BC7100FAAC33 /* MMHomePageMgr.h */; };
+		80FB90AE1E87BC7100FAAC33 /* MMHomePageMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 80FB90AC1E87BC7100FAAC33 /* MMHomePageMgr.m */; };
+		80FB90B01E87BC8500FAAC33 /* MMHomePageMgrDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 80FB90AF1E87BC8500FAAC33 /* MMHomePageMgrDelegate.h */; };
+		80FB90B31E87BF4900FAAC33 /* MMSnsUserPageRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 80FB90B11E87BF4900FAAC33 /* MMSnsUserPageRequest.h */; };
+		80FB90B41E87BF4900FAAC33 /* MMSnsUserPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80FB90B21E87BF4900FAAC33 /* MMSnsUserPageRequest.m */; };
+		80FB90B71E87BF5400FAAC33 /* MMSnsUserPageResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 80FB90B51E87BF5400FAAC33 /* MMSnsUserPageResponse.h */; };
+		80FB90B81E87BF5400FAAC33 /* MMSnsUserPageResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 80FB90B61E87BF5400FAAC33 /* MMSnsUserPageResponse.m */; };
+		80FB90C21E87C4C800FAAC33 /* MMHomePageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 80FB90BF1E87C4C800FAAC33 /* MMHomePageViewController.h */; };
+		80FB90C31E87C4C800FAAC33 /* MMHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80FB90C01E87C4C800FAAC33 /* MMHomePageViewController.m */; };
+		80FB90C41E87C4C800FAAC33 /* MMHomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80FB90C11E87C4C800FAAC33 /* MMHomePageViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +148,16 @@
 		80E552041E860B9600EB428F /* time_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "time_icon@2x.png"; sourceTree = "<group>"; };
 		80E5520F1E860BDC00EB428F /* MMTimeLineMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTimeLineMainViewController.h; sourceTree = "<group>"; };
 		80E552111E860BDC00EB428F /* MMStatusCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMStatusCellDelegate.h; sourceTree = "<group>"; };
+		80FB90AB1E87BC7100FAAC33 /* MMHomePageMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHomePageMgr.h; sourceTree = "<group>"; };
+		80FB90AC1E87BC7100FAAC33 /* MMHomePageMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHomePageMgr.m; sourceTree = "<group>"; };
+		80FB90AF1E87BC8500FAAC33 /* MMHomePageMgrDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHomePageMgrDelegate.h; sourceTree = "<group>"; };
+		80FB90B11E87BF4900FAAC33 /* MMSnsUserPageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSnsUserPageRequest.h; sourceTree = "<group>"; };
+		80FB90B21E87BF4900FAAC33 /* MMSnsUserPageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSnsUserPageRequest.m; sourceTree = "<group>"; };
+		80FB90B51E87BF5400FAAC33 /* MMSnsUserPageResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSnsUserPageResponse.h; sourceTree = "<group>"; };
+		80FB90B61E87BF5400FAAC33 /* MMSnsUserPageResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSnsUserPageResponse.m; sourceTree = "<group>"; };
+		80FB90BF1E87C4C800FAAC33 /* MMHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHomePageViewController.h; sourceTree = "<group>"; };
+		80FB90C01E87C4C800FAAC33 /* MMHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHomePageViewController.m; sourceTree = "<group>"; };
+		80FB90C11E87C4C800FAAC33 /* MMHomePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMHomePageViewController.xib; sourceTree = "<group>"; };
 		F5761F84B0D824761E85E37B /* Pods-WeChatPlugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChatPlugin.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeChatPlugin/Pods-WeChatPlugin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,6 +219,7 @@
 				80E551EC1E85613300EB428F /* Category */,
 				80E551931E853F9000EB428F /* Status */,
 				80E551DC1E8559B400EB428F /* TimeLine */,
+				80FB90A11E87BBFC00FAAC33 /* HomePage */,
 				803DAFC61E853D3F00ADCC86 /* Supporting Files */,
 			);
 			path = WeChatPlugin;
@@ -224,6 +245,10 @@
 				80520E641E8712CE001F9164 /* MMSnsTimeLineRequest.m */,
 				80520E6B1E871682001F9164 /* MMSnsTimeLineResponse.h */,
 				80520E6C1E871682001F9164 /* MMSnsTimeLineResponse.m */,
+				80FB90B11E87BF4900FAAC33 /* MMSnsUserPageRequest.h */,
+				80FB90B21E87BF4900FAAC33 /* MMSnsUserPageRequest.m */,
+				80FB90B51E87BF5400FAAC33 /* MMSnsUserPageResponse.h */,
+				80FB90B61E87BF5400FAAC33 /* MMSnsUserPageResponse.m */,
 			);
 			name = WeChatModel;
 			sourceTree = "<group>";
@@ -348,6 +373,43 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		80FB90A11E87BBFC00FAAC33 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				80FB90A41E87BC2000FAAC33 /* Mgr */,
+				80FB90A31E87BC1B00FAAC33 /* View */,
+				80FB90A21E87BC0A00FAAC33 /* View Controller */,
+			);
+			name = HomePage;
+			sourceTree = "<group>";
+		};
+		80FB90A21E87BC0A00FAAC33 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				80FB90BF1E87C4C800FAAC33 /* MMHomePageViewController.h */,
+				80FB90C01E87C4C800FAAC33 /* MMHomePageViewController.m */,
+				80FB90C11E87C4C800FAAC33 /* MMHomePageViewController.xib */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		80FB90A31E87BC1B00FAAC33 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		80FB90A41E87BC2000FAAC33 /* Mgr */ = {
+			isa = PBXGroup;
+			children = (
+				80FB90AB1E87BC7100FAAC33 /* MMHomePageMgr.h */,
+				80FB90AC1E87BC7100FAAC33 /* MMHomePageMgr.m */,
+				80FB90AF1E87BC8500FAAC33 /* MMHomePageMgrDelegate.h */,
+			);
+			name = Mgr;
+			sourceTree = "<group>";
+		};
 		E62DC0C502233BEBF5070F89 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,9 +430,13 @@
 				80E551F81E85621400EB428F /* XMLReader.h in Headers */,
 				80E551E01E8559E700EB428F /* MMTimeLineViewController.h in Headers */,
 				803DAFCE1E853D3F00ADCC86 /* WeChatPluginHeader.h in Headers */,
+				80FB90B31E87BF4900FAAC33 /* MMSnsUserPageRequest.h in Headers */,
 				80E551B81E853FA100EB428F /* MMStatusMediaView.h in Headers */,
 				80E551EF1E85616200EB428F /* NSDate+StatusTimeDescription.h in Headers */,
+				80FB90C21E87C4C800FAAC33 /* MMHomePageViewController.h in Headers */,
+				80FB90B01E87BC8500FAAC33 /* MMHomePageMgrDelegate.h in Headers */,
 				80E551B11E853FA100EB428F /* MMStatusLinkMediaObject.h in Headers */,
+				80FB90B71E87BF5400FAAC33 /* MMSnsUserPageResponse.h in Headers */,
 				80E551A91E853FA100EB428F /* MMStatusCell.h in Headers */,
 				80520E6D1E871682001F9164 /* MMSnsTimeLineResponse.h in Headers */,
 				80E551AE1E853FA100EB428F /* MMStatusImageMediaView.h in Headers */,
@@ -381,6 +447,7 @@
 				80520E751E871A8E001F9164 /* MMSnsObject.h in Headers */,
 				80E551EB1E855A9900EB428F /* MMTimeLineMgrDelegate.h in Headers */,
 				80E551AC1E853FA100EB428F /* MMStatusImageMediaObject.h in Headers */,
+				80FB90AD1E87BC7100FAAC33 /* MMHomePageMgr.h in Headers */,
 				80E551B61E853FA100EB428F /* MMStatusMediaObject.h in Headers */,
 				80E552121E860BDC00EB428F /* MMStatusCellDelegate.h in Headers */,
 				80E551E81E855A4F00EB428F /* MMTimeLineMgr.h in Headers */,
@@ -484,6 +551,7 @@
 				80E5520C1E860B9600EB428F /* Tabbar-TimeLine-Selected@2x.png in Resources */,
 				80E552091E860B9600EB428F /* link_icon@2x.png in Resources */,
 				80E552071E860B9600EB428F /* like_icon_highlighted@2x.png in Resources */,
+				80FB90C41E87C4C800FAAC33 /* MMHomePageViewController.xib in Resources */,
 				80E5520A1E860B9600EB428F /* Tabbar-TimeLine-HI@2x.png in Resources */,
 				80E551B51E853FA100EB428F /* MMStatusLinkMediaView.xib in Resources */,
 				80E5520D1E860B9600EB428F /* Tabbar-TimeLine@2x.png in Resources */,
@@ -549,15 +617,19 @@
 				80E551AD1E853FA100EB428F /* MMStatusImageMediaObject.m in Sources */,
 				80E551E91E855A4F00EB428F /* MMTimeLineMgr.m in Sources */,
 				80E551AA1E853FA100EB428F /* MMStatusCell.m in Sources */,
+				80FB90B41E87BF4900FAAC33 /* MMSnsUserPageRequest.m in Sources */,
 				80E551F01E85616200EB428F /* NSDate+StatusTimeDescription.m in Sources */,
+				80FB90B81E87BF5400FAAC33 /* MMSnsUserPageResponse.m in Sources */,
 				80E551B21E853FA100EB428F /* MMStatusLinkMediaObject.m in Sources */,
 				80E551F91E85621400EB428F /* XMLReader.m in Sources */,
+				80FB90AE1E87BC7100FAAC33 /* MMHomePageMgr.m in Sources */,
 				80E551B41E853FA100EB428F /* MMStatusLinkMediaView.m in Sources */,
 				80E551F51E85620C00EB428F /* NSString+XMLDictionary.m in Sources */,
 				80520E761E871A8E001F9164 /* MMSnsObject.m in Sources */,
 				80520E661E8712CE001F9164 /* MMSnsTimeLineRequest.m in Sources */,
 				80E551B91E853FA100EB428F /* MMStatusMediaView.m in Sources */,
 				80520E7A1E871B76001F9164 /* PBUtility.m in Sources */,
+				80FB90C31E87C4C800FAAC33 /* MMHomePageViewController.m in Sources */,
 				80E551B71E853FA100EB428F /* MMStatusMediaObject.m in Sources */,
 				80E551AF1E853FA100EB428F /* MMStatusImageMediaView.m in Sources */,
 				80E551A81E853FA100EB428F /* MMStatus.m in Sources */,

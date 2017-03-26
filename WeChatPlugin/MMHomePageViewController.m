@@ -1,29 +1,30 @@
 //
-//  MMTimeLineViewController.m
+//  MMHomePageViewController.m
 //  WeChatPlugin
 //
-//  Created by CorbinChen on 2017/3/24.
+//  Created by CorbinChen on 2017/3/26.
 //  Copyright © 2017年 CorbinChen. All rights reserved.
 //
 
-#import "MMTimeLineViewController.h"
-#import "MMTimeLineMgr.h"
+#import "MMHomePageViewController.h"
+#import "MMHomePageMgr.h"
 #import "MMStatusCell.h"
 #import "MMStatusImageMediaView.h"
 #import "MMStatusLinkMediaView.h"
 
-@interface MMTimeLineViewController () <NSTableViewDataSource, NSTableViewDelegate, MMStatusCellDelegate, MMTimeLineMgrDelegate>
+@interface MMHomePageViewController () <NSTableViewDataSource, NSTableViewDelegate, MMStatusCellDelegate, MMHomePageMgrDelegate>
 
-@property (nonatomic, strong) MMTimeLineMgr *timeLineMgr;
+@property (nonatomic, strong) MMHomePageMgr *homePageMgr;
 
 @end
 
-@implementation MMTimeLineViewController
+@implementation MMHomePageViewController
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    _timeLineMgr = [MMTimeLineMgr new];
-    _timeLineMgr.delegate = self;
+    _homePageMgr = [MMHomePageMgr new];
+    _homePageMgr.usrname = self.usrname;
+    _homePageMgr.delegate = self;
 }
 
 - (void)viewDidLoad {
@@ -41,7 +42,7 @@
 
 - (void)viewWillAppear {
     [super viewWillAppear];
-    [self.timeLineMgr updateTimeLineHead];
+    [self.homePageMgr updateHomePageHead];
 }
 
 #pragma mark -
@@ -59,13 +60,13 @@
 #pragma mark -
 
 - (void)onTableViewScrollToBottom {
-    [self.timeLineMgr updateTimeLineTail];
+    [self.homePageMgr updateHomePageTail];
 }
 
 #pragma mark - NSTableViewDataSource
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    return [self.timeLineMgr getTimeLineStatusCount];
+    return [self.homePageMgr getHomePageStatusCount];
 }
 
 #pragma mark - NSTableViewDelegate
@@ -88,7 +89,7 @@
 }
 
 - (nullable NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row {
-    MMStatus *status = [self.timeLineMgr getTimeLineStatusAtIndex:row];
+    MMStatus *status = [self.homePageMgr getHomePageStatusAtIndex:row];
     MMStatusCell *cell = [tableView makeViewWithIdentifier:NSStringFromClass([MMStatusCell class]) owner:tableView];
     MMStatusMediaView *mediaView = [self tableView:tableView mediaViewForCell:cell status:status];
     [cell updateMediaView:mediaView];
@@ -98,7 +99,7 @@
 }
 
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row {
-    MMStatus *status = [self.timeLineMgr getTimeLineStatusAtIndex:row];
+    MMStatus *status = [self.homePageMgr getHomePageStatusAtIndex:row];
     return [MMStatusCell calculateHeightForStatus:status inTableView:tableView];
 }
 
@@ -108,9 +109,9 @@
     [[CBGetClass(MMURLHandler) defaultHandler] handleURL:url];
 }
 
-#pragma mark - MMTimeLineMgrDelegate
+#pragma mark - MMHomePageMgrDelegate
 
-- (void)onTimeLineStatusChange {
+- (void)onHomePageStatusChange {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
     });
