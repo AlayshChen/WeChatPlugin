@@ -12,11 +12,11 @@ Plugin For Mac WeChat.
 * 执行`Pod install`, 将WeChat.app放置在工程目录下
 
 ## 功能
-* 浏览朋友圈
 * 自动登录
+* 浏览主页
+* 浏览朋友圈
 
 ![](http://alayshchen.github.io/images/201703260.png)
 
 ## 待实现
-* 浏览主页
 * 查看动态详情
