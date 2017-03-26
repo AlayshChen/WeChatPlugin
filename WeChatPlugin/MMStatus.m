@@ -14,6 +14,7 @@
 
 - (void)updateWithSnsObject:(MMSnsObject *)snsObject {
     _statusId = snsObject.id;
+    _username = snsObject.username;
     WCContactData *contact = [[[CBGetClass(MMServiceCenter) defaultCenter] getService:CBGetClass(ContactStorage)] GetContact:snsObject.username];
     _profileImageURLString = contact.m_nsHeadImgUrl;
     _nameString = contact.m_nsRemark.length ? contact.m_nsRemark : contact.m_nsNickName;

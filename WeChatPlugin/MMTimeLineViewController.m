@@ -7,6 +7,9 @@
 //
 
 #import "MMTimeLineViewController.h"
+#import <BFNavigationController.h>
+#import <NSViewController+BFNavigationController.h>
+#import "MMHomePageViewController.h"
 #import "MMTimeLineMgr.h"
 #import "MMStatusCell.h"
 #import "MMStatusImageMediaView.h"
@@ -42,6 +45,12 @@
 - (void)viewWillAppear {
     [super viewWillAppear];
     [self.timeLineMgr updateTimeLineHead];
+}
+
+#pragma mark - Title 
+
+- (NSString *)title {
+    return @"朋友圈";
 }
 
 #pragma mark -
@@ -103,6 +112,12 @@
 }
 
 #pragma mark - MMStatusCellDelegate
+
+- (void)cell:(MMStatusCell *)cell didClickUser:(NSString *)usrname {
+    MMHomePageViewController *vc = [[CBGetClass(MMHomePageViewController) alloc] initWithNibName:@"MMHomePageViewController" bundle:[NSBundle pluginBundle]];
+    vc.contact = [[[CBGetClass(MMServiceCenter) defaultCenter] getService:CBGetClass(ContactStorage)] GetContact:usrname];;
+    [self.navigationController pushViewController:vc animated:true];
+}
 
 - (void)cell:(MMStatusCell *)cell didClickMediaLink:(NSString *)url {
     [[CBGetClass(MMURLHandler) defaultHandler] handleURL:url];

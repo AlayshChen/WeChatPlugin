@@ -101,6 +101,13 @@
 - (void)mouseUp:(NSEvent *)event {
     CGPoint point = [self convertPoint:[event locationInWindow] fromView:nil];
     
+    if ([self mouse:point inRect:self.profileImageView.frame] || [self mouse:point inRect:self.nameTextField.frame]) {
+        if ([self.delegate respondsToSelector:@selector(cell:didClickUser:)]) {
+            [self.delegate cell:self didClickUser:self.status.username];
+            return;
+        }
+    }
+    
     if ([self.status hasMediaObject]) {
         switch (self.status.mediaType) {
             case MMStatusMediaObjectTypeLink: {
@@ -129,20 +136,19 @@
         NSRect rect = [status.contentAttributedString boundingRectWithSize:NSMakeSize(tableView.frame.size.width - 80, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
         height += rect.size.height; 
     }
-    if ([status hasMediaObject]) {
-        switch (status.mediaType) {
-            case MMStatusMediaObjectTypeImage: {
-                CGFloat imageSize = (tableView.frame.size.width - 80) / 3.0;
-                MMStatusImageMediaObject *mediaObject = (MMStatusImageMediaObject *)status.mediaObject;
-                NSInteger rowCount = (mediaObject.imageURLStrings.count - 1) / 3 + 1;
-                height += (NSInteger)(rowCount * imageSize);
-            }
-                break;
-            case MMStatusMediaObjectTypeLink:
-                height += 40;
-            default:
-                break;
+    
+    switch (status.mediaType) {
+        case MMStatusMediaObjectTypeImage: {
+            CGFloat imageSize = (tableView.frame.size.width - 80) / 3.0;
+            MMStatusImageMediaObject *mediaObject = (MMStatusImageMediaObject *)status.mediaObject;
+            NSInteger rowCount = (mediaObject.imageURLStrings.count - 1) / 3 + 1;
+            height += (NSInteger)(rowCount * imageSize);
         }
+            break;
+        case MMStatusMediaObjectTypeLink:
+            height += 40;
+        default:
+            break;
     }
     height += 30;
     return height;

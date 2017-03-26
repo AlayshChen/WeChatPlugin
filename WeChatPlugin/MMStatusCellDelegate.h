@@ -13,6 +13,7 @@
 @protocol MMStatusCellDelegate <NSObject>
 
 @optional
+- (void)cell:(MMStatusCell *)cell didClickUser:(NSString *)usrname;
 - (void)cell:(MMStatusCell *)cell didClickMediaLink:(NSString *)url;
 
 @end

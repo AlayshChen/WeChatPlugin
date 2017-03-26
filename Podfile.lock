@@ -1,12 +1,15 @@
 PODS:
+  - BFNavigationController (1.1.1)
   - JRSwizzle (1.0)
 
 DEPENDENCIES:
+  - BFNavigationController
   - JRSwizzle (~> 1.0)
 
 SPEC CHECKSUMS:
+  BFNavigationController: 79d37f6ace50700687ea0caa820a37cab281a706
   JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
 
-PODFILE CHECKSUM: 168716051d16958b16f39bdf55506306a6364eda
+PODFILE CHECKSUM: d868c4c15936ef80aa1a9f48b6cde176e1b118ea
 
 COCOAPODS: 1.2.0

@@ -8,6 +8,7 @@
 
 #import "WeChatPlugin.h"
 #import "MMTimeLineMainViewController.h"
+#import "MMNavigationController.h"
 #import "MMTimeLineViewController.h"
 
 #pragma mark - Plugin
@@ -49,7 +50,7 @@
         res->_field2 = 0;
         res->_field3 = 0;
         res->_field4 = "mmsnsuserpage";
-        res->_field5 = CBGetClass(SnsUserPageResponse);
+        res->_field5 = CBGetClass(MMSnsUserPageResponse);
         res->_field6 = 1;
         res->_field7 = 2;
         res->_field8 = 0;
@@ -83,9 +84,11 @@
 - (void)cb_setViewControllers:(NSArray *)vcs {
     MMTimeLineMainViewController *timeLineMainVC = [[CBGetClass(MMTimeLineMainViewController) alloc] initWithNibName:@"MMContactsViewController" bundle:[NSBundle mainBundle]];
     [timeLineMainVC setTitle:[[NSBundle mainBundle] localizedStringForKey:@"Tabbar.Chats" value:@"" table:0x0]];
-    MMTimeLineViewController *timeLineVC = [[CBGetClass(MMTimeLineViewController) alloc] initWithNibName:@"MMTimeLineViewController" bundle:[NSBundle pluginBundle]];
-    timeLineMainVC.detailViewController = (id)timeLineVC;
     
+    MMTimeLineViewController *timeLineVC = [[CBGetClass(MMTimeLineViewController) alloc] initWithNibName:@"MMTimeLineViewController" bundle:[NSBundle pluginBundle]];
+    MMNavigationController *navVC = [[MMNavigationController alloc] initWithFrame:timeLineVC.view.bounds rootViewController:timeLineVC];
+    timeLineMainVC.detailViewController = (id)navVC;
+
     MMTabbarItem *tabBarItem = [[CBGetClass(MMTabbarItem) alloc] initWithTitle:nil onStateImage:[[NSBundle pluginBundle] imageForResource:@"Tabbar-TimeLine-Selected"] onStateAlternateImage:[[NSBundle pluginBundle] imageForResource:@"Tabbar-TimeLine-Selected-HI"] offStateImage:[[NSBundle pluginBundle] imageForResource:@"Tabbar-TimeLine"] offStateAlternateImage:[[NSBundle pluginBundle] imageForResource:@"Tabbar-TimeLine-HI"]];
     [timeLineMainVC setTabbarItem:tabBarItem];
     

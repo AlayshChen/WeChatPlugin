@@ -11,6 +11,6 @@
 @interface MMHomePageViewController : NSViewController
 
 @property (weak) IBOutlet NSTableView *tableView;
-@property (nonatomic, strong) NSString *usrname;
+@property (nonatomic, strong) WCContactData *contact;
 
 @end

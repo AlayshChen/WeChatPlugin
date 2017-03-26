@@ -113,30 +113,30 @@ __attribute__((visibility("hidden")))
 
 @end
 
-@interface MMNavigationController : MMViewController
-{
-    MMViewController *_rootViewController;
-    MMViewController *_topViewController;
-    NSMutableArray *_viewControllerStack;
-}
-
-@property(retain, nonatomic) NSMutableArray *viewControllerStack; // @synthesize viewControllerStack=_viewControllerStack;
-@property(readonly, nonatomic) __weak MMViewController *topViewController; // @synthesize topViewController=_topViewController;
-@property(readonly, nonatomic) __weak MMViewController *rootViewController; // @synthesize rootViewController=_rootViewController;
-//- (void).cxx_destruct;	// IMP=0x000000010015a56f
-- (id)lastViewController;	// IMP=0x000000010015a42c
-- (void)removeLastViewController;	// IMP=0x000000010015a244
-//- (void)popViewControllerAnimated:(BOOL)arg1 completion:(CDUnknownBlockType)arg2;	// IMP=0x00000001001592ce
-- (void)popViewControllerAnimated:(BOOL)arg1;	// IMP=0x00000001001592ba
-//- (void)popToRootViewControllerWithCompletion:(CDUnknownBlockType)arg1;	// IMP=0x000000010015922c
-//- (void)pushViewController:(id)arg1 animated:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;	// IMP=0x00000001001582d3
-- (void)pushViewController:(id)arg1 animated:(BOOL)arg2;	// IMP=0x00000001001582be
-- (id)tabbarItem;	// IMP=0x000000010015826e
-- (void)setTabbarItem:(id)arg1;	// IMP=0x00000001001581fc
-@property(retain, nonatomic) NSArray *viewControllers;
-- (id)initWithRootViewController:(id)arg1;	// IMP=0x0000000100157c3b
-
-@end
+//@interface MMNavigationController : MMViewController
+//{
+//    MMViewController *_rootViewController;
+//    MMViewController *_topViewController;
+//    NSMutableArray *_viewControllerStack;
+//}
+//
+//@property(retain, nonatomic) NSMutableArray *viewControllerStack; // @synthesize viewControllerStack=_viewControllerStack;
+//@property(readonly, nonatomic) __weak MMViewController *topViewController; // @synthesize topViewController=_topViewController;
+//@property(readonly, nonatomic) __weak MMViewController *rootViewController; // @synthesize rootViewController=_rootViewController;
+////- (void).cxx_destruct;	// IMP=0x000000010015a56f
+//- (id)lastViewController;	// IMP=0x000000010015a42c
+//- (void)removeLastViewController;	// IMP=0x000000010015a244
+////- (void)popViewControllerAnimated:(BOOL)arg1 completion:(CDUnknownBlockType)arg2;	// IMP=0x00000001001592ce
+//- (void)popViewControllerAnimated:(BOOL)arg1;	// IMP=0x00000001001592ba
+////- (void)popToRootViewControllerWithCompletion:(CDUnknownBlockType)arg1;	// IMP=0x000000010015922c
+////- (void)pushViewController:(id)arg1 animated:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;	// IMP=0x00000001001582d3
+//- (void)pushViewController:(id)arg1 animated:(BOOL)arg2;	// IMP=0x00000001001582be
+//- (id)tabbarItem;	// IMP=0x000000010015826e
+//- (void)setTabbarItem:(id)arg1;	// IMP=0x00000001001581fc
+//@property(retain, nonatomic) NSArray *viewControllers;
+//- (id)initWithRootViewController:(id)arg1;	// IMP=0x0000000100157c3b
+//
+//@end
 
 @interface MMTabbarController : MMViewController
 

@@ -20,6 +20,10 @@
 		80520E761E871A8E001F9164 /* MMSnsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 80520E741E871A8E001F9164 /* MMSnsObject.m */; };
 		80520E7A1E871B76001F9164 /* PBUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 80520E781E871B76001F9164 /* PBUtility.m */; };
 		80520E7B1E871B76001F9164 /* PBUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 80520E791E871B76001F9164 /* PBUtility.h */; };
+		808FB51C1E87E2E700E35AFA /* MMNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 808FB51A1E87E2E700E35AFA /* MMNavigationController.h */; };
+		808FB51D1E87E2E700E35AFA /* MMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 808FB51B1E87E2E700E35AFA /* MMNavigationController.m */; };
+		808FB5201E87E2F600E35AFA /* MMNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 808FB51E1E87E2F600E35AFA /* MMNavigationBar.h */; };
+		808FB5211E87E2F600E35AFA /* MMNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 808FB51F1E87E2F600E35AFA /* MMNavigationBar.m */; };
 		80E551A71E853FA100EB428F /* MMStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E551941E853FA100EB428F /* MMStatus.h */; };
 		80E551A81E853FA100EB428F /* MMStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E551951E853FA100EB428F /* MMStatus.m */; };
 		80E551A91E853FA100EB428F /* MMStatusCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E551961E853FA100EB428F /* MMStatusCell.h */; };
@@ -105,6 +109,10 @@
 		80520E741E871A8E001F9164 /* MMSnsObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSnsObject.m; sourceTree = "<group>"; };
 		80520E781E871B76001F9164 /* PBUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBUtility.m; sourceTree = "<group>"; };
 		80520E791E871B76001F9164 /* PBUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBUtility.h; sourceTree = "<group>"; };
+		808FB51A1E87E2E700E35AFA /* MMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMNavigationController.h; sourceTree = "<group>"; };
+		808FB51B1E87E2E700E35AFA /* MMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNavigationController.m; sourceTree = "<group>"; };
+		808FB51E1E87E2F600E35AFA /* MMNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMNavigationBar.h; sourceTree = "<group>"; };
+		808FB51F1E87E2F600E35AFA /* MMNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNavigationBar.m; sourceTree = "<group>"; };
 		80E551941E853FA100EB428F /* MMStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMStatus.h; sourceTree = "<group>"; };
 		80E551951E853FA100EB428F /* MMStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMStatus.m; sourceTree = "<group>"; };
 		80E551961E853FA100EB428F /* MMStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMStatusCell.h; sourceTree = "<group>"; };
@@ -217,6 +225,7 @@
 				80520E771E871B3E001F9164 /* WeChatModel */,
 				80E551F11E8561F600EB428F /* Utility */,
 				80E551EC1E85613300EB428F /* Category */,
+				808FB5191E87E2CB00E35AFA /* Navigation */,
 				80E551931E853F9000EB428F /* Status */,
 				80E551DC1E8559B400EB428F /* TimeLine */,
 				80FB90A11E87BBFC00FAAC33 /* HomePage */,
@@ -251,6 +260,17 @@
 				80FB90B61E87BF5400FAAC33 /* MMSnsUserPageResponse.m */,
 			);
 			name = WeChatModel;
+			sourceTree = "<group>";
+		};
+		808FB5191E87E2CB00E35AFA /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				808FB51A1E87E2E700E35AFA /* MMNavigationController.h */,
+				808FB51B1E87E2E700E35AFA /* MMNavigationController.m */,
+				808FB51E1E87E2F600E35AFA /* MMNavigationBar.h */,
+				808FB51F1E87E2F600E35AFA /* MMNavigationBar.m */,
+			);
+			name = Navigation;
 			sourceTree = "<group>";
 		};
 		80E551931E853F9000EB428F /* Status */ = {
@@ -446,8 +466,10 @@
 				80E551A71E853FA100EB428F /* MMStatus.h in Headers */,
 				80520E751E871A8E001F9164 /* MMSnsObject.h in Headers */,
 				80E551EB1E855A9900EB428F /* MMTimeLineMgrDelegate.h in Headers */,
+				808FB5201E87E2F600E35AFA /* MMNavigationBar.h in Headers */,
 				80E551AC1E853FA100EB428F /* MMStatusImageMediaObject.h in Headers */,
 				80FB90AD1E87BC7100FAAC33 /* MMHomePageMgr.h in Headers */,
+				808FB51C1E87E2E700E35AFA /* MMNavigationController.h in Headers */,
 				80E551B61E853FA100EB428F /* MMStatusMediaObject.h in Headers */,
 				80E552121E860BDC00EB428F /* MMStatusCellDelegate.h in Headers */,
 				80E551E81E855A4F00EB428F /* MMTimeLineMgr.h in Headers */,
@@ -624,10 +646,12 @@
 				80E551F91E85621400EB428F /* XMLReader.m in Sources */,
 				80FB90AE1E87BC7100FAAC33 /* MMHomePageMgr.m in Sources */,
 				80E551B41E853FA100EB428F /* MMStatusLinkMediaView.m in Sources */,
+				808FB5211E87E2F600E35AFA /* MMNavigationBar.m in Sources */,
 				80E551F51E85620C00EB428F /* NSString+XMLDictionary.m in Sources */,
 				80520E761E871A8E001F9164 /* MMSnsObject.m in Sources */,
 				80520E661E8712CE001F9164 /* MMSnsTimeLineRequest.m in Sources */,
 				80E551B91E853FA100EB428F /* MMStatusMediaView.m in Sources */,
+				808FB51D1E87E2E700E35AFA /* MMNavigationController.m in Sources */,
 				80520E7A1E871B76001F9164 /* PBUtility.m in Sources */,
 				80FB90C31E87C4C800FAAC33 /* MMHomePageViewController.m in Sources */,
 				80E551B71E853FA100EB428F /* MMStatusMediaObject.m in Sources */,

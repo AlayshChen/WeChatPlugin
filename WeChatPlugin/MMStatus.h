@@ -19,6 +19,7 @@ typedef NS_ENUM(NSUInteger, MMStatusMediaObjectType) {
 @interface MMStatus : NSObject
 
 @property (nonatomic, assign) NSUInteger statusId;
+@property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *profileImageURLString;
 @property (nonatomic, strong) NSString *nameString;
 @property (nonatomic, strong) NSString *timeString;

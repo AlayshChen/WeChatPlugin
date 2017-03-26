@@ -23,7 +23,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     _homePageMgr = [MMHomePageMgr new];
-    _homePageMgr.usrname = self.usrname;
+    _homePageMgr.usrname = self.contact.m_nsUsrName;
     _homePageMgr.delegate = self;
 }
 
@@ -43,6 +43,12 @@
 - (void)viewWillAppear {
     [super viewWillAppear];
     [self.homePageMgr updateHomePageHead];
+}
+
+#pragma mark - Title
+
+- (NSString *)title {
+    return self.contact.m_nsRemark.length ? self.contact.m_nsRemark : self.contact.m_nsNickName;
 }
 
 #pragma mark -
