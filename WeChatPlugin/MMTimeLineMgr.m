@@ -64,22 +64,21 @@
         [status updateWithSnsObject:snsObject];
         [statuses addObject:status];
     }
-    dispatch_async(dispatch_get_main_queue(), ^{
-        BOOL isRefresh = request.maxId == 0;
-        if (isRefresh) {
-            self.firstPageMd5 = response.firstPageMd5;
-            if (statuses.count) {
-                self.statuses = statuses;
-            }
+    
+    BOOL isRefresh = request.maxId == 0;
+    if (isRefresh) {
+        self.firstPageMd5 = response.firstPageMd5;
+        if (statuses.count) {
+            self.statuses = statuses;
         }
-        else {
-            [self.statuses addObjectsFromArray:statuses];
-        }
-        self.requesting = false;
-        if (self.delegate && [self.delegate respondsToSelector:@selector(onTimeLineStatusChange)]) {
-            [self.delegate onTimeLineStatusChange];
-        }
-    });
+    }
+    else {
+        [self.statuses addObjectsFromArray:statuses];
+    }
+    self.requesting = false;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(onTimeLineStatusChange)]) {
+        [self.delegate onTimeLineStatusChange];
+    }
 }
 
 #pragma mark - 

@@ -20,6 +20,10 @@
 @property (weak) IBOutlet NSTextField *contentTextField;
 @property (weak) IBOutlet MMStatusMediaView *mediaView;
 @property (weak) MMStatusMediaView *mediaRealView;
+@property (weak) IBOutlet NSButton *likeButton;
+@property (weak) IBOutlet NSTextField *likeCountTextField;
+@property (weak) IBOutlet NSButton *commentButton;
+@property (weak) IBOutlet NSTextField *commentCountTextField;
 
 @property (nonatomic, strong, readonly) MMStatus *status;
 @property (nonatomic, weak) id<MMStatusCellDelegate> delegate;

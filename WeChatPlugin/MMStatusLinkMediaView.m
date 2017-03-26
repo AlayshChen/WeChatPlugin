@@ -14,6 +14,10 @@
     [super awakeFromNib];
     self.wantsLayer = true;
     self.layer.backgroundColor = [NSColor colorWithWhite:0.9 alpha:1.0].CGColor;
+    self.acceptsTouchEvents = true;
+    self.iconImageView.acceptsTouchEvents = false;
+    self.titleTextField.acceptsTouchEvents = false;
+    
     self.iconImageView.wantsLayer = true;
     self.iconImageView.layer.backgroundColor = [NSColor colorWithWhite:0.9 alpha:1.0].CGColor;
 }

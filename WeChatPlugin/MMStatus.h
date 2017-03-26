@@ -26,6 +26,9 @@ typedef NS_ENUM(NSUInteger, MMStatusMediaObjectType) {
 @property (nonatomic, strong) NSAttributedString *contentAttributedString;
 @property (nonatomic, assign) MMStatusMediaObjectType mediaType;
 @property (nonatomic, strong) MMStatusMediaObject *mediaObject;
+@property (nonatomic, assign) NSUInteger likeCount;
+@property (nonatomic, assign) NSUInteger commentCount;
+@property (nonatomic, assign) BOOL isLiked;
 
 - (void)updateWithSnsObject:(MMSnsObject *)snsObject;
 

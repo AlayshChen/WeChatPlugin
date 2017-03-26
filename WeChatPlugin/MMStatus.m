@@ -77,6 +77,9 @@
         mediaObject.imageURLString = media[@"thumb"];
         self.mediaObject = mediaObject;
     }
+    self.isLiked = snsObject.likeFlag;
+    self.likeCount = snsObject.likeCount;
+    self.commentCount = snsObject.commentCount;
 }
 
 - (BOOL)hasSource {

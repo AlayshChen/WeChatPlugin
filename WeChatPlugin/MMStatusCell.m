@@ -55,6 +55,9 @@
     self.toContentTextFieldLayoutConstraint.active = [status hasContent];
     self.toTagTextFieldLayoutConstraint.active = ![status hasContent];
     self.contentTextField.attributedStringValue = status.contentAttributedString;
+    self.likeButton.state = status.isLiked ? NSOnState : NSOffState;
+    self.likeCountTextField.integerValue = status.likeCount;
+    self.commentCountTextField.integerValue = status.commentCount;
     
     if ([status hasMediaObject]) {
         switch (status.mediaType) {
@@ -102,10 +105,8 @@
         switch (self.status.mediaType) {
             case MMStatusMediaObjectTypeLink: {
                 BOOL isClickLinkView = [self mouse:point inRect:self.mediaRealView.frame];
-                if (isClickLinkView) {
-                    if ([self.delegate respondsToSelector:@selector(cell:didClickMediaLink:)]) {
-                        [self.delegate cell:self didClickMediaLink:[(MMStatusLinkMediaObject *)self.status.mediaObject linkURLString]];
-                    }
+                if (isClickLinkView && [self.delegate respondsToSelector:@selector(cell:didClickMediaLink:)]) {
+                    [self.delegate cell:self didClickMediaLink:[(MMStatusLinkMediaObject *)self.status.mediaObject linkURLString]];
                 }
             }
                 break;
@@ -143,7 +144,7 @@
                 break;
         }
     }
-    height += 10;
+    height += 30;
     return height;
 }
 
