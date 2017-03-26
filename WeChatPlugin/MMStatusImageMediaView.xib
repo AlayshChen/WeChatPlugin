@@ -14,48 +14,48 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b6R-eN-Tkj" customClass="MMAvatarImageView">
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b6R-eN-Tkj">
                     <rect key="frame" x="0.0" y="320" width="160" height="160"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="b6R-eN-Tkj" secondAttribute="height" multiplier="1:1" id="ap6-3L-Sxc"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="VQH-Qw-CVA"/>
                 </imageView>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="45c-Jt-rmc" customClass="MMAvatarImageView">
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="45c-Jt-rmc">
                     <rect key="frame" x="160" y="320" width="160" height="160"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="W9v-zo-eNz"/>
                 </imageView>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jDk-bn-Hpb" customClass="MMAvatarImageView">
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jDk-bn-Hpb">
                     <rect key="frame" x="320" y="320" width="160" height="160"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="d1o-iN-dEJ"/>
                 </imageView>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UWg-Tf-I9N" customClass="MMAvatarImageView">
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UWg-Tf-I9N">
                     <rect key="frame" x="160" y="160" width="160" height="160"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="Yzu-Qv-ZkB"/>
                 </imageView>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WRU-rM-EFL" customClass="MMAvatarImageView">
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WRU-rM-EFL">
                     <rect key="frame" x="0.0" y="160" width="160" height="160"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="5yO-oJ-ePP"/>
                 </imageView>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bsO-bl-H3r" customClass="MMAvatarImageView">
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bsO-bl-H3r">
                     <rect key="frame" x="320" y="160" width="160" height="160"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="pTj-7R-h6Q"/>
                 </imageView>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uR0-5F-AhV" customClass="MMAvatarImageView">
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uR0-5F-AhV">
                     <rect key="frame" x="320" y="0.0" width="160" height="160"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="uR0-5F-AhV" secondAttribute="height" multiplier="1:1" id="2gi-gI-yhm"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="JlW-LI-53O"/>
                 </imageView>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="swy-fe-sTg" customClass="MMAvatarImageView">
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="swy-fe-sTg">
                     <rect key="frame" x="160" y="0.0" width="160" height="160"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="swy-fe-sTg" secondAttribute="height" multiplier="1:1" id="5h6-s4-NNZ"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="4tX-gY-MBT"/>
                 </imageView>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ggD-BA-Pds" customClass="MMAvatarImageView">
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ggD-BA-Pds">
                     <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="ggD-BA-Pds" secondAttribute="height" multiplier="1:1" id="Tmu-kA-tyb"/>
