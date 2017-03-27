@@ -1,15 +1,20 @@
 PODS:
   - BFNavigationController (1.1.1)
   - JRSwizzle (1.0)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
 
 DEPENDENCIES:
   - BFNavigationController
   - JRSwizzle (~> 1.0)
+  - SDWebImage (~> 4.0.0)
 
 SPEC CHECKSUMS:
   BFNavigationController: 79d37f6ace50700687ea0caa820a37cab281a706
   JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
 
-PODFILE CHECKSUM: d868c4c15936ef80aa1a9f48b6cde176e1b118ea
+PODFILE CHECKSUM: 887dded8d16af878e229b9c619cb2d8fb4a67c8b
 
 COCOAPODS: 1.2.0

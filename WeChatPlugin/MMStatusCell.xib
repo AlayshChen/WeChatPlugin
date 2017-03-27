@@ -19,7 +19,7 @@
                         <constraint firstAttribute="width" constant="50" id="22B-pv-bKe"/>
                         <constraint firstAttribute="height" constant="50" id="gAP-SY-X4O"/>
                     </constraints>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSEveryone" id="VPr-ya-xwL"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="VPr-ya-xwL"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsK-7h-Veg">
                     <rect key="frame" x="68" y="232" width="404" height="19"/>
@@ -130,7 +130,6 @@
         </customView>
     </objects>
     <resources>
-        <image name="NSEveryone" width="32" height="32"/>
         <image name="comment_icon_highlighted" width="23" height="20.5"/>
         <image name="comment_icon_normal" width="23" height="20.5"/>
         <image name="like_icon_highlighted" width="24" height="20"/>

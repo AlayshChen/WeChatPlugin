@@ -118,6 +118,10 @@
     [self.navigationController pushViewController:vc animated:true];
 }
 
+- (void)cell:(MMStatusCell *)cell didClickImage:(NSImage *)image {
+    
+}
+
 - (void)cell:(MMStatusCell *)cell didClickMediaLink:(NSString *)url {
     [[CBGetClass(MMURLHandler) defaultHandler] handleURL:url];
 }

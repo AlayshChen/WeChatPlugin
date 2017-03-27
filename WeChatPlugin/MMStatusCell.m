@@ -7,6 +7,7 @@
 //
 
 #import "MMStatusCell.h"
+#import "MMScaleFillImageView.h"
 #import "MMStatusMediaView.h"
 #import "MMStatusImageMediaView.h"
 #import "MMStatusLinkMediaView.h"
@@ -14,6 +15,7 @@
 #import "MMStatusMediaObject.h"
 #import "MMStatusImageMediaObject.h"
 #import "MMStatusLinkMediaObject.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation MMStatusCell
 
@@ -78,16 +80,13 @@
     MMStatusImageMediaView *mediaView = (MMStatusImageMediaView *)self.mediaRealView;
     for (NSImageView *imageView in mediaView.imageViews) {
         imageView.hidden = true;
+        imageView.image = nil;
     }
     for (NSInteger i = 0; i < mediaObject.imageURLStrings.count; i ++) {
         NSString *imageURLString = mediaObject.imageURLStrings[i];
         NSImageView *imageView = mediaView.imageViews[i];
         imageView.hidden = false;
-        imageView.image = nil;
-        MMAvatarService *service = [[CBGetClass(MMServiceCenter) defaultCenter] getService:CBGetClass(MMAvatarService)];
-        [service getAvatarImageWithUrl:imageURLString completion:^(NSImage *image) {
-            imageView.image = image;
-        }];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:imageURLString]];
     }
 }
 
@@ -95,10 +94,7 @@
     MMStatusLinkMediaObject *mediaObject = (MMStatusLinkMediaObject *)self.status.mediaObject;
     MMStatusLinkMediaView *mediaView = (MMStatusLinkMediaView *)self.mediaRealView;
     mediaView.iconImageView.image = nil;
-    MMAvatarService *service = [[CBGetClass(MMServiceCenter) defaultCenter] getService:CBGetClass(MMAvatarService)];
-    [service getAvatarImageWithUrl:mediaObject.imageURLString completion:^(NSImage *image) {
-        mediaView.iconImageView.image = image;
-    }];
+    [mediaView.iconImageView sd_setImageWithURL:[NSURL URLWithString:mediaObject.imageURLString]];
     mediaView.titleTextField.stringValue = mediaObject.title;
 }
 
@@ -116,6 +112,19 @@
     
     if ([self.status hasMediaObject]) {
         switch (self.status.mediaType) {
+            case MMStatusMediaObjectTypeImage: {
+                NSArray *imageViews = [(MMStatusImageMediaView *)self.mediaRealView imageViews];
+                for (NSImageView *imageView in imageViews) {
+                    BOOL isClicked = [self mouse:point inRect:[self convertRect:imageView.frame fromView:self.mediaRealView]];
+                    if (isClicked) {
+                        if ([self.delegate respondsToSelector:@selector(cell:didClickImage:)]) {
+                            [self.delegate cell:self didClickImage:imageView.image];
+                        }
+                        return;
+                    }
+                }
+            }
+                break;
             case MMStatusMediaObjectTypeLink: {
                 BOOL isClickLinkView = [self mouse:point inRect:self.mediaRealView.frame];
                 if (isClickLinkView && [self.delegate respondsToSelector:@selector(cell:didClickMediaLink:)]) {

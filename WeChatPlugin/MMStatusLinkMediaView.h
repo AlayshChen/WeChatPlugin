@@ -8,9 +8,11 @@
 
 #import "MMStatusMediaView.h"
 
+@class MMScaleFillImageView;
+
 @interface MMStatusLinkMediaView : MMStatusMediaView
 
-@property (weak) IBOutlet NSImageView *iconImageView;
+@property (weak) IBOutlet MMScaleFillImageView *iconImageView;
 @property (weak) IBOutlet NSTextField *titleTextField;
 
 @end
