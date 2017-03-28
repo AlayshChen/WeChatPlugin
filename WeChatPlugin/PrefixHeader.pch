@@ -12,13 +12,17 @@
 #import <Cocoa/Cocoa.h>
 #import <objc/runtime.h>
 #import <JRSwizzle.h>
+#import <BFNavigationController.h>
+#import <NSViewController+BFNavigationController.h>
 #import "WeChatPluginHeader.h"
 #import "MMSnsTimeLineRequest.h"
 #import "MMSnsTimeLineResponse.h"
 #import "MMSnsUserPageRequest.h"
 #import "MMSnsUserPageResponse.h"
 #import "MMSnsObject.h"
+#import "MMSnsCommentInfo.h"
 #import "MMStatus.h"
+#import "MMStatusComment.h"
 #import "MMStatusMediaObject.h"
 #import "MMStatusImageMediaObject.h"
 #import "MMStatusLinkMediaObject.h"

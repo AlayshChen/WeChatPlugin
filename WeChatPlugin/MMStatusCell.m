@@ -116,11 +116,11 @@
                 NSArray *imageViews = [(MMStatusImageMediaView *)self.mediaRealView imageViews];
                 for (NSImageView *imageView in imageViews) {
                     BOOL isClicked = [self mouse:point inRect:[self convertRect:imageView.frame fromView:self.mediaRealView]];
-                    if (isClicked) {
+                    if (isClicked && imageView.hidden == false) {
                         if ([self.delegate respondsToSelector:@selector(cell:didClickImage:)]) {
                             [self.delegate cell:self didClickImage:imageView.image];
+                            return;
                         }
-                        return;
                     }
                 }
             }
@@ -129,12 +129,16 @@
                 BOOL isClickLinkView = [self mouse:point inRect:self.mediaRealView.frame];
                 if (isClickLinkView && [self.delegate respondsToSelector:@selector(cell:didClickMediaLink:)]) {
                     [self.delegate cell:self didClickMediaLink:[(MMStatusLinkMediaObject *)self.status.mediaObject linkURLString]];
+                    return;
                 }
             }
                 break;
             default:
                 break;
         }
+    }
+    if ([self.delegate respondsToSelector:@selector(cell:didClick:)]) {
+        [self.delegate cell:self didClick:self.status];
     }
 }
 

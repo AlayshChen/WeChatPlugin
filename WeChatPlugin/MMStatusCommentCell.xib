@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="MMStatusCommentCell">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="64"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mYA-FH-WRj" customClass="MMAvatarImageView">
+                    <rect key="frame" x="10" y="14" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="HNl-n6-yeE"/>
+                        <constraint firstAttribute="width" constant="40" id="V9u-Ch-gqb"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="sLG-KN-W31"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcH-HJ-gbd">
+                    <rect key="frame" x="58" y="35" width="35" height="19"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="昵称" id="GUQ-l5-JQm">
+                        <font key="font" metaFont="systemBold" size="15"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Qb1-2N-hdb">
+                    <rect key="frame" x="58" y="10" width="414" height="17"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="内容" id="O3Q-x0-U6Y">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" white="0.0" alpha="0.84999999999999998" colorSpace="deviceWhite"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Quu-6g-sDo">
+                    <rect key="frame" x="99" y="36" width="27" height="14"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="时间" id="spg-bI-nSe">
+                        <font key="font" metaFont="system" size="11"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="QcH-HJ-gbd" firstAttribute="leading" secondItem="mYA-FH-WRj" secondAttribute="trailing" constant="10" id="21x-6o-jy0"/>
+                <constraint firstItem="Qb1-2N-hdb" firstAttribute="top" secondItem="QcH-HJ-gbd" secondAttribute="bottom" constant="8" id="3z5-jd-56J"/>
+                <constraint firstItem="QcH-HJ-gbd" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="10" id="8Uj-x5-aXK"/>
+                <constraint firstItem="Quu-6g-sDo" firstAttribute="bottom" secondItem="QcH-HJ-gbd" secondAttribute="bottom" constant="-1" id="DGv-Jc-KiA"/>
+                <constraint firstItem="Quu-6g-sDo" firstAttribute="leading" secondItem="QcH-HJ-gbd" secondAttribute="trailing" constant="10" id="HFD-XA-Uly"/>
+                <constraint firstItem="Qb1-2N-hdb" firstAttribute="leading" secondItem="QcH-HJ-gbd" secondAttribute="leading" id="PG9-bm-D6y"/>
+                <constraint firstItem="mYA-FH-WRj" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="10" id="Qy9-rE-WDR"/>
+                <constraint firstItem="mYA-FH-WRj" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="10" id="XS0-su-5pz"/>
+                <constraint firstAttribute="trailing" secondItem="Qb1-2N-hdb" secondAttribute="trailing" constant="10" id="Xb1-f8-p1q"/>
+                <constraint firstAttribute="bottom" secondItem="Qb1-2N-hdb" secondAttribute="bottom" constant="10" id="of8-hv-BWh"/>
+            </constraints>
+            <connections>
+                <outlet property="contentTextField" destination="Qb1-2N-hdb" id="4BN-5z-ihJ"/>
+                <outlet property="nameTextField" destination="QcH-HJ-gbd" id="U5F-jn-eXN"/>
+                <outlet property="profileImageView" destination="mYA-FH-WRj" id="qiQ-fH-6vX"/>
+                <outlet property="timeTextField" destination="Quu-6g-sDo" id="9Ks-yV-LLy"/>
+            </connections>
+            <point key="canvasLocation" x="132" y="80"/>
+        </customView>
+    </objects>
+</document>

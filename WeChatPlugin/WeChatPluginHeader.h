@@ -213,12 +213,20 @@ __attribute__((visibility("hidden")))
 
 @end
 
+@class MMTimeLineMainViewController;
+@class MMStatus;
+
 @interface WeChat : NSObject
 
 @property(retain, nonatomic) MMMainWindowController *mainWindowController;
+@property(nonatomic) __weak LeftViewController *leftViewController;
 
 + (id)sharedInstance;
 - (void)onAuthOK;
+
+- (MMTimeLineMainViewController *)cb_timeLineMainViewController;
+- (void)cb_showHomePageWithUsrname:(NSString *)usrname;
+- (void)cb_showStatusDetailWithStatus:(MMStatus *)status;
 
 @end
 
@@ -1106,5 +1114,19 @@ typedef NS_ENUM(NSUInteger, CBDataItemContentStyle) {
 @end
 
 @interface MMContactListContactRow : MMContactListRow
+
+@end
+
+@interface MMMessageCellView : NSTableCellView
+
++ (Class)cellViewSubclassForMessage:(id)arg1;	// IMP=0x0000000100757dc0
++ (id)cellViewWithMessage:(id)arg1;	// IMP=0x0000000100757cda
++ (id)cellIdentifierWithMessage:(id)arg1;
+
+@end
+
+@interface MessageData : NSObject
+
+@property (nonatomic, strong) NSString *msgContent;
 
 @end

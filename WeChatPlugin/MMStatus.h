@@ -30,6 +30,7 @@ typedef NS_ENUM(NSUInteger, MMStatusMediaObjectType) {
 @property (nonatomic, assign) NSUInteger likeCount;
 @property (nonatomic, assign) NSUInteger commentCount;
 @property (nonatomic, assign) BOOL isLiked;
+@property (nonatomic, strong) NSArray *commentList;
 
 - (void)updateWithSnsObject:(MMSnsObject *)snsObject;
 

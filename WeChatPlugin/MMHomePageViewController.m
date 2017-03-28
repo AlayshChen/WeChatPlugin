@@ -30,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.wantsLayer = true;
-    self.view.layer.backgroundColor = [NSColor colorWithRed:0.9843 green:0.9843 blue:0.9843 alpha:1.0].CGColor;
+    self.view.layer.backgroundColor = [NSColor whiteColor].CGColor;
     
     [self.tableView registerNib:[[NSNib alloc] initWithNibNamed:NSStringFromClass([MMStatusCell class]) bundle:[NSBundle pluginBundle]] forIdentifier:NSStringFromClass([MMStatusCell class])];
     [self.tableView registerNib:[[NSNib alloc] initWithNibNamed:NSStringFromClass([MMStatusImageMediaView class]) bundle:[NSBundle pluginBundle]] forIdentifier:NSStringFromClass([MMStatusImageMediaView class])];
@@ -109,6 +109,14 @@
 }
 
 #pragma mark - MMStatusCellDelegate
+
+- (void)cell:(MMStatusCell *)cell didClick:(MMStatus *)status {
+    [[CBGetClass(WeChat) sharedInstance] cb_showStatusDetailWithStatus:status];
+}
+
+- (void)cell:(MMStatusCell *)cell didClickImage:(NSImage *)image {
+    
+}
 
 - (void)cell:(MMStatusCell *)cell didClickMediaLink:(NSString *)url {
     [[CBGetClass(MMURLHandler) defaultHandler] handleURL:url];

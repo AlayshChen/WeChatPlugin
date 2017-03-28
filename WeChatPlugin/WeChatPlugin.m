@@ -11,6 +11,7 @@
 #import "MMTimeLineMainViewController.h"
 #import "MMTimeLineViewController.h"
 #import "MMHomePageViewController.h"
+#import "MMStatusDetailViewController.h"
 
 #pragma mark - Plugin
 
@@ -72,6 +73,27 @@
     return NSTerminateNow;
 }
 
+#pragma mark - WeChat
+
+- (MMTimeLineMainViewController *)cb_timeLineMainViewController {
+    LeftViewController *vc = [(WeChat *)self leftViewController];
+    return [vc.viewControllers lastObject];
+}
+
+- (void)cb_showHomePageWithUsrname:(NSString *)usrname {
+    MMNavigationController *navVC = (MMNavigationController *)[self cb_timeLineMainViewController].detailViewController;
+    MMHomePageViewController *vc = [[CBGetClass(MMHomePageViewController) alloc] initWithNibName:@"MMHomePageViewController" bundle:[NSBundle pluginBundle]];
+    vc.contact = [WeChatService(ContactStorage) GetContact:usrname];
+    [navVC pushViewController:vc animated:true];
+}
+
+- (void)cb_showStatusDetailWithStatus:(MMStatus *)status {
+    MMNavigationController *navVC = (MMNavigationController *)[self cb_timeLineMainViewController].detailViewController;
+    MMStatusDetailViewController *vc = [[CBGetClass(MMStatusDetailViewController) alloc] initWithNibName:@"MMStatusDetailViewController" bundle:[NSBundle pluginBundle]];
+    vc.status = status;
+    [navVC pushViewController:vc animated:true];
+}
+
 @end
 
 @implementation NSView (WeChatPlugin)
@@ -109,10 +131,7 @@
             
         }
         else {
-            MMNavigationController *navVC = (MMNavigationController *)vc.detailViewController;
-            MMHomePageViewController *homePageVC = [[CBGetClass(MMHomePageViewController) alloc] initWithNibName:@"MMHomePageViewController" bundle:[NSBundle pluginBundle]];
-            homePageVC.contact = contact;
-            [navVC pushViewController:homePageVC animated:true];
+            [[CBGetClass(WeChat) sharedInstance] cb_showHomePageWithUsrname:contact.m_nsUsrName];
         }
     }
 }
@@ -152,7 +171,7 @@ static void __attribute__((constructor)) initialize(void) {
     CBRegisterClass(MMContactsViewController, MMTimeLineMainViewController);
     CBHookInstanceMethod(MMTimeLineMainViewController, @selector(tableViewSelectionDidChange:), @selector(cb_MMTimeLineMainViewController_tableViewSelectionDidChange:));
     
-    CBHookClassMethod(MMLogger, @selector(logWithMMLogLevel:module:file:line:func:message:), @selector(cb_logWithMMLogLevel:module:file:line:func:message:));
+//    CBHookClassMethod(MMLogger, @selector(logWithMMLogLevel:module:file:line:func:message:), @selector(cb_logWithMMLogLevel:module:file:line:func:message:));
     
     CBHookInstanceMethod(MMCGIConfig, @selector(findItemWithFuncInternal:), @selector(cb_findItemWithFuncInternal:));
     

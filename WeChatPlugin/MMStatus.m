@@ -81,6 +81,13 @@
     self.isLiked = snsObject.likeFlag;
     self.likeCount = snsObject.likeCount;
     self.commentCount = snsObject.commentCount;
+    NSMutableArray *commentList = [NSMutableArray new];
+    for (MMSnsCommentInfo *commentInfo in snsObject.commentUserList) {
+        MMStatusComment *comment = [[MMStatusComment alloc] init];
+        [comment updateWithCommentInfo:commentInfo];
+        [commentList addObject:comment];
+    }
+    self.commentList = commentList;
 }
 
 - (BOOL)hasSource {

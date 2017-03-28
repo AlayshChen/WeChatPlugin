@@ -78,7 +78,9 @@
                 break;
             }
             case 74: {
-                [input skipField:tag];
+                MMSnsCommentInfo *info = [[CBGetClass(MMSnsCommentInfo) alloc] init];
+                [input readMessage:info];
+                [self addLikeUserList:info];
                 break;
             }
             case 0x50: {
@@ -87,6 +89,12 @@
             }
             case 0x58: {
                 [self SetCommentUserListCount:[input readUInt32]];
+                break;
+            }
+            case 0x62: {
+                MMSnsCommentInfo *info = [[CBGetClass(MMSnsCommentInfo) alloc] init];
+                [input readMessage:info];
+                [self addCommentUserList:info];
                 break;
             }
             case 0x68: {
@@ -102,6 +110,26 @@
                 break;
         }
     }
+}
+
+- (void)addLikeUserList:(id)arg1 {
+    NSMutableArray *list = [self mutableLikeUserListList];
+    if (list == nil) {
+        list = [NSMutableArray new];
+        [self setMutableLikeUserListList:list];
+    }
+    [list addObject:arg1];
+    self.likeUserList = list.copy;
+}
+
+- (void)addCommentUserList:(id)arg1 {
+    NSMutableArray *list = [self mutableCommentUserListList];
+    if (list == nil) {
+        list = [NSMutableArray new];
+        [self setMutableCommentUserListList:list];
+    }
+    [list addObject:arg1];
+    self.commentUserList = list.copy;
 }
 
 @end
