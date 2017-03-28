@@ -17,6 +17,6 @@
 @property (weak) IBOutlet NSTextField *contentTextField;
 
 - (void)updateViewWithComment:(MMStatusComment *)comment;
-+ (CGFloat)calculateHeightForComment:(MMStatusComment *)comment inTableView:(NSTableView *)tableView;
++ (CGFloat)calculateHeightForComment:(MMStatusComment *)comment withWidth:(CGFloat)width;
 
 @end

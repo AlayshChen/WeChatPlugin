@@ -148,17 +148,17 @@
 
 #pragma mark - Height
 
-+ (CGFloat)calculateHeightForStatus:(MMStatus *)status inTableView:(NSTableView *)tableView {
++ (CGFloat)calculateHeightForStatus:(MMStatus *)status withWidth:(CGFloat)width {
     CGFloat height = 55;
     if ([status hasContent]) {
         height += 5;
-        NSRect rect = [status.contentAttributedString boundingRectWithSize:NSMakeSize(tableView.frame.size.width - 80, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
+        NSRect rect = [status.contentAttributedString boundingRectWithSize:NSMakeSize(width - 80, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
         height += rect.size.height; 
     }
     
     switch (status.mediaType) {
         case MMStatusMediaObjectTypeImage: {
-            CGFloat imageSize = (tableView.frame.size.width - 80) / 3.0;
+            CGFloat imageSize = (width - 80) / 3.0;
             MMStatusImageMediaObject *mediaObject = (MMStatusImageMediaObject *)status.mediaObject;
             NSInteger rowCount = (mediaObject.imageURLStrings.count - 1) / 3 + 1;
             height += (NSInteger)(rowCount * imageSize);

@@ -20,6 +20,12 @@
 		80520E761E871A8E001F9164 /* MMSnsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 80520E741E871A8E001F9164 /* MMSnsObject.m */; };
 		80520E7A1E871B76001F9164 /* PBUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 80520E781E871B76001F9164 /* PBUtility.m */; };
 		80520E7B1E871B76001F9164 /* PBUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 80520E791E871B76001F9164 /* PBUtility.h */; };
+		80531D5F1E8B48F100425B14 /* MMStatusLikeCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 80531D5D1E8B48F100425B14 /* MMStatusLikeCell.h */; };
+		80531D601E8B48F100425B14 /* MMStatusLikeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80531D5E1E8B48F100425B14 /* MMStatusLikeCell.m */; };
+		80531D621E8B490000425B14 /* MMStatusLikeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80531D611E8B490000425B14 /* MMStatusLikeCell.xib */; };
+		80531D861E8B529C00425B14 /* MMStatusLikeCellItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 80531D831E8B529C00425B14 /* MMStatusLikeCellItem.h */; };
+		80531D871E8B529C00425B14 /* MMStatusLikeCellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 80531D841E8B529C00425B14 /* MMStatusLikeCellItem.m */; };
+		80531D881E8B529C00425B14 /* MMStatusLikeCellItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80531D851E8B529C00425B14 /* MMStatusLikeCellItem.xib */; };
 		8059BEAA1E88EB4F00E8C154 /* MMScaleFillImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8059BEA81E88EB4F00E8C154 /* MMScaleFillImageView.h */; };
 		8059BEAB1E88EB4F00E8C154 /* MMScaleFillImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8059BEA91E88EB4F00E8C154 /* MMScaleFillImageView.m */; };
 		8088947E1E8A891F009E224C /* MMSnsCommentInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8088947C1E8A891F009E224C /* MMSnsCommentInfo.h */; };
@@ -121,6 +127,12 @@
 		80520E741E871A8E001F9164 /* MMSnsObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSnsObject.m; sourceTree = "<group>"; };
 		80520E781E871B76001F9164 /* PBUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBUtility.m; sourceTree = "<group>"; };
 		80520E791E871B76001F9164 /* PBUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBUtility.h; sourceTree = "<group>"; };
+		80531D5D1E8B48F100425B14 /* MMStatusLikeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMStatusLikeCell.h; sourceTree = "<group>"; };
+		80531D5E1E8B48F100425B14 /* MMStatusLikeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMStatusLikeCell.m; sourceTree = "<group>"; };
+		80531D611E8B490000425B14 /* MMStatusLikeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMStatusLikeCell.xib; sourceTree = "<group>"; };
+		80531D831E8B529C00425B14 /* MMStatusLikeCellItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMStatusLikeCellItem.h; sourceTree = "<group>"; };
+		80531D841E8B529C00425B14 /* MMStatusLikeCellItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMStatusLikeCellItem.m; sourceTree = "<group>"; };
+		80531D851E8B529C00425B14 /* MMStatusLikeCellItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMStatusLikeCellItem.xib; sourceTree = "<group>"; };
 		8059BEA81E88EB4F00E8C154 /* MMScaleFillImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMScaleFillImageView.h; sourceTree = "<group>"; };
 		8059BEA91E88EB4F00E8C154 /* MMScaleFillImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMScaleFillImageView.m; sourceTree = "<group>"; };
 		8088947C1E8A891F009E224C /* MMSnsCommentInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSnsCommentInfo.h; sourceTree = "<group>"; };
@@ -342,6 +354,11 @@
 				80E551961E853FA100EB428F /* MMStatusCell.h */,
 				80E551971E853FA100EB428F /* MMStatusCell.m */,
 				80E552111E860BDC00EB428F /* MMStatusCellDelegate.h */,
+				80531D5D1E8B48F100425B14 /* MMStatusLikeCell.h */,
+				80531D5E1E8B48F100425B14 /* MMStatusLikeCell.m */,
+				80531D831E8B529C00425B14 /* MMStatusLikeCellItem.h */,
+				80531D841E8B529C00425B14 /* MMStatusLikeCellItem.m */,
+				80531D851E8B529C00425B14 /* MMStatusLikeCellItem.xib */,
 				808894841E8A89D2009E224C /* MMStatusCommentCell.h */,
 				808894851E8A89D2009E224C /* MMStatusCommentCell.m */,
 				80E551A51E853FA100EB428F /* MMStatusMediaView.h */,
@@ -351,6 +368,7 @@
 				80E551A01E853FA100EB428F /* MMStatusLinkMediaView.h */,
 				80E551A11E853FA100EB428F /* MMStatusLinkMediaView.m */,
 				80E551981E853FA100EB428F /* MMStatusCell.xib */,
+				80531D611E8B490000425B14 /* MMStatusLikeCell.xib */,
 				808894881E8A89DF009E224C /* MMStatusCommentCell.xib */,
 				80E5519D1E853FA100EB428F /* MMStatusImageMediaView.xib */,
 				80E551A21E853FA100EB428F /* MMStatusLinkMediaView.xib */,
@@ -521,9 +539,11 @@
 				80520E6D1E871682001F9164 /* MMSnsTimeLineResponse.h in Headers */,
 				80E551AE1E853FA100EB428F /* MMStatusImageMediaView.h in Headers */,
 				80E552101E860BDC00EB428F /* MMTimeLineMainViewController.h in Headers */,
+				80531D5F1E8B48F100425B14 /* MMStatusLikeCell.h in Headers */,
 				8059BEAA1E88EB4F00E8C154 /* MMScaleFillImageView.h in Headers */,
 				8088948F1E8A8A12009E224C /* MMStatusDetailViewController.h in Headers */,
 				8088947E1E8A891F009E224C /* MMSnsCommentInfo.h in Headers */,
+				80531D861E8B529C00425B14 /* MMStatusLikeCellItem.h in Headers */,
 				80E551F41E85620C00EB428F /* NSString+XMLDictionary.h in Headers */,
 				80E551B31E853FA100EB428F /* MMStatusLinkMediaView.h in Headers */,
 				80E551A71E853FA100EB428F /* MMStatus.h in Headers */,
@@ -639,8 +659,10 @@
 				8088948C1E8A8A08009E224C /* MMStatusDetailViewController.xib in Resources */,
 				80E552091E860B9600EB428F /* link_icon@2x.png in Resources */,
 				80E552071E860B9600EB428F /* like_icon_highlighted@2x.png in Resources */,
+				80531D621E8B490000425B14 /* MMStatusLikeCell.xib in Resources */,
 				808894891E8A89DF009E224C /* MMStatusCommentCell.xib in Resources */,
 				80FB90C41E87C4C800FAAC33 /* MMHomePageViewController.xib in Resources */,
+				80531D881E8B529C00425B14 /* MMStatusLikeCellItem.xib in Resources */,
 				80E5520A1E860B9600EB428F /* Tabbar-TimeLine-HI@2x.png in Resources */,
 				80E551B51E853FA100EB428F /* MMStatusLinkMediaView.xib in Resources */,
 				80E5520D1E860B9600EB428F /* Tabbar-TimeLine@2x.png in Resources */,
@@ -718,6 +740,7 @@
 				80E551B41E853FA100EB428F /* MMStatusLinkMediaView.m in Sources */,
 				808FB5211E87E2F600E35AFA /* MMNavigationBar.m in Sources */,
 				80E551F51E85620C00EB428F /* NSString+XMLDictionary.m in Sources */,
+				80531D601E8B48F100425B14 /* MMStatusLikeCell.m in Sources */,
 				80520E761E871A8E001F9164 /* MMSnsObject.m in Sources */,
 				80520E661E8712CE001F9164 /* MMSnsTimeLineRequest.m in Sources */,
 				80E551B91E853FA100EB428F /* MMStatusMediaView.m in Sources */,
@@ -730,6 +753,7 @@
 				80E551AF1E853FA100EB428F /* MMStatusImageMediaView.m in Sources */,
 				80E551A81E853FA100EB428F /* MMStatus.m in Sources */,
 				80E551E11E8559E700EB428F /* MMTimeLineViewController.m in Sources */,
+				80531D871E8B529C00425B14 /* MMStatusLikeCellItem.m in Sources */,
 				80520E6E1E871682001F9164 /* MMSnsTimeLineResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

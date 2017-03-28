@@ -23,11 +23,11 @@
     self.contentTextField.attributedStringValue = comment.contentAttributedString;
 }
 
-+ (CGFloat)calculateHeightForComment:(MMStatusComment *)comment inTableView:(NSTableView *)tableView {
++ (CGFloat)calculateHeightForComment:(MMStatusComment *)comment withWidth:(CGFloat)width {
     CGFloat height = 10 + 19;
     if ([comment hasContent]) {
         height += 8;
-        NSRect rect = [comment.contentAttributedString boundingRectWithSize:NSMakeSize(tableView.frame.size.width - 70, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
+        NSRect rect = [comment.contentAttributedString boundingRectWithSize:NSMakeSize(width - 70, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
         height += rect.size.height;
     }
     height += 10;

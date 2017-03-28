@@ -10,6 +10,7 @@
 #import "MMStatusCell.h"
 #import "MMStatusImageMediaView.h"
 #import "MMStatusLinkMediaView.h"
+#import "MMStatusLikeCell.h"
 #import "MMStatusCommentCell.h"
 
 @interface MMStatusDetailViewController () <NSTableViewDataSource, NSTableViewDelegate, MMStatusCellDelegate>
@@ -26,7 +27,7 @@
     [self.tableView registerNib:[[NSNib alloc] initWithNibNamed:NSStringFromClass([MMStatusCell class]) bundle:[NSBundle pluginBundle]] forIdentifier:NSStringFromClass([MMStatusCell class])];
     [self.tableView registerNib:[[NSNib alloc] initWithNibNamed:NSStringFromClass([MMStatusImageMediaView class]) bundle:[NSBundle pluginBundle]] forIdentifier:NSStringFromClass([MMStatusImageMediaView class])];
     [self.tableView registerNib:[[NSNib alloc] initWithNibNamed:NSStringFromClass([MMStatusLinkMediaView class]) bundle:[NSBundle pluginBundle]] forIdentifier:NSStringFromClass([MMStatusLinkMediaView class])];
-    
+    [self.tableView registerNib:[[NSNib alloc] initWithNibNamed:NSStringFromClass([MMStatusLikeCell class]) bundle:[NSBundle pluginBundle]] forIdentifier:NSStringFromClass([MMStatusLikeCell class])];
     [self.tableView registerNib:[[NSNib alloc] initWithNibNamed:NSStringFromClass([MMStatusCommentCell class]) bundle:[NSBundle pluginBundle]] forIdentifier:NSStringFromClass([MMStatusCommentCell class])];
     self.tableView.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;
 }
@@ -39,8 +40,16 @@
 
 #pragma mark - NSTableViewDataSource
 
+- (NSInteger)numberOfRowsWithoutComment {
+    NSInteger res = 1;
+    if (self.status.likeCount) {
+        res += 1;
+    }
+    return res;
+}
+
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    return self.status.commentCount + 1;
+    return [self numberOfRowsWithoutComment] + self.status.commentCount;
 }
 
 #pragma mark - NSTableViewDelegate
@@ -71,29 +80,74 @@
     return cell;
 }
 
+- (nullable MMStatusLikeCell *)tableView:(NSTableView *)tableView statusLikeCellForRow:(NSInteger)row {
+    MMStatus *status = self.status;
+    MMStatusLikeCell *cell = [tableView makeViewWithIdentifier:NSStringFromClass([MMStatusLikeCell class]) owner:tableView];
+    [cell updateViewWithStatus:status];
+    return cell;
+}
+
 - (nullable MMStatusCommentCell *)tableView:(NSTableView *)tableView statusCommentCellForRow:(NSInteger)row {
-    MMStatusComment *comment = self.status.commentList[row - 1];
+    MMStatusComment *comment = [self commentForRow:row];
     MMStatusCommentCell *cell = [tableView makeViewWithIdentifier:NSStringFromClass([MMStatusCommentCell class]) owner:tableView];
     [cell updateViewWithComment:comment];
     return cell;
 }
 
-- (nullable NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row {
-    if (row == 0) {
-        return [self tableView:tableView statusCellForRow:row];
+- (NSInteger)commentRowFromRow:(NSInteger)row {
+    return row - [self numberOfRowsWithoutComment];
+}
+
+- (MMStatusComment *)commentForRow:(NSInteger)row {
+    row = [self commentRowFromRow:row];
+    if (row >= 0 && row < self.status.commentCount) {
+        return self.status.commentList[row];
     }
     else {
+        return nil;
+    }
+}
+
+- (BOOL)isStatusCellForRow:(NSInteger)row {
+    return row == 0;
+}
+
+- (BOOL)isStatusLikeCellForRow:(NSInteger)row {
+    return row == [self numberOfRowsWithoutComment] - 1 && self.status.likeCount;
+}
+
+- (BOOL)isStatusCommentCellForRow:(NSInteger)row {
+    return row >= [self numberOfRowsWithoutComment];
+}
+
+- (nullable NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row {
+    if ([self isStatusCellForRow:row]) {
+        return [self tableView:tableView statusCellForRow:row];
+    }
+    else if ([self isStatusLikeCellForRow:row]) {
+        return [self tableView:tableView statusLikeCellForRow:row];
+    }
+    else if ([self isStatusCommentCellForRow:row]) {
         return [self tableView:tableView statusCommentCellForRow:row];
+    }
+    else {
+        return nil;
     }
 }
 
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row {
-    if (row == 0) {
-        return [MMStatusCell calculateHeightForStatus:self.status inTableView:tableView];
+    if ([self isStatusCellForRow:row]) {
+        return [MMStatusCell calculateHeightForStatus:self.status withWidth:self.view.frame.size.width];
+    }
+    else if ([self isStatusLikeCellForRow:row]) {
+        return [MMStatusLikeCell calculateHeightWithWidth:self.view.frame.size.width];
+    }
+    else if ([self isStatusCommentCellForRow:row]) {
+        MMStatusComment *comment = [self commentForRow:row];
+        return [MMStatusCommentCell calculateHeightForComment:comment withWidth:self.view.frame.size.width];
     }
     else {
-        MMStatusComment *comment = self.status.commentList[row - 1];
-        return [MMStatusCommentCell calculateHeightForComment:comment inTableView:tableView];
+        return 0;
     }
 }
 

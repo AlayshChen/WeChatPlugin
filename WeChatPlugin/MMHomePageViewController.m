@@ -105,7 +105,7 @@
 
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row {
     MMStatus *status = [self.homePageMgr getHomePageStatusAtIndex:row];
-    return [MMStatusCell calculateHeightForStatus:status inTableView:tableView];
+    return [MMStatusCell calculateHeightForStatus:status withWidth:self.view.frame.size.width];
 }
 
 #pragma mark - MMStatusCellDelegate

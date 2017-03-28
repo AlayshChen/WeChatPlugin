@@ -33,6 +33,6 @@
 
 - (void)updateViewWithStatus:(MMStatus *)status mediaView:(MMStatusMediaView *)mediaView;
 
-+ (CGFloat)calculateHeightForStatus:(MMStatus *)status inTableView:(NSTableView *)tableView;
++ (CGFloat)calculateHeightForStatus:(MMStatus *)status withWidth:(CGFloat)width;
 
 @end
