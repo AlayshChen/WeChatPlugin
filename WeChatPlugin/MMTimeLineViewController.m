@@ -7,6 +7,7 @@
 //
 
 #import "MMTimeLineViewController.h"
+#import "NSViewController+ImagePreview.h"
 #import "MMTimeLineMgr.h"
 #import "MMStatusCell.h"
 #import "MMStatusImageMediaView.h"
@@ -117,8 +118,8 @@
     [[CBGetClass(WeChat) sharedInstance] cb_showHomePageWithUsrname:usrname];
 }
 
-- (void)cell:(MMStatusCell *)cell didClickImage:(NSImage *)image {
-    
+- (void)cell:(MMStatusCell *)cell didClickImage:(NSImage *)image imageFilePath:(NSString *)filePath {
+    [self previewImage:image atFilePath:filePath];
 }
 
 - (void)cell:(MMStatusCell *)cell didClickMediaLink:(NSString *)url {

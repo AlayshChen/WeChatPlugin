@@ -94,6 +94,23 @@
     [navVC pushViewController:vc animated:true];
 }
 
+#pragma mark - CUtility
+
++ (BOOL)cb_isSDWebImageCachePath:(NSURL *)url {
+    if ([url.absoluteString containsString:@"SDWebImageCache"]) {
+        return true;
+    }
+    return false;
+}
+
++ (id)cb_getAppNameCanOpenFile:(NSURL *)arg1 {
+    if ([NSObject cb_isSDWebImageCachePath:arg1]) {
+        return @"预览";
+    }
+    id res = [self cb_getAppNameCanOpenFile:arg1];
+    return res;
+}
+
 @end
 
 @implementation NSView (WeChatPlugin)
@@ -133,6 +150,16 @@
         else {
             [[CBGetClass(WeChat) sharedInstance] cb_showHomePageWithUsrname:contact.m_nsUsrName];
         }
+    }
+}
+
+#pragma mark - MMPreviewViewController
+
+- (void)cb_setupWithPageInfo:(MMPreviewViewPageInfo *)pageInfo {
+    [self cb_setupWithPageInfo:pageInfo];
+    if ([NSObject cb_isSDWebImageCachePath:pageInfo.previewItem.itemUrl]) {
+        MMPreviewViewController *vc = (MMPreviewViewController *)self;
+        vc.imageView.image = [[NSImage alloc] initWithContentsOfURL:pageInfo.previewItem.itemUrl];
     }
 }
 
@@ -179,4 +206,6 @@ static void __attribute__((constructor)) initialize(void) {
     CBHookInstanceMethod(AppDelegate, @selector(applicationShouldTerminate:), @selector(cb_applicationShouldTerminate:));
     
     CBHookInstanceMethod(LeftViewController, @selector(setViewControllers:), @selector(cb_setViewControllers:));
+    CBHookClassMethod(CUtility, @selector(getAppNameCanOpenFile:), @selector(cb_getAppNameCanOpenFile:));
+    CBHookInstanceMethod(MMPreviewViewController, @selector(setupWithPageInfo:), @selector(cb_setupWithPageInfo:));
 }

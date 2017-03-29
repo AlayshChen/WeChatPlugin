@@ -7,10 +7,12 @@
 //
 
 #import "MMHomePageViewController.h"
+#import "NSViewController+ImagePreview.h"
 #import "MMHomePageMgr.h"
 #import "MMStatusCell.h"
 #import "MMStatusImageMediaView.h"
 #import "MMStatusLinkMediaView.h"
+@import QuartzCore;
 
 @interface MMHomePageViewController () <NSTableViewDataSource, NSTableViewDelegate, MMStatusCellDelegate, MMHomePageMgrDelegate>
 
@@ -114,8 +116,23 @@
     [[CBGetClass(WeChat) sharedInstance] cb_showStatusDetailWithStatus:status];
 }
 
-- (void)cell:(MMStatusCell *)cell didClickImage:(NSImage *)image {
+- (void)cell:(MMStatusCell *)cell didClickUser:(NSString *)usrname {
+    [self shakeView];
+}
+
+- (void)shakeView {
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+    animation.keyPath = @"position.x";
+    animation.values = @[@0, @10, @-10, @10, @0];
+    animation.keyTimes = @[@0, @(1 / 6.0), @(3 / 6.0), @(5 / 6.0), @1];
+    animation.duration = 0.4;
+    animation.additive = YES;
     
+    [self.view.layer addAnimation:animation forKey:@"shake"];
+}
+
+- (void)cell:(MMStatusCell *)cell didClickImage:(NSImage *)image imageFilePath:(NSString *)filePath {
+    [self previewImage:image atFilePath:filePath];
 }
 
 - (void)cell:(MMStatusCell *)cell didClickMediaLink:(NSString *)url {

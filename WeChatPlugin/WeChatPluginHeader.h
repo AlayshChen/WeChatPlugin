@@ -875,12 +875,67 @@ struct MMCGIItem {
 - (struct CGRect)previewPanel:(MMPreviewPanel *)arg1 sourceFrameOnScreenForPreviewItem:(id <QLPreviewItem>)arg2;
 @end
 
+@protocol QLPreviewItem <NSObject>
+
+@end
+
+@interface MMQLPhotoPreviewItem : NSObject <QLPreviewItem>
+{
+    BOOL _isParentMsg;
+    NSURL *_itemUrl;
+    NSString *_itemTitle;
+    NSString *_itemUrlString;
+//    MessageData *_message;
+    NSString *_messageUniqueId;
+//    FavoritesItem *_favItem;
+//    FavoritesItemDataField *_dataField;
+    NSString *_parentRecordUniqueId;
+    struct CGSize _originalImageSize;
+}
+
++ (id)genParentRecordUniqueIdWithParentMessage:(id)arg1 orParentFavItem:(id)arg2;	// IMP=0x000000010061045e
++ (BOOL)canOpenByWeChat:(id)arg1;	// IMP=0x000000010060fe66
++ (BOOL)canPreviewItem:(id)arg1;	// IMP=0x000000010060fae8
+@property(retain, nonatomic) NSString *parentRecordUniqueId; // @synthesize parentRecordUniqueId=_parentRecordUniqueId;
+@property(nonatomic) BOOL isParentMsg; // @synthesize isParentMsg=_isParentMsg;
+//@property(retain, nonatomic) FavoritesItemDataField *dataField; // @synthesize dataField=_dataField;
+//@property(retain, nonatomic) FavoritesItem *favItem; // @synthesize favItem=_favItem;
+@property(retain, nonatomic) NSString *messageUniqueId; // @synthesize messageUniqueId=_messageUniqueId;
+//@property(retain, nonatomic) MessageData *message; // @synthesize message=_message;
+@property(nonatomic) struct CGSize originalImageSize; // @synthesize originalImageSize=_originalImageSize;
+@property(retain, nonatomic) NSString *itemUrlString; // @synthesize itemUrlString=_itemUrlString;
+@property(retain, nonatomic) NSString *itemTitle; // @synthesize itemTitle=_itemTitle;
+@property(retain, nonatomic) NSURL *itemUrl; // @synthesize itemUrl=_itemUrl;
+//- (void).cxx_destruct;	// IMP=0x00000001006107f3
+@property(readonly) NSURL *previewItemURL;
+@property(readonly) NSString *previewItemTitle;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) id previewItemDisplayState;
+@property(readonly) Class superclass;
+
+@end
+
+@interface MMPreviewViewPageInfo : NSObject
+{
+    MMQLPhotoPreviewItem *_previewItem;
+}
+
+@property(retain, nonatomic) MMQLPhotoPreviewItem *previewItem; // @synthesize previewItem=_previewItem;
+
+@end
+
 @interface MMPreviewPanel : NSWindowController
 
 @property(nonatomic) __weak id <MMPreviewPanelDataSource> dataSource;
 @property(nonatomic) __weak id <MMPreviewPanelDelegate> delegate;
+@property(nonatomic) BOOL allowMultipleItems;
 
 - (void)show;
+- (BOOL)isPreviewImage:(id)arg1;
+- (BOOL)isPreviewFile:(id)arg1;
 
 @end
 
@@ -1128,5 +1183,19 @@ typedef NS_ENUM(NSUInteger, CBDataItemContentStyle) {
 @interface MessageData : NSObject
 
 @property (nonatomic, strong) NSString *msgContent;
+
+@end
+
+@interface CUtility : NSObject
+
++ (id)getAppNameCanOpenFile:(id)arg1;
+
+@end
+
+@interface MMPreviewViewController : MMViewController
+
+@property(retain, nonatomic) NSImageView *imageView;
+
+- (void)setupWithPageInfo:(id)arg1;
 
 @end

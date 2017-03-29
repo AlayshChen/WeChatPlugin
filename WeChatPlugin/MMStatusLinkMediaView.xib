@@ -14,15 +14,15 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v20-ar-DW3" customClass="MMScaleFillImageView">
-                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                    <rect key="frame" x="1" y="1" width="38" height="38"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="40" id="Fj6-7u-JMQ"/>
-                        <constraint firstAttribute="height" constant="40" id="lS1-FP-Raj"/>
+                        <constraint firstAttribute="width" constant="38" id="Fj6-7u-JMQ"/>
+                        <constraint firstAttribute="height" constant="38" id="lS1-FP-Raj"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="Xdg-ZT-QTQ"/>
                 </imageView>
                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="enT-OA-lki">
-                    <rect key="frame" x="48" y="12" width="424" height="16"/>
+                    <rect key="frame" x="47" y="12" width="425" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingTail" enabled="NO" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" title="标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题" id="Bfh-sV-H3b">
                         <font key="font" metaFont="cellTitle"/>
                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
@@ -31,9 +31,9 @@
                 </textField>
             </subviews>
             <constraints>
-                <constraint firstItem="v20-ar-DW3" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="3qx-4u-oBY"/>
+                <constraint firstItem="v20-ar-DW3" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="1" id="3qx-4u-oBY"/>
                 <constraint firstAttribute="trailing" secondItem="enT-OA-lki" secondAttribute="trailing" constant="10" id="MKC-A6-Kgv"/>
-                <constraint firstItem="v20-ar-DW3" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="gOk-c8-eb3"/>
+                <constraint firstItem="v20-ar-DW3" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="1" id="gOk-c8-eb3"/>
                 <constraint firstItem="enT-OA-lki" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="oIt-n2-QYc"/>
                 <constraint firstItem="enT-OA-lki" firstAttribute="leading" secondItem="v20-ar-DW3" secondAttribute="trailing" constant="10" id="xlu-e4-8Kp"/>
             </constraints>

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3D62D4781D6EC4F15EAEF911 /* libPods-WeChatPlugin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48F13D0591BA620DD6C698A1 /* libPods-WeChatPlugin.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		80075BC71E8BB78800CD167E /* NSViewController+ImagePreview.h in Headers */ = {isa = PBXBuildFile; fileRef = 80075BC51E8BB78800CD167E /* NSViewController+ImagePreview.h */; };
+		80075BC81E8BB78800CD167E /* NSViewController+ImagePreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 80075BC61E8BB78800CD167E /* NSViewController+ImagePreview.m */; };
 		803DAFCA1E853D3F00ADCC86 /* WeChatPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 803DAFC91E853D3F00ADCC86 /* WeChatPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		803DAFCC1E853D3F00ADCC86 /* WeChatPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 803DAFCB1E853D3F00ADCC86 /* WeChatPlugin.m */; };
 		803DAFCE1E853D3F00ADCC86 /* WeChatPluginHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 803DAFCD1E853D3F00ADCC86 /* WeChatPluginHeader.h */; };
@@ -110,6 +112,8 @@
 /* Begin PBXFileReference section */
 		48F13D0591BA620DD6C698A1 /* libPods-WeChatPlugin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeChatPlugin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CBECFB210F0661B4A16F713 /* Pods-WeChatPlugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChatPlugin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeChatPlugin/Pods-WeChatPlugin.debug.xcconfig"; sourceTree = "<group>"; };
+		80075BC51E8BB78800CD167E /* NSViewController+ImagePreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSViewController+ImagePreview.h"; sourceTree = "<group>"; };
+		80075BC61E8BB78800CD167E /* NSViewController+ImagePreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSViewController+ImagePreview.m"; sourceTree = "<group>"; };
 		8010F5CC1E86B8E0008059DE /* libswiftAppKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftAppKit.tbd; path = System/Library/PrivateFrameworks/Swift/libswiftAppKit.tbd; sourceTree = SDKROOT; };
 		803DAFBE1E853D3F00ADCC86 /* WeChatPlugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WeChatPlugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		803DAFC21E853D3F00ADCC86 /* WeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -439,6 +443,8 @@
 				80E551EE1E85616200EB428F /* NSDate+StatusTimeDescription.m */,
 				80E551F21E85620C00EB428F /* NSString+XMLDictionary.h */,
 				80E551F31E85620C00EB428F /* NSString+XMLDictionary.m */,
+				80075BC51E8BB78800CD167E /* NSViewController+ImagePreview.h */,
+				80075BC61E8BB78800CD167E /* NSViewController+ImagePreview.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -539,6 +545,7 @@
 				80520E6D1E871682001F9164 /* MMSnsTimeLineResponse.h in Headers */,
 				80E551AE1E853FA100EB428F /* MMStatusImageMediaView.h in Headers */,
 				80E552101E860BDC00EB428F /* MMTimeLineMainViewController.h in Headers */,
+				80075BC71E8BB78800CD167E /* NSViewController+ImagePreview.h in Headers */,
 				80531D5F1E8B48F100425B14 /* MMStatusLikeCell.h in Headers */,
 				8059BEAA1E88EB4F00E8C154 /* MMScaleFillImageView.h in Headers */,
 				8088948F1E8A8A12009E224C /* MMStatusDetailViewController.h in Headers */,
@@ -734,6 +741,7 @@
 				80E551B21E853FA100EB428F /* MMStatusLinkMediaObject.m in Sources */,
 				808894831E8A89C6009E224C /* MMStatusComment.m in Sources */,
 				80E551F91E85621400EB428F /* XMLReader.m in Sources */,
+				80075BC81E8BB78800CD167E /* NSViewController+ImagePreview.m in Sources */,
 				808894901E8A8A12009E224C /* MMStatusDetailViewController.m in Sources */,
 				80FB90AE1E87BC7100FAAC33 /* MMHomePageMgr.m in Sources */,
 				8088947F1E8A891F009E224C /* MMSnsCommentInfo.m in Sources */,

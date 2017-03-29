@@ -7,6 +7,7 @@
 //
 
 #import "MMStatusDetailViewController.h"
+#import "NSViewController+ImagePreview.h"
 #import "MMStatusCell.h"
 #import "MMStatusImageMediaView.h"
 #import "MMStatusLinkMediaView.h"
@@ -153,12 +154,16 @@
 
 #pragma mark - MMStatusCellDelegate
 
+- (void)cell:(MMStatusCell *)cell didClick:(MMStatus *)status {
+    [[CBGetClass(WeChat) sharedInstance] cb_showStatusDetailWithStatus:status];
+}
+
 - (void)cell:(MMStatusCell *)cell didClickUser:(NSString *)usrname {
     [[CBGetClass(WeChat) sharedInstance] cb_showHomePageWithUsrname:usrname];
 }
 
-- (void)cell:(MMStatusCell *)cell didClickImage:(NSImage *)image {
-    
+- (void)cell:(MMStatusCell *)cell didClickImage:(NSImage *)image imageFilePath:(NSString *)filePath {
+    [self previewImage:image atFilePath:filePath];
 }
 
 - (void)cell:(MMStatusCell *)cell didClickMediaLink:(NSString *)url {

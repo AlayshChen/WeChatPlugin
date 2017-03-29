@@ -16,6 +16,8 @@
 #import "MMStatusImageMediaObject.h"
 #import "MMStatusLinkMediaObject.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <SDWebImage/SDImageCache.h>
+#import <SDWebImage/SDWebImageManager.h>
 
 @implementation MMStatusCell
 
@@ -93,8 +95,7 @@
 - (void)updateLinkMediaView {
     MMStatusLinkMediaObject *mediaObject = (MMStatusLinkMediaObject *)self.status.mediaObject;
     MMStatusLinkMediaView *mediaView = (MMStatusLinkMediaView *)self.mediaRealView;
-    mediaView.iconImageView.image = nil;
-    [mediaView.iconImageView sd_setImageWithURL:[NSURL URLWithString:mediaObject.imageURLString]];
+    [mediaView.iconImageView sd_setImageWithURL:[NSURL URLWithString:mediaObject.imageURLString] placeholderImage:[[NSImage alloc] initWithContentsOfFile:[[NSBundle pluginBundle] pathForImageResource:@"link_icon"]]];
     mediaView.titleTextField.stringValue = mediaObject.title;
 }
 
@@ -103,11 +104,11 @@
 - (void)mouseUp:(NSEvent *)event {
     CGPoint point = [self convertPoint:[event locationInWindow] fromView:nil];
     
-    if ([self mouse:point inRect:self.profileImageView.frame] || [self mouse:point inRect:self.nameTextField.frame]) {
+    if ([self mouse:point inRect:self.profileImageView.frame]) {
         if ([self.delegate respondsToSelector:@selector(cell:didClickUser:)]) {
             [self.delegate cell:self didClickUser:self.status.username];
-            return;
         }
+        return;
     }
     
     if ([self.status hasMediaObject]) {
@@ -117,10 +118,14 @@
                 for (NSImageView *imageView in imageViews) {
                     BOOL isClicked = [self mouse:point inRect:[self convertRect:imageView.frame fromView:self.mediaRealView]];
                     if (isClicked && imageView.hidden == false) {
-                        if ([self.delegate respondsToSelector:@selector(cell:didClickImage:)]) {
-                            [self.delegate cell:self didClickImage:imageView.image];
-                            return;
+                        if ([self.delegate respondsToSelector:@selector(cell:didClickImage:imageFilePath:)]) {
+                            NSInteger index = [imageViews indexOfObject:imageView];
+                            NSString *urlString = ((MMStatusImageMediaObject *)self.status.mediaObject).imageURLStrings[index];
+                            NSString *imageCacheKey = [[SDWebImageManager sharedManager] cacheKeyForURL:[NSURL URLWithString:urlString]];
+                            NSString *filePath = [[SDImageCache sharedImageCache] defaultCachePathForKey:imageCacheKey];
+                            [self.delegate cell:self didClickImage:imageView.image imageFilePath:filePath];
                         }
+                        return;
                     }
                 }
             }
