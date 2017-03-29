@@ -19,6 +19,7 @@
     [super awakeFromNib];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    self.collectionView.selectable = true;
     [self.collectionView registerNib:[[NSNib alloc] initWithNibNamed:NSStringFromClass([MMStatusLikeCellItem class]) bundle:[NSBundle pluginBundle]] forItemWithIdentifier:NSStringFromClass([MMStatusLikeCellItem class])];
 }
 
@@ -42,13 +43,26 @@
 
 #pragma mark - NSCollectionViewDelegate
 
+- (NSSet<NSIndexPath *> *)collectionView:(NSCollectionView *)collectionView shouldSelectItemsAtIndexPaths:(NSSet<NSIndexPath *> *)indexPaths {
+    return indexPaths;
+}
 
-#pragma mark - 
+- (void)collectionView:(NSCollectionView *)collectionView didSelectItemsAtIndexPaths:(NSSet<NSIndexPath *> *)indexPaths {
+    if ([self.delegate respondsToSelector:@selector(cell:didClickLikeUser:)]) {
+        NSIndexPath *indexPath = indexPaths.anyObject;
+        MMStatusComment *likeObj = self.status.likeList[indexPath.item];
+        [self.delegate cell:self didClickLikeUser:likeObj.username];
+    }
+}
+
+#pragma mark -
 
 - (void)updateViewWithStatus:(MMStatus *)status {
     _status = status;
     [self.collectionView reloadData];
 }
+
+#pragma mark - Height
 
 + (CGFloat)calculateHeightWithWidth:(CGFloat)width {
     return 60;

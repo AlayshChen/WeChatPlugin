@@ -7,10 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "MMStatusLikeCellDelegate.h"
 
 @interface MMStatusLikeCell : NSTableCellView
 
 @property (weak) IBOutlet NSCollectionView *collectionView;
+@property (nonatomic, weak) id<MMStatusLikeCellDelegate> delegate;
+
 @property (nonatomic, strong, readonly) MMStatus *status;
 
 - (void)updateViewWithStatus:(MMStatus *)status;

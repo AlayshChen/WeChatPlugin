@@ -14,7 +14,7 @@
 #import "MMStatusLikeCell.h"
 #import "MMStatusCommentCell.h"
 
-@interface MMStatusDetailViewController () <NSTableViewDataSource, NSTableViewDelegate, MMStatusCellDelegate>
+@interface MMStatusDetailViewController () <NSTableViewDataSource, NSTableViewDelegate, MMStatusCellDelegate, MMStatusLikeCellDelegate, MMStatusCommentCellDelegate>
 
 @end
 
@@ -85,6 +85,7 @@
     MMStatus *status = self.status;
     MMStatusLikeCell *cell = [tableView makeViewWithIdentifier:NSStringFromClass([MMStatusLikeCell class]) owner:tableView];
     [cell updateViewWithStatus:status];
+    cell.delegate = self;
     return cell;
 }
 
@@ -92,6 +93,7 @@
     MMStatusComment *comment = [self commentForRow:row];
     MMStatusCommentCell *cell = [tableView makeViewWithIdentifier:NSStringFromClass([MMStatusCommentCell class]) owner:tableView];
     [cell updateViewWithComment:comment];
+    cell.delegate = self;
     return cell;
 }
 
@@ -168,6 +170,18 @@
 
 - (void)cell:(MMStatusCell *)cell didClickMediaLink:(NSString *)url {
     [[CBGetClass(MMURLHandler) defaultHandler] handleURL:url];
+}
+
+#pragma mark - MMStatusLikeCellDelegate
+
+- (void)cell:(MMStatusLikeCell *)cell didClickLikeUser:(NSString *)usrname {
+    [[CBGetClass(WeChat) sharedInstance] cb_showHomePageWithUsrname:usrname];
+}
+
+#pragma mark - MMStatusCommentCellDelegate
+
+- (void)cell:(MMStatusCommentCell *)cell didClickCommentUser:(NSString *)usrname {
+    [[CBGetClass(WeChat) sharedInstance] cb_showHomePageWithUsrname:usrname];
 }
 
 @end

@@ -87,6 +87,8 @@
 		80E5520E1E860B9600EB428F /* time_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E552041E860B9600EB428F /* time_icon@2x.png */; };
 		80E552101E860BDC00EB428F /* MMTimeLineMainViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E5520F1E860BDC00EB428F /* MMTimeLineMainViewController.h */; };
 		80E552121E860BDC00EB428F /* MMStatusCellDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E552111E860BDC00EB428F /* MMStatusCellDelegate.h */; };
+		80F3F88D1E8BDDF800ACD59D /* MMStatusLikeCellDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 80F3F88C1E8BDDF800ACD59D /* MMStatusLikeCellDelegate.h */; };
+		80F3F88F1E8BDE9900ACD59D /* MMStatusCommentCellDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 80F3F88E1E8BDE9900ACD59D /* MMStatusCommentCellDelegate.h */; };
 		80FB90AD1E87BC7100FAAC33 /* MMHomePageMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 80FB90AB1E87BC7100FAAC33 /* MMHomePageMgr.h */; };
 		80FB90AE1E87BC7100FAAC33 /* MMHomePageMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 80FB90AC1E87BC7100FAAC33 /* MMHomePageMgr.m */; };
 		80FB90B01E87BC8500FAAC33 /* MMHomePageMgrDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 80FB90AF1E87BC8500FAAC33 /* MMHomePageMgrDelegate.h */; };
@@ -196,6 +198,8 @@
 		80E552041E860B9600EB428F /* time_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "time_icon@2x.png"; sourceTree = "<group>"; };
 		80E5520F1E860BDC00EB428F /* MMTimeLineMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTimeLineMainViewController.h; sourceTree = "<group>"; };
 		80E552111E860BDC00EB428F /* MMStatusCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMStatusCellDelegate.h; sourceTree = "<group>"; };
+		80F3F88C1E8BDDF800ACD59D /* MMStatusLikeCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMStatusLikeCellDelegate.h; sourceTree = "<group>"; };
+		80F3F88E1E8BDE9900ACD59D /* MMStatusCommentCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMStatusCommentCellDelegate.h; sourceTree = "<group>"; };
 		80FB90AB1E87BC7100FAAC33 /* MMHomePageMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHomePageMgr.h; sourceTree = "<group>"; };
 		80FB90AC1E87BC7100FAAC33 /* MMHomePageMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHomePageMgr.m; sourceTree = "<group>"; };
 		80FB90AF1E87BC8500FAAC33 /* MMHomePageMgrDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHomePageMgrDelegate.h; sourceTree = "<group>"; };
@@ -360,11 +364,12 @@
 				80E552111E860BDC00EB428F /* MMStatusCellDelegate.h */,
 				80531D5D1E8B48F100425B14 /* MMStatusLikeCell.h */,
 				80531D5E1E8B48F100425B14 /* MMStatusLikeCell.m */,
+				80F3F88C1E8BDDF800ACD59D /* MMStatusLikeCellDelegate.h */,
 				80531D831E8B529C00425B14 /* MMStatusLikeCellItem.h */,
 				80531D841E8B529C00425B14 /* MMStatusLikeCellItem.m */,
-				80531D851E8B529C00425B14 /* MMStatusLikeCellItem.xib */,
 				808894841E8A89D2009E224C /* MMStatusCommentCell.h */,
 				808894851E8A89D2009E224C /* MMStatusCommentCell.m */,
+				80F3F88E1E8BDE9900ACD59D /* MMStatusCommentCellDelegate.h */,
 				80E551A51E853FA100EB428F /* MMStatusMediaView.h */,
 				80E551A61E853FA100EB428F /* MMStatusMediaView.m */,
 				80E5519B1E853FA100EB428F /* MMStatusImageMediaView.h */,
@@ -373,6 +378,7 @@
 				80E551A11E853FA100EB428F /* MMStatusLinkMediaView.m */,
 				80E551981E853FA100EB428F /* MMStatusCell.xib */,
 				80531D611E8B490000425B14 /* MMStatusLikeCell.xib */,
+				80531D851E8B529C00425B14 /* MMStatusLikeCellItem.xib */,
 				808894881E8A89DF009E224C /* MMStatusCommentCell.xib */,
 				80E5519D1E853FA100EB428F /* MMStatusImageMediaView.xib */,
 				80E551A21E853FA100EB428F /* MMStatusLinkMediaView.xib */,
@@ -561,11 +567,13 @@
 				808894821E8A89C6009E224C /* MMStatusComment.h in Headers */,
 				808894861E8A89D2009E224C /* MMStatusCommentCell.h in Headers */,
 				80FB90AD1E87BC7100FAAC33 /* MMHomePageMgr.h in Headers */,
+				80F3F88F1E8BDE9900ACD59D /* MMStatusCommentCellDelegate.h in Headers */,
 				808FB51C1E87E2E700E35AFA /* MMNavigationController.h in Headers */,
 				80E551B61E853FA100EB428F /* MMStatusMediaObject.h in Headers */,
 				80E552121E860BDC00EB428F /* MMStatusCellDelegate.h in Headers */,
 				80E551E81E855A4F00EB428F /* MMTimeLineMgr.h in Headers */,
 				803DAFD01E853D3F00ADCC86 /* PrefixHeader.pch in Headers */,
+				80F3F88D1E8BDDF800ACD59D /* MMStatusLikeCellDelegate.h in Headers */,
 				80520E7B1E871B76001F9164 /* PBUtility.h in Headers */,
 				80520E651E8712CE001F9164 /* MMSnsTimeLineRequest.h in Headers */,
 			);
