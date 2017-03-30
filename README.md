@@ -15,8 +15,9 @@ Plugin For Mac WeChat.
 * 自动登录
 * 浏览主页
 * 浏览朋友圈
-
-![](http://alayshchen.github.io/images/201703260.png)
-
-## 待实现
 * 查看动态详情
+
+## 效果图
+![朋友圈](http://alayshchen.github.io/images/201703290.png)
+![主页](http://alayshchen.github.io/images/201703291.png)
+![详情](http://alayshchen.github.io/images/201703292.png)
