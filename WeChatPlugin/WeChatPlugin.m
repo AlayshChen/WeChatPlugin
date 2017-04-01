@@ -138,17 +138,19 @@
 }
 
 - (void)cb_MMTimeLineMainViewController_tableViewSelectionDidChange:(NSNotification *)notification {
+    static NSInteger lastSelectedRow = -1;
     MMTimeLineMainViewController *vc = (MMTimeLineMainViewController *)self;
     MMTableView *tableView = [vc listTableView];
     NSInteger row = [tableView selectedRow];
     MMContactListContactRow *contactRow = [vc listTableViewDataSource][row];
-    if ([contactRow isMemberOfClass:CBGetClass(MMContactListContactRow)]) {
+    if (row != lastSelectedRow && [contactRow isMemberOfClass:CBGetClass(MMContactListContactRow)]) {
         WCContactData *contact = contactRow.contact;
         if ([contact.m_nsUsrName hasSuffix:@"@chatroom"] || [contact.m_nsUsrName hasPrefix:@"gh_"]) {
             
         }
         else {
             [[CBGetClass(WeChat) sharedInstance] cb_showHomePageWithUsrname:contact.m_nsUsrName];
+            lastSelectedRow = row;
         }
     }
 }
