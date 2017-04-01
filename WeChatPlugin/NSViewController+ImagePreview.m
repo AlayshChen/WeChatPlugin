@@ -16,6 +16,9 @@ static int kPreviewItemKey;
 #pragma mark - 
 
 - (void)previewImage:(NSImage *)image atFilePath:(NSString *)filePath {
+    if (image == nil || filePath.length == 0) {
+        return;
+    }
     self.previewItem = [[CBGetClass(MMQLPhotoPreviewItem) alloc] init];
     self.previewItem.itemTitle = @"";
     self.previewItem.itemUrlString = filePath;
