@@ -141,6 +141,7 @@
 		80531D851E8B529C00425B14 /* MMStatusLikeCellItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMStatusLikeCellItem.xib; sourceTree = "<group>"; };
 		8059BEA81E88EB4F00E8C154 /* MMScaleFillImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMScaleFillImageView.h; sourceTree = "<group>"; };
 		8059BEA91E88EB4F00E8C154 /* MMScaleFillImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMScaleFillImageView.m; sourceTree = "<group>"; };
+		806DF96B1E8F969200E1DE74 /* WeChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = WeChat.entitlements; path = ../WeChat.entitlements; sourceTree = "<group>"; };
 		8088947C1E8A891F009E224C /* MMSnsCommentInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSnsCommentInfo.h; sourceTree = "<group>"; };
 		8088947D1E8A891F009E224C /* MMSnsCommentInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSnsCommentInfo.m; sourceTree = "<group>"; };
 		808894801E8A89C6009E224C /* MMStatusComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMStatusComment.h; sourceTree = "<group>"; };
@@ -281,6 +282,7 @@
 		803DAFC61E853D3F00ADCC86 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				806DF96B1E8F969200E1DE74 /* WeChat.entitlements */,
 				80E551FA1E860B9600EB428F /* Images */,
 				803DAFC71E853D3F00ADCC86 /* Info.plist */,
 				803DAFCF1E853D3F00ADCC86 /* PrefixHeader.pch */,
@@ -632,12 +634,29 @@
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = TW89Q8SE37;
 						LastSwiftMigration = 0820;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					803DAFC11E853D3F00ADCC86 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = TW89Q8SE37;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+							com.apple.Maps.Mac = {
+								enabled = 0;
+							};
+							com.apple.NetworkExtensions = {
+								enabled = 0;
+							};
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -647,6 +666,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 803DAFB41E853D3F00ADCC86;
 			productRefGroup = 803DAFBF1E853D3F00ADCC86 /* Products */;
@@ -715,7 +735,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "APP_NAME=\"WeChat\"\nFRAMEWORK_NAME=\"WeChatPlugin\"\n\nrm -rf \"${BUILT_PRODUCTS_DIR}/${APP_NAME}.app\"\ncp -r \"${PROJECT_DIR}/${APP_NAME}.app\" \"${BUILT_PRODUCTS_DIR}/\"\n\nAPP_BUNDLE_PATH=\"${BUILT_PRODUCTS_DIR}/${APP_NAME}.app/Contents/MacOS\"\nAPP_EXECUTABLE_PATH=\"${APP_BUNDLE_PATH}/${APP_NAME}\"\n\ncp -r \"${BUILT_PRODUCTS_DIR}/${FRAMEWORK_NAME}.framework\" ${APP_BUNDLE_PATH}\n\ninsert_dylib --all-yes \"@loader_path/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"$APP_EXECUTABLE_PATH\" \"$APP_EXECUTABLE_PATH\"";
+			shellScript = "APP_NAME=\"WeChat\"\nFRAMEWORK_NAME=\"WeChatPlugin\"\n\nrm -rf \"${BUILT_PRODUCTS_DIR}/${APP_NAME}.app\"\ncp -r \"${PROJECT_DIR}/${APP_NAME}.app\" \"${BUILT_PRODUCTS_DIR}/\"\n\nAPP_BUNDLE_PATH=\"${BUILT_PRODUCTS_DIR}/${APP_NAME}.app/Contents/MacOS\"\nAPP_EXECUTABLE_PATH=\"${APP_BUNDLE_PATH}/${APP_NAME}\"\n\ncp -r \"${BUILT_PRODUCTS_DIR}/${FRAMEWORK_NAME}.framework\" ${APP_BUNDLE_PATH}\n\n/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --entitlements \"${SRCROOT}/${CODE_SIGN_ENTITLEMENTS}\" --timestamp=none ${CODESIGNING_FOLDER_PATH}/Contents/PlugIns/WeChatMacShare.appex\n\ninsert_dylib --all-yes \"@loader_path/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"$APP_EXECUTABLE_PATH\" \"$APP_EXECUTABLE_PATH\"";
 		};
 		EAAE107FB0BAA35A6D791CF6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -886,7 +906,7 @@
 			baseConfigurationReference = 7CBECFB210F0661B4A16F713 /* Pods-WeChatPlugin.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TW89Q8SE37;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -903,6 +923,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.corbin.WeChatPlugin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -915,7 +936,7 @@
 			baseConfigurationReference = F5761F84B0D824761E85E37B /* Pods-WeChatPlugin.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TW89Q8SE37;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -932,6 +953,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.corbin.WeChatPlugin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
@@ -941,22 +963,32 @@
 		803DAFD91E853D3F00ADCC86 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = WeChat.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TW89Q8SE37;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = WeChatPlugin/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.xinWeChat;
 				PRODUCT_NAME = WeChat;
+				PROVISIONING_PROFILE = "0593d8f8-e79d-483c-b33e-7e48545c34af";
+				PROVISIONING_PROFILE_SPECIFIER = "OSX Wildcard Profile";
 			};
 			name = Debug;
 		};
 		803DAFDA1E853D3F00ADCC86 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = WeChat.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TW89Q8SE37;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = WeChatPlugin/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.xinWeChat;
 				PRODUCT_NAME = WeChat;
+				PROVISIONING_PROFILE = "0593d8f8-e79d-483c-b33e-7e48545c34af";
+				PROVISIONING_PROFILE_SPECIFIER = "OSX Wildcard Profile";
 			};
 			name = Release;
 		};
