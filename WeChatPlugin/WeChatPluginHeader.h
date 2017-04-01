@@ -1172,17 +1172,31 @@ typedef NS_ENUM(NSUInteger, CBDataItemContentStyle) {
 
 @end
 
+@class MMMessageCellView;
+@class MMMessageTableItem;
+
+@protocol MMMessageCellViewDelegate <NSObject>
+- (double)messageCellViewNeedsContainerWidth;
+- (void)messageCellViewNeedsReload:(MMMessageCellView *)arg1;
+- (void)messageCellView:(MMMessageCellView *)arg1 needreload:(NSEvent *)arg2;
+- (void)messageCellView:(MMMessageCellView *)arg1 gotMisdirectedKeyDown:(NSEvent *)arg2;
+- (void)messageCellViewDidStartForwardMessageCommand:(MMMessageCellView *)arg1;
+- (void)messageCellView:(MMMessageCellView *)arg1 didUpdatePreviewContentWithItem:(MMMessageTableItem *)arg2;
+- (void)messageCellView:(MMMessageCellView *)arg1 didDoubleClickOnAvatarWithItem:(MMMessageTableItem *)arg2;
+- (void)messageCellView:(MMMessageCellView *)arg1 didClickOnAvatarWithItem:(MMMessageTableItem *)arg2;
+- (void)messageCellViewNeedsHeightRecalculated:(MMMessageCellView *)arg1;
+- (void)messageCellView:(MMMessageCellView *)arg1 showDetailWindowWithItem:(MMMessageTableItem *)arg2;
+@end
+
 @interface MMMessageCellView : NSTableCellView
+
+@property(nonatomic) __weak id <MMMessageCellViewDelegate> delegate;
+@property(retain, nonatomic) MMMessageTableItem *messageTableItem;
 
 + (Class)cellViewSubclassForMessage:(id)arg1;	// IMP=0x0000000100757dc0
 + (id)cellViewWithMessage:(id)arg1;	// IMP=0x0000000100757cda
 + (id)cellIdentifierWithMessage:(id)arg1;
-
-@end
-
-@interface MessageData : NSObject
-
-@property (nonatomic, strong) NSString *msgContent;
++ (CGFloat)cellHeightWithMessage:(id)arg1 constrainedToWidth:(CGFloat)width;
 
 @end
 
@@ -1197,5 +1211,53 @@ typedef NS_ENUM(NSUInteger, CBDataItemContentStyle) {
 @property(retain, nonatomic) NSImageView *imageView;
 
 - (void)setupWithPageInfo:(id)arg1;
+
+@end
+
+@interface MMAppUrlMessageCellView : MMMessageCellView
+
+@property(retain, nonatomic) MMImageView *thumbnailImageView; // @synthesize thumbnailImageView=_thumbnailImageView;
+@property(retain, nonatomic) NSView *descriptionLabel; // @synthesize descriptionLabel=_descriptionLabel;
+@property(retain, nonatomic) NSTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
+@property(retain, nonatomic) NSView *containerView; // @synthesize containerView=_containerView;
+
+- (NSImage *)defaultThumbnailImg;
+
+@end
+
+@interface MMWeAppMessageCellView : MMAppUrlMessageCellView
+
+- (void)layoutContainerView;
+- (void)layoutTitleLabel;
+- (void)layoutDescriptionLabel;
+- (void)layoutThumbnail;
+
+@end
+
+@protocol IMsgExtendOperation <NSObject>
+
+- (BOOL)isWeAppMsg;
+
+@end
+
+@interface MessageData : NSObject
+
+@property (nonatomic, strong) NSString *msgContent;
+@property(retain, nonatomic) id <IMsgExtendOperation> extendInfoWithMsgType;
+
+- (NSString *)summaryString;
+
+@end
+
+@interface CExtendInfoOfAPP : NSObject <IMsgExtendOperation>
+
+@property(retain, nonatomic) NSString *m_nsTitle;
+@property(nonatomic) unsigned int m_uiAppMsgInnerType;
+
+@end
+
+@interface NSImage (ColorImage)
+
++ (NSImage *)imageWithColor:(NSColor *)color size:(NSSize)size;
 
 @end

@@ -111,9 +111,85 @@
     return res;
 }
 
+#pragma mark - IMsgExtendOperation
+
+- (BOOL)isWeAppMsg {
+    return false;
+}
+
+#pragma mark - CExtendInfoOfAPP
+
+- (BOOL)cb_isWeAppMsg {
+    return ((CExtendInfoOfAPP *)self).m_uiAppMsgInnerType == 33;
+}
+
+#pragma mark - MessageData
+
+- (NSString *)cb_summaryString {
+    MessageData *message = (MessageData *)self;
+    if ([[message extendInfoWithMsgType] isWeAppMsg]) {
+        CExtendInfoOfAPP *appInfo = [message extendInfoWithMsgType];
+        return [NSString stringWithFormat:@"[小程序] %@", appInfo.m_nsTitle];
+    }
+    else {
+        return [self cb_summaryString];
+    }
+}
+
 @end
 
 @implementation NSView (WeChatPlugin)
+
+#pragma mark - MMMessageCellView
+
++ (Class)cb_cellViewSubclassForMessage:(id)arg1 {
+    id res;
+    MessageData *message = (MessageData *)[arg1 message];
+    if ([[message extendInfoWithMsgType] isWeAppMsg]) {
+        res = CBGetClass(MMWeAppMessageCellView);
+    }
+    else {
+        res = [self cb_cellViewSubclassForMessage:arg1];
+    }
+    return res;
+}
+
+#pragma mark - MMWeAppMessageCellView
+
++ (CGFloat)cb_MMWeAppMessageCellView_cellHeightWithMessage:(id)arg1 constrainedToWidth:(CGFloat)width {
+    return 400;
+}
+
+- (NSImage *)cb_defaultThumbnailImg {
+    return nil;
+}
+
+- (void)cb_layoutContainerView {
+    [self cb_layoutContainerView];
+    MMWeAppMessageCellView *cell = (MMWeAppMessageCellView *)self;
+    NSRect frame = cell.containerView.frame;
+    frame.size.height = 380;
+    cell.containerView.frame = frame;
+}
+
+- (void)cb_layoutTitleLabel {
+    [self cb_layoutTitleLabel];
+}
+
+- (void)cb_layoutDescriptionLabel {
+    MMWeAppMessageCellView *cell = (MMWeAppMessageCellView *)self;
+    cell.descriptionLabel.hidden = true;
+}
+
+- (void)cb_layoutThumbnail {
+    [self cb_layoutThumbnail];
+    MMWeAppMessageCellView *cell = (MMWeAppMessageCellView *)self;
+    NSRect frame = cell.thumbnailImageView.frame;
+    frame.origin.x = 10;
+    frame.size.width = cell.containerView.frame.size.width - 20;
+    frame.size.height = 330;
+    cell.thumbnailImageView.frame = frame;
+}
 
 @end
 
@@ -210,4 +286,17 @@ static void __attribute__((constructor)) initialize(void) {
     CBHookInstanceMethod(LeftViewController, @selector(setViewControllers:), @selector(cb_setViewControllers:));
     CBHookClassMethod(CUtility, @selector(getAppNameCanOpenFile:), @selector(cb_getAppNameCanOpenFile:));
     CBHookInstanceMethod(MMPreviewViewController, @selector(setupWithPageInfo:), @selector(cb_setupWithPageInfo:));
+    
+    CBRegisterClass(MMAppUrlMessageCellView, MMWeAppMessageCellView);
+    
+    CBHookClassMethod(MMMessageCellView, @selector(cellViewSubclassForMessage:), @selector(cb_cellViewSubclassForMessage:));
+    CBHookClassMethod(MMWeAppMessageCellView, @selector(cellHeightWithMessage:constrainedToWidth:), @selector(cb_MMWeAppMessageCellView_cellHeightWithMessage:constrainedToWidth:));
+    CBHookInstanceMethod(MMWeAppMessageCellView, @selector(defaultThumbnailImg), @selector(cb_defaultThumbnailImg));
+    CBHookInstanceMethod(MMWeAppMessageCellView, @selector(layoutContainerView), @selector(cb_layoutContainerView));
+    CBHookInstanceMethod(MMWeAppMessageCellView, @selector(layoutTitleLabel), @selector(cb_layoutTitleLabel));
+    CBHookInstanceMethod(MMWeAppMessageCellView, @selector(layoutDescriptionLabel), @selector(cb_layoutDescriptionLabel));
+    CBHookInstanceMethod(MMWeAppMessageCellView, @selector(layoutThumbnail), @selector(cb_layoutThumbnail));
+    
+    CBHookInstanceMethod(MessageData, @selector(summaryString), @selector(cb_summaryString));
+    CBHookInstanceMethod(CExtendInfoOfAPP, @selector(isWeAppMsg), @selector(cb_isWeAppMsg));
 }
